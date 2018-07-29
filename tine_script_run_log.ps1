@@ -1,7 +1,7 @@
 # SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 7/29/2018 3:08:41 PM
+# Generated Date: 7/29/2018 3:16:52 PM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 #
 # .\cifude\tine_script_run_log.ps1 -doEcho       -doSql2x -comment test -create
@@ -70,7 +70,7 @@ param (
     [System.Guid]$userId = '00000000-0000-0000-0000-000000000000',
     [System.DateTime]$dateTime = '1601.01.01T00:00:00Z',
     [System.String]$tineScriptRunLogPartitionKey = $env:ComputerName,
-    [System.String]$tineScriptRunLogRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss.fffZ'),
+    [System.String]$tineScriptRunLogRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ'),
     [System.String]$tineScriptRunLogScriptFileName = '',
     [System.Guid]$tineCreationId = '00000000-0000-0000-0000-000000000000',
     [System.Guid]$tineTaskId = '00000000-0000-0000-0000-000000000000'
@@ -268,7 +268,7 @@ try {
             $htmlLog = $htmlLog + $taskLine + '<br>'
             if ($doEcho) { Write-Host $taskLine }
 
-            $taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + "[System.String] tineScriptRunLogRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss.fffZ')")
+            $taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + "[System.String] tineScriptRunLogRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')")
             $htmlLog = $htmlLog + $taskLine + '<br>'
             if ($doEcho) { Write-Host $taskLine }
 
@@ -315,7 +315,7 @@ class TineScriptRunLogData {
     [System.Guid]$userId = '00000000-0000-0000-0000-000000000000'
     [System.DateTime]$dateTime = '1601.01.01T00:00:00Z'
     [System.String]$tineScriptRunLogPartitionKey = $env:ComputerName
-    [System.String]$tineScriptRunLogRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss.fffZ')
+    [System.String]$tineScriptRunLogRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')
     [System.String]$tineScriptRunLogScriptFileName = ''
     [System.Guid]$tineCreationId = '00000000-0000-0000-0000-000000000000'
     [System.Guid]$tineTaskId = '00000000-0000-0000-0000-000000000000'
@@ -571,7 +571,7 @@ try {
                     $tineScriptRunLogData.userId = $tineScriptRunLog[0].Properties['user_id'].GuidValue
                     $tineScriptRunLogData.dateTime = $tineScriptRunLog[0].Properties['date_time'].DateTime
                     $tineScriptRunLogData.tineScriptRunLogPartitionKey = $env:ComputerName
-                    $tineScriptRunLogData.tineScriptRunLogRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss.fffZ')
+                    $tineScriptRunLogData.tineScriptRunLogRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')
                     $tineScriptRunLogData.tineScriptRunLogScriptFileName = $tineScriptRunLog[0].Properties['tine_script_run_log_script_file_name'].StringValue
                     $tineScriptRunLogData.tineCreationId = $tineScriptRunLog[0].Properties['tine_creation_id'].GuidValue
                     $tineScriptRunLogData.tineTaskId = $tineScriptRunLog[0].Properties['tine_task_id'].GuidValue

@@ -1,7 +1,7 @@
 # SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 7/29/2018 3:08:41 PM
+# Generated Date: 7/29/2018 3:16:51 PM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 #
 # .\cifude\tine_script_library.ps1 -doEcho       -doSql2x -comment test -create
@@ -68,7 +68,7 @@ param (
     [System.DateTime]$dateTime = '1601.01.01T00:00:00Z',
     [System.String]$tineLibraryScriptName = '',
     [System.String]$tineLibraryPartitionKey = $env:ComputerName,
-    [System.String]$tineLibraryRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss.fffZ'),
+    [System.String]$tineLibraryRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ'),
     [System.String]$tineScriptReadinessStateRcd = ''
 
 )
@@ -256,7 +256,7 @@ try {
             $htmlLog = $htmlLog + $taskLine + '<br>'
             if ($doEcho) { Write-Host $taskLine }
 
-            $taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + "[System.String] tineLibraryRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss.fffZ')")
+            $taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + "[System.String] tineLibraryRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')")
             $htmlLog = $htmlLog + $taskLine + '<br>'
             if ($doEcho) { Write-Host $taskLine }
 
@@ -293,7 +293,7 @@ class TineScriptLibraryData {
     [System.DateTime]$dateTime = '1601.01.01T00:00:00Z'
     [System.String]$tineLibraryScriptName = ''
     [System.String]$tineLibraryPartitionKey = $env:ComputerName
-    [System.String]$tineLibraryRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss.fffZ')
+    [System.String]$tineLibraryRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')
     [System.String]$tineScriptReadinessStateRcd = ''
 }
 #endregion
@@ -548,7 +548,7 @@ try {
                     $tineScriptLibraryData.dateTime = $tineScriptLibrary[0].Properties['date_time'].DateTime
                     $tineScriptLibraryData.tineLibraryScriptName = $tineScriptLibrary[0].Properties['tine_library_script_name'].StringValue
                     $tineScriptLibraryData.tineLibraryPartitionKey = $env:ComputerName
-                    $tineScriptLibraryData.tineLibraryRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss.fffZ')
+                    $tineScriptLibraryData.tineLibraryRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')
                     $tineScriptLibraryData.tineScriptReadinessStateRcd = $tineScriptLibrary[0].Properties['tine_script_readiness_state_rcd'].StringValue
 
                     # to json

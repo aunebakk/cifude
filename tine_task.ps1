@@ -1,7 +1,7 @@
 # SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 7/29/2018 3:08:42 PM
+# Generated Date: 7/29/2018 3:16:52 PM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 #
 # .\cifude\tine_task.ps1 -doEcho       -doSql2x -comment test -create
@@ -71,7 +71,7 @@ param (
     [System.String]$tineTaskRcd = '',
     [System.String]$tineTaskScriptOutcomeRcd = '',
     [System.String]$tineTaskPartitionKeyComputerName = $env:ComputerName,
-    [System.String]$tineTaskRowKeyUtcDateTime = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss.fffZ'),
+    [System.String]$tineTaskRowKeyUtcDateTime = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ'),
     [System.Guid]$tineMachineId = '00000000-0000-0000-0000-000000000000',
     [System.String]$tineTaskStatusRcd = '',
     [System.Guid]$tineScriptLibraryId = '00000000-0000-0000-0000-000000000000',
@@ -274,7 +274,7 @@ try {
             $htmlLog = $htmlLog + $taskLine + '<br>'
             if ($doEcho) { Write-Host $taskLine }
 
-            $taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + "[System.String] tineTaskRowKeyUtcDateTime = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss.fffZ')")
+            $taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + "[System.String] tineTaskRowKeyUtcDateTime = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')")
             $htmlLog = $htmlLog + $taskLine + '<br>'
             if ($doEcho) { Write-Host $taskLine }
 
@@ -326,7 +326,7 @@ class TineTaskData {
     [System.String]$tineTaskRcd = ''
     [System.String]$tineTaskScriptOutcomeRcd = ''
     [System.String]$tineTaskPartitionKeyComputerName = $env:ComputerName
-    [System.String]$tineTaskRowKeyUtcDateTime = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss.fffZ')
+    [System.String]$tineTaskRowKeyUtcDateTime = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')
     [System.Guid]$tineMachineId = '00000000-0000-0000-0000-000000000000'
     [System.String]$tineTaskStatusRcd = ''
     [System.Guid]$tineScriptLibraryId = '00000000-0000-0000-0000-000000000000'
@@ -626,7 +626,7 @@ try {
                     $tineTaskData.tineTaskRcd = $tineTask[0].Properties['tine_task_rcd'].StringValue
                     $tineTaskData.tineTaskScriptOutcomeRcd = $tineTask[0].Properties['tine_task_script_outcome_rcd'].StringValue
                     $tineTaskData.tineTaskPartitionKeyComputerName = $env:ComputerName
-                    $tineTaskData.tineTaskRowKeyUtcDateTime = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss.fffZ')
+                    $tineTaskData.tineTaskRowKeyUtcDateTime = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')
                     $tineTaskData.tineMachineId = $tineTask[0].Properties['tine_machine_id'].GuidValue
                     $tineTaskData.tineTaskStatusRcd = $tineTask[0].Properties['tine_task_status_rcd'].StringValue
                     $tineTaskData.tineScriptLibraryId = $tineTask[0].Properties['tine_script_library_id'].GuidValue
