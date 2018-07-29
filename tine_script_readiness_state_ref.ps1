@@ -1,7 +1,7 @@
 # SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 7/29/2018 2:50:51 PM
+# Generated Date: 7/29/2018 3:08:41 PM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 #
 # .\cifude\tine_script_readiness_state_ref.ps1 -doEcho       -doSql2x -comment test -create
@@ -67,7 +67,7 @@ param (
     [System.Guid]$userId = '00000000-0000-0000-0000-000000000000',
     [System.DateTime]$dateTime = '1601.01.01T00:00:00Z',
     [System.String]$tineScriptReadinessStateRefPartitionKey = $env:ComputerName,
-    [System.String]$tineScriptReadinessStateRefRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss fffZ')
+    [System.String]$tineScriptReadinessStateRefRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss.fffZ')
 
 )
 ##################################################################################################################
@@ -250,7 +250,7 @@ try {
             $htmlLog = $htmlLog + $taskLine + '<br>'
             if ($doEcho) { Write-Host $taskLine }
 
-            $taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + "[System.String] tineScriptReadinessStateRefRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss fffZ')")
+            $taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + "[System.String] tineScriptReadinessStateRefRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss.fffZ')")
             $htmlLog = $htmlLog + $taskLine + '<br>'
             if ($doEcho) { Write-Host $taskLine }
 
@@ -282,7 +282,7 @@ class TineScriptReadinessStateRefData {
     [System.Guid]$userId = '00000000-0000-0000-0000-000000000000'
     [System.DateTime]$dateTime = '1601.01.01T00:00:00Z'
     [System.String]$tineScriptReadinessStateRefPartitionKey = $env:ComputerName
-    [System.String]$tineScriptReadinessStateRefRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss fffZ')
+    [System.String]$tineScriptReadinessStateRefRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss.fffZ')
 }
 #endregion
 ##################################################################################################################
@@ -496,7 +496,7 @@ try {
                     $tineScriptReadinessStateRefData.userId = $tineScriptReadinessStateRef[0].Properties['user_id'].GuidValue
                     $tineScriptReadinessStateRefData.dateTime = $tineScriptReadinessStateRef[0].Properties['date_time'].DateTime
                     $tineScriptReadinessStateRefData.tineScriptReadinessStateRefPartitionKey = $env:ComputerName
-                    $tineScriptReadinessStateRefData.tineScriptReadinessStateRefRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss fffZ')
+                    $tineScriptReadinessStateRefData.tineScriptReadinessStateRefRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss.fffZ')
 
                     # to json
                     if ($returnJson) {
