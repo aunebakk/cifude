@@ -1,7 +1,7 @@
 # SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 7/29/2018 9:45:03 AM
+# Generated Date: 7/29/2018 2:50:49 PM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 #
 # .\cifude\tine_cache.ps1 -doEcho       -doSql2x -comment test -create
@@ -68,7 +68,7 @@ param (
     [System.DateTime]$dateTime = '1601.01.01T00:00:00Z',
     [System.String]$tineCacheRcd = '',
     [System.String]$tineCachePartitionKey = $env:ComputerName,
-    [System.String]$tineCacheRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.dd HH:mm:ss fff')
+    [System.String]$tineCacheRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss fffZ')
 
 )
 ##################################################################################################################
@@ -255,7 +255,7 @@ try {
             $htmlLog = $htmlLog + $taskLine + '<br>'
             if ($doEcho) { Write-Host $taskLine }
 
-            $taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + "[System.String] tineCacheRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.dd HH:mm:ss fff')")
+            $taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + "[System.String] tineCacheRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss fffZ')")
             $htmlLog = $htmlLog + $taskLine + '<br>'
             if ($doEcho) { Write-Host $taskLine }
 
@@ -288,7 +288,7 @@ class TineCacheData {
     [System.DateTime]$dateTime = '1601.01.01T00:00:00Z'
     [System.String]$tineCacheRcd = ''
     [System.String]$tineCachePartitionKey = $env:ComputerName
-    [System.String]$tineCacheRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.dd HH:mm:ss fff')
+    [System.String]$tineCacheRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss fffZ')
 }
 #endregion
 ##################################################################################################################
@@ -521,7 +521,7 @@ try {
                     $tineCacheData.dateTime = $tineCache[0].Properties['date_time'].DateTime
                     $tineCacheData.tineCacheRcd = $tineCache[0].Properties['tine_cache_rcd'].StringValue
                     $tineCacheData.tineCachePartitionKey = $env:ComputerName
-                    $tineCacheData.tineCacheRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.dd HH:mm:ss fff')
+                    $tineCacheData.tineCacheRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss fffZ')
 
                     # to json
                     if ($returnJson) {

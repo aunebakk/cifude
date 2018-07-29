@@ -1,7 +1,7 @@
 # SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 7/29/2018 9:45:05 AM
+# Generated Date: 7/29/2018 2:50:51 PM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 #
 # .\cifude\tine_machine.ps1 -doEcho       -doSql2x -comment test -create
@@ -68,7 +68,7 @@ param (
     [System.Guid]$userId = '00000000-0000-0000-0000-000000000000',
     [System.DateTime]$dateTime = '1601.01.01T00:00:00Z',
     [System.String]$tineMachinePartitionKeyFixed = $env:ComputerName,
-    [System.String]$tineMachineRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.dd HH:mm:ss fff')
+    [System.String]$tineMachineRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss fffZ')
 
 )
 ##################################################################################################################
@@ -255,7 +255,7 @@ try {
             $htmlLog = $htmlLog + $taskLine + '<br>'
             if ($doEcho) { Write-Host $taskLine }
 
-            $taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + "[System.String] tineMachineRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.dd HH:mm:ss fff')")
+            $taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + "[System.String] tineMachineRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss fffZ')")
             $htmlLog = $htmlLog + $taskLine + '<br>'
             if ($doEcho) { Write-Host $taskLine }
 
@@ -288,7 +288,7 @@ class TineMachineData {
     [System.Guid]$userId = '00000000-0000-0000-0000-000000000000'
     [System.DateTime]$dateTime = '1601.01.01T00:00:00Z'
     [System.String]$tineMachinePartitionKeyFixed = $env:ComputerName
-    [System.String]$tineMachineRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.dd HH:mm:ss fff')
+    [System.String]$tineMachineRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss fffZ')
 }
 #endregion
 ##################################################################################################################
@@ -506,7 +506,7 @@ try {
                     $tineMachineData.userId = $tineMachine[0].Properties['user_id'].GuidValue
                     $tineMachineData.dateTime = $tineMachine[0].Properties['date_time'].DateTime
                     $tineMachineData.tineMachinePartitionKeyFixed = $env:ComputerName
-                    $tineMachineData.tineMachineRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.dd HH:mm:ss fff')
+                    $tineMachineData.tineMachineRowKey = [System.DateTime]::UtcNow.ToString('yyyy.MM.ddTHH:mm:ss fffZ')
 
                     # to json
                     if ($returnJson) {
