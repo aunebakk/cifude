@@ -1,25 +1,25 @@
 # SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 7/29/2018 3:16:52 PM
+# Generated Date: 9/30/2018 3:03:38 PM
 # Template: sql2x.PowerShellGenerator.CifudeScript
-#
-# .\cifude\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -create
-# .\cifude\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -insert               -tineTaskStatusRcd:([string]'')
-# .\cifude\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -fetch                -tineTaskStatusRcd:([string]'')
-# .\cifude\tine_task_status_ref.ps1 -returnValue  -doSql2x -comment test -fetchValue:column    -tineTaskStatusRcd:([string]'')
-# .\cifude\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -updateByPrimaryKey   -tineTaskStatusRcd:([string]'') -show
-# .\cifude\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -updateByForeignKeys  -show
-# .\cifude\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -deleteAll
-# .\cifude\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -delete               -tineTaskStatusRcd:([string]'')
-# .\cifude\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -drop
-# .\cifude\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -show
-# .\cifude\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -help
-#
-# all
-# .\cifude\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -create -insert -fetch -fetchValue:column -update -show -delete -drop -tineTaskStatusRcd:([string]'')
-# [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSPossibleIncorrectComparisonWithNull', Scope='Function', Target='*')]  # because, history!
-param (
+<#
+.\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -create
+.\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -insert
+.\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -fetch                -tineTaskStatusRcd:([string]'')
+.\tine_task_status_ref.ps1 -returnValue  -doSql2x -comment test -fetchValue:column    -tineTaskStatusRcd:([string]'')
+.\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -updateByPrimaryKey   -show -tineTaskStatusRcd:([string]'')
+.\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -updateByForeignKeys  -show
+.\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -deleteAll
+.\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -delete               -tineTaskStatusRcd:([string]'')
+.\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -drop
+.\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -show
+.\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -help
+.\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -create -insert -fetch -fetchValue:column -updateByPrimaryKey -delete -drop -show -help -tineTaskStatusRcd:([string]'')
+#>
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute `
+    ('PSPossibleIncorrectComparisonWithNull','')]
+param(
     [string]$scriptName = 'CIFUDE ( Create Insert Fetch Update Delete Extras ) for tine_task_status_ref',
     [string]$scriptStyle = 'original', # original / task
     [string]$scriptStatus = 'status ( todos, learn, learned )',
@@ -27,7 +27,7 @@ param (
 
     [DateTime]$dateTimeStart = [System.DateTime]::UtcNow,
     [DateTime]$dateTimeStop = [System.DateTime]::UtcNow,
-    [DateTime]$createdDateTime = '2018.07.29',
+    [DateTime]$createdDateTime = '2018.09.30',
     [DateTime]$updateDateTime = '0001.01.01',
 
     [switch]$doDevelopment = $false,
@@ -58,102 +58,102 @@ param (
 
     [switch]$whatIf = $false,
     [switch]$rethrow = $false,
-    [string]$comment = '',
+    [string]$comment = 'no comment',
     [switch]$sendMail = $false,
 
     # schema with foreign keys and default values
     [System.String]$tineTaskStatusRcd = '',
+    [System.String]$tineTaskStatusRefPartitionKey = $env:ComputerName,
+    [System.String]$tineTaskStatusRefRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ'),
     [System.String]$tineTaskStatusName = '',
     [System.Guid]$userId = '00000000-0000-0000-0000-000000000000',
-    [System.DateTime]$dateTime = '1601.01.01T00:00:00Z',
-    [System.String]$tineTaskStatusRefPartitionKey = $env:ComputerName,
-    [System.String]$tineTaskStatusRefRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')
+    [System.DateTime]$dateTime = '1601.01.01T00:00:00Z'
 
 )
 ##################################################################################################################
-$taskName = 'locals'
+$script:taskName = 'locals'
 #region
 ##################################################################################################################
-[string] $taskLine = ''
-[string] $answer = ''
-[bool] $mailAnyway = $false
-[string] $htmlLog = ''
+[string] $script:taskLine = ''
+[string] $script:answer = ''
+[bool] $script:mailAnyway = $false
+[string] $script:htmlLog = ''
 
-[string] $storageConnectionString = 'DefaultEndpointsProtocol=https;AccountName=xxx;AccountKey=xxx/xxx+xxx/xxx;EndpointSuffix=core.windows.net'
+[string] $script:storageConnectionString = 'DefaultEndpointsProtocol=https;AccountName=xxx;AccountKey=xxx/xxx+xxx/xxx;EndpointSuffix=core.windows.net'
 #endregion
 ##################################################################################################################
-$taskName = 'injection'
+$script:taskName = 'injection'
 #region
 ##################################################################################################################
-[switch]$doSql2x = $true
-[switch]$doEcho = $true
-
-[string]$comment = 'dev'
+# [switch]$doSql2x = $true
+# [switch]$doEcho = $true
+# 
+# [string]$comment = 'dev'
 #endregion
 ##################################################################################################################
-$taskName = 'set startup location'
+$script:taskName = 'set startup location'
 #region
 ##################################################################################################################
 try {
-    [string] $startupDirectory = $pwd
+    [string] $script:startupDirectory = $pwd
     if ($doDevelopment) {
-        [string] $startupDirectory = 'C:\SQL2XProjects' + '\' + 'sql2x' + '\' + 'Scripts'
+        [string] $script:startupDirectory = 'C:\SQL2XProjects' + '\' + 'sql2x' + '\' + 'Scripts'
     } elseif ($doTest) {
-        [string] $startupDirectory = $home + '\' + 'sql2x' + '\' + 'Scripts'
+        [string] $script:startupDirectory = $home + '\' + 'sql2x' + '\' + 'Scripts'
     } elseif ($doSql2x) {
-        [string] $startupDirectory = $pwd
+        [string] $script:startupDirectory = $pwd
     }
-    if ($startupDirectory -ne '') {
-        Set-Location $startupDirectory -ErrorAction:Stop
+    if ($script:startupDirectory -ne '') {
+        Set-Location $script:startupDirectory -ErrorAction:Stop
     }
 } catch [Exception] {
     if ($rethrow) {
-        Write-Host ($taskName + ' ' + 'Exception; ' + $_.Exception.Message)
-        try { Set-Location $startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $taskName)
+        Write-Host ($script:taskName + ' ' + 'Exception; ' + $_.Exception.Message)
+        try { Set-Location $script:startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $script:taskName)
     } else {
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) -ForegroundColor Red }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $script:taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Red }
         $doDevelopment = $false; $doTest = $true
     }
 }
 #endregion
 ##################################################################################################################
-$taskName = 'start script:'
+$script:taskName = 'start script:'
 #region
 ##################################################################################################################
-$taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + $taskName `
+$script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + $script:taskName `
         + ' ' + $MyInvocation.MyCommand.Name `
         + ' ' + $MyInvocation.MyCommand.Arguments
-$htmlLog = $htmlLog + $taskLine + '<br>'
-if ($doEcho) { Write-Host $taskLine }
+$script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+if ($doEcho) { Write-Host $script:taskLine }
 
 if (-not (([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).
         IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator))) {
-    $taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + 'pwd:' + ' ' + $pwd + ' ' + 'Not Admin')
-    $htmlLog = $htmlLog + $taskLine + '<br>'
-    if ($doEcho) { Write-Host $taskLine }
+    $script:taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + 'pwd:' + ' ' + $pwd + ' ' + 'Not Admin')
+    $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+    if ($doEcho) { Write-Host $script:taskLine }
 } else {
-    $taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + 'pwd:' + ' ' + $pwd + ' ' + 'Admin')
-    $htmlLog = $htmlLog + $taskLine + '<br>'
-    if ($doEcho) { Write-Host $taskLine }
+    $script:taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + 'pwd:' + ' ' + $pwd + ' ' + 'Admin')
+    $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+    if ($doEcho) { Write-Host $script:taskLine }
 }
 
-$taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'doDevelopment;' + '[' + $doDevelopment + ']' + ' ' + 'doTest;' + '[' + $doTest + ']' + ' ' + 'doStep;' + '[' + $doStep + ']' + ' ' + 'doEcho;' + '[' + $doEcho + ']' + ' ' + 'rethrow;' + '[' + $rethrow + ']'
-$htmlLog = $htmlLog + $taskLine + '<br>'
-if ($doEcho) { Write-Host $taskLine }
+$script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'doDevelopment;' + '[' + $doDevelopment + ']' + ' ' + 'doTest;' + '[' + $doTest + ']' + ' ' + 'doStep;' + '[' + $doStep + ']' + ' ' + 'doEcho;' + '[' + $doEcho + ']' + ' ' + 'rethrow;' + '[' + $rethrow + ']'
+$script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+if ($doEcho) { Write-Host $script:taskLine }
 
 # check comment
 if ([string]::IsNullOrWhiteSpace($comment)) {
     [string] $comment = Read-Host -Prompt ([System.DateTime]::UtcNow.ToString() + ' ' + 'Comment')
     if ([string]::IsNullOrWhiteSpace($comment)) { throw [Exception] 'Need a comment' }
 }
-$taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'comment:' + ' ' + $comment
-$htmlLog = $htmlLog + $taskLine + '<br>'
-if ($doEcho) { Write-Host $taskLine }
+$script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'comment:' + ' ' + $comment
+$script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+if ($doEcho) { Write-Host $script:taskLine }
 #endregion
 ##################################################################################################################
-$taskName = 'refs'
+$script:taskName = 'refs'
 #region
 ##################################################################################################################
 if (-not ([System.Management.Automation.PSTypeName]'TineCacheRef').Type) {
@@ -175,6 +175,19 @@ if (-not ([System.Management.Automation.PSTypeName]'TineScriptReadinessStateRef'
 "@
 }
 
+if (-not ([System.Management.Automation.PSTypeName]'TineScriptRunLogStatusRef').Type) {
+   Add-Type -TypeDefinition @"
+   public enum TineScriptRunLogStatusRef
+   {
+    Cleaned,
+    Executed,
+    None,
+    Planned,
+    Searched
+   }
+"@
+}
+
 if (-not ([System.Management.Automation.PSTypeName]'TineTaskRef').Type) {
    Add-Type -TypeDefinition @"
    public enum TineTaskRef
@@ -182,6 +195,18 @@ if (-not ([System.Management.Automation.PSTypeName]'TineTaskRef').Type) {
     None,
     Script,
     Task
+   }
+"@
+}
+
+if (-not ([System.Management.Automation.PSTypeName]'TineTaskScriptMachineOutcomeRef').Type) {
+   Add-Type -TypeDefinition @"
+   public enum TineTaskScriptMachineOutcomeRef
+   {
+    Failure,
+    None,
+    ScriptFileMissing,
+    Success
    }
 "@
 }
@@ -213,118 +238,132 @@ if (-not ([System.Management.Automation.PSTypeName]'TineTaskStatusRef').Type) {
 
 #endregion
 ##################################################################################################################
-$taskName = 'help'
+$script:taskName = 'help'
 #region
 ##################################################################################################################
 try {
     if ($help) {
-        # log
-        $answer = 'yes'
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $taskName
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doStep) { $answer = Read-Host -Prompt ( $taskLine ) }
-        elseif ($doEcho) { Write-Host ( $taskLine ) }
+        $script:taskLine = ('Datetime Stamp' + ':' + '[' + [System.DateTime]::UtcNow.ToString() + ']')
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if (!$returnHtml) { Write-Host $script:taskLine }
 
-        if ($answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
-            $taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + 'storageConnectionString' + ' ' + '=' + ' ' + '[' + $storageConnectionString + ']')
-            $htmlLog = $htmlLog + $taskLine + '<br>'
-            if ($doEcho) { Write-Host $taskLine }
+        $script:taskLine = "# SQL2X Generated code based on a SQL Server Schema
+# SQL2X Version: 0.d
+# http://sql2x.azurewebsites.net/
+# Generated Date: 9/30/2018 3:03:38 PM
+# Template: sql2x.PowerShellGenerator.CifudeScript
+<#
+.\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -create
+.\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -insert
+.\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -fetch                -tineTaskStatusRcd:([string]'')
+.\tine_task_status_ref.ps1 -returnValue  -doSql2x -comment test -fetchValue:column    -tineTaskStatusRcd:([string]'')
+.\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -updateByPrimaryKey   -show -tineTaskStatusRcd:([string]'')
+.\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -updateByForeignKeys  -show
+.\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -deleteAll
+.\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -delete               -tineTaskStatusRcd:([string]'')
+.\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -drop
+.\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -show
+.\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -help
+.\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -create -insert -fetch -fetchValue:column -updateByPrimaryKey -delete -drop -show -help -tineTaskStatusRcd:([string]'')
+#>"
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if (!$returnHtml) { Write-Host $script:taskLine }
 
-            $taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + "[System.String] tineTaskStatusRcd = ''")
-            $htmlLog = $htmlLog + $taskLine + '<br>'
-            if ($doEcho) { Write-Host $taskLine }
+        $script:taskLine = ('storageConnectionString' + ' ' + '=' + ' ' + '[' + $script:storageConnectionString + ']')
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if (!$returnHtml) { Write-Host $script:taskLine }
 
-            $taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + "[System.String] tineTaskStatusName = ''")
-            $htmlLog = $htmlLog + $taskLine + '<br>'
-            if ($doEcho) { Write-Host $taskLine }
+        $script:taskLine = ("[System.String] tineTaskStatusRcd = ''")
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if (!$returnHtml) { Write-Host $script:taskLine }
 
-            $taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + "[System.Guid] userId = '00000000-0000-0000-0000-000000000000'")
-            $htmlLog = $htmlLog + $taskLine + '<br>'
-            if ($doEcho) { Write-Host $taskLine }
+        $script:taskLine = ("[System.String] tineTaskStatusRefPartitionKey = $env:ComputerName")
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if (!$returnHtml) { Write-Host $script:taskLine }
 
-            $taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + "[System.DateTime] dateTime = '1601.01.01T00:00:00Z'")
-            $htmlLog = $htmlLog + $taskLine + '<br>'
-            if ($doEcho) { Write-Host $taskLine }
+        $script:taskLine = ("[System.String] tineTaskStatusRefRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')")
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if (!$returnHtml) { Write-Host $script:taskLine }
 
-            $taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + "[System.String] tineTaskStatusRefPartitionKey = $env:ComputerName")
-            $htmlLog = $htmlLog + $taskLine + '<br>'
-            if ($doEcho) { Write-Host $taskLine }
+        $script:taskLine = ("[System.String] tineTaskStatusName = ''")
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if (!$returnHtml) { Write-Host $script:taskLine }
 
-            $taskLine = ([System.DateTime]::UtcNow.ToString() + ' ' + "[System.String] tineTaskStatusRefRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')")
-            $htmlLog = $htmlLog + $taskLine + '<br>'
-            if ($doEcho) { Write-Host $taskLine }
+        $script:taskLine = ("[System.Guid] userId = '00000000-0000-0000-0000-000000000000'")
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if (!$returnHtml) { Write-Host $script:taskLine }
 
-        }
-        # log
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $taskName
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) }
+        $script:taskLine = ("[System.DateTime] dateTime = '1601.01.01T00:00:00Z'")
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if (!$returnHtml) { Write-Host $script:taskLine }
+
     }
 } catch [Exception] {
     if ($rethrow) {
-        Write-Host ($taskName + ' ' + 'Exception; ' + $_.Exception.Message)
-        try { Set-Location $startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $taskName)
+        Write-Host ($script:taskName + ' ' + 'Exception; ' + $_.Exception.Message)
+        try { Set-Location $script:startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $script:taskName)
     } else {
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) -ForegroundColor Red }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $script:taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Red }
     }
-} finally {
 }
 #endregion
 ##################################################################################################################
-$taskName = 'data class'
+$script:taskName = 'data class'
 #region
 ##################################################################################################################
 class TineTaskStatusRefData {
     [System.String]$tineTaskStatusRcd = ''
+    [System.String]$tineTaskStatusRefPartitionKey = $env:ComputerName
+    [System.String]$tineTaskStatusRefRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')
     [System.String]$tineTaskStatusName = ''
     [System.Guid]$userId = '00000000-0000-0000-0000-000000000000'
     [System.DateTime]$dateTime = '1601.01.01T00:00:00Z'
-    [System.String]$tineTaskStatusRefPartitionKey = $env:ComputerName
-    [System.String]$tineTaskStatusRefRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')
 }
 #endregion
 ##################################################################################################################
-$taskName = 'create tine_task_status_ref'
+$script:taskName = 'create tine_task_status_ref'
 #region
 ##################################################################################################################
 try {
     if ($create) {
         # log
-        $answer = 'yes'
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $taskName
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doStep) { $answer = Read-Host -Prompt ( $taskLine ) }
-        elseif ($doEcho) { Write-Host ( $taskLine ) }
+        $script:answer = 'yes'
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $script:taskName
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doStep) { $script:answer = Read-Host -Prompt ( $script:taskLine ) }
+        elseif ($doEcho) { Write-Host ( $script:taskLine ) }
 
-        if ($answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
-            $storageContext = New-AzureStorageContext -ConnectionString $storageConnectionString
+        if ($script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
+            $script:storageContext = New-AzureStorageContext -ConnectionString $script:storageConnectionString
 
-            $tableTineTaskStatusRef = Get-AzureStorageTable -Context $storageContext -Name 'tineTaskStatusRef' -ErrorAction SilentlyContinue
+            $script:tableTineTaskStatusRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTaskStatusRef' -ErrorAction SilentlyContinue
 
-            if ( $tableTineTaskStatusRef -ne $null ) {
-                Remove-AzureStorageTable -Context $storageContext -Name 'tineTaskStatusRef' -Force
+            if ( $script:tableTineTaskStatusRef -ne $null ) {
+                Remove-AzureStorageTable -Context $script:storageContext -Name 'tineTaskStatusRef' -Force
             }
 
+            [int] $script:trials = 0
+
             # create new table
-            $tableTineTaskStatusRef = $null
-            while ($tableTineTaskStatusRef -eq $null) {
+            $script:tableTineTaskStatusRef = $null
+            while ($script:tableTineTaskStatusRef -eq $null) {
                 # wait for an escalating number of seconds 
-                $trials++
-                if ($trials -gt 10) {
+                $script:trials++
+                if ($script:trials -gt 10) {
                     throw [Exception] ('Failed to create table')
                 }
 
-                Start-Sleep $trials
+                Start-Sleep $script:trials
 
                 # create new table
-                $tableTineTaskStatusRef = `
+                $script:tableTineTaskStatusRef = `
                     New-AzureStorageTable `
-                        -Context $storageContext `
+                        -Context $script:storageContext `
                         -Name 'tineTaskStatusRef'
 
-                if ( $tableTineTaskStatusRef -ne $null ) {
+                if ( $script:tableTineTaskStatusRef -ne $null ) {
                     # insert row
                     $tineTaskStatusRef = 
                         New-Object `
@@ -332,70 +371,72 @@ try {
                             -ArgumentList $tineTaskStatusRefPartitionKey, $tineTaskStatusRefRowKey
 
                     $tineTaskStatusRef.Properties.Add( 'tine_task_status_rcd', [System.String]$tineTaskStatusRcd)
+                    $tineTaskStatusRef.Properties.Add( 'tine_task_status_ref_partition_key', [System.String]$tineTaskStatusRefPartitionKey)
+                    $tineTaskStatusRef.Properties.Add( 'tine_task_status_ref_row_key', [System.String]$tineTaskStatusRefRowKey)
                     $tineTaskStatusRef.Properties.Add( 'tine_task_status_name', [System.String]$tineTaskStatusName)
                     $tineTaskStatusRef.Properties.Add( 'user_id', [System.Guid]$userId)
                     $tineTaskStatusRef.Properties.Add( 'date_time', [System.DateTime]$dateTime)
-                    $tineTaskStatusRef.Properties.Add( 'tine_task_status_ref_partition_key', [System.String]$tineTaskStatusRefPartitionKey)
-                    $tineTaskStatusRef.Properties.Add( 'tine_task_status_ref_row_key', [System.String]$tineTaskStatusRefRowKey)
 
-                    $tableTineTaskStatusRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Insert($tineTaskStatusRef)) | Out-Null
+                    $script:tableTineTaskStatusRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Insert($tineTaskStatusRef)) | Out-Null
                 }
             }
         }
         # log
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $taskName
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $script:taskName
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) }
     }
 } catch [Exception] {
     if ($rethrow) {
-        Write-Host ($taskName + ' ' + 'Exception; ' + $_.Exception.Message)
-        try { Set-Location $startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $taskName)
+        Write-Host ($script:taskName + ' ' + 'Exception; ' + $_.Exception.Message)
+        try { Set-Location $script:startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $script:taskName)
     } else {
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) -ForegroundColor Red }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $script:taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Red }
     }
 } finally {
-    if ($trials) { try { Remove-Variable -Name trials } catch {}}
-    if ($tableTineTaskStatusRef) { try { Remove-Variable -Name tableTineTaskStatusRef } catch {}}
-    if ($storageContext) { try { Remove-Variable -Name storageContext } catch {}}
+    if ($script:trials) { try { Remove-Variable -Scope:Script -Name trials } catch {}}
+    if ($script:tableTineTaskStatusRef) { try { Remove-Variable -Scope:Script -Name tableTineTaskStatusRef } catch {}}
+    if ($script:storageContext) { try { Remove-Variable -Scope:Script -Name storageContext } catch {}}
 }
 #endregion
 ##################################################################################################################
-$taskName = 'insert to tine_task_status_ref'
+$script:taskName = 'insert to tine_task_status_ref'
 #region
 ##################################################################################################################
 try {
     if ($insert) {
         # log
-        $answer = 'yes'
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $taskName
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doStep) { $answer = Read-Host -Prompt ( $taskLine ) }
-        elseif ($doEcho) { Write-Host ( $taskLine ) }
+        $script:answer = 'yes'
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $script:taskName
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doStep) { $script:answer = Read-Host -Prompt ( $script:taskLine ) }
+        elseif ($doEcho) { Write-Host ( $script:taskLine ) }
 
         # validate tineTaskStatusRcd ( primary key )
         if ($tineTaskStatusRcd -eq '') {
-            # log
-            $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'Primary Key:' + ' ' + 'tineTaskStatusRcd' + ' ' + 'is missing'
-            $htmlLog = $htmlLog + $taskLine + '<br>'
-            if ($doEcho) { Write-Host ( $taskLine ) -ForegroundColor red }
-            $answer = 'no'
+            # get a decent primary key, todo; check datatype
+            [System.Guid] $tineTaskStatusRcd = [System.Guid]::NewGuid()
+
+            # return primary key to caller
+            $script:tineTaskStatusRefData = [TineTaskStatusRefData]::new()
+            $script:tineTaskStatusRefData.tineTaskStatusRcd = $tineTaskStatusRcd
+            $script:tineTaskStatusRefDataList += $script:tineTaskStatusRefData
         }
 
-        if ($answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
+        if ($script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
 
             # connect and validate table
-            $storageContext = New-AzureStorageContext -ConnectionString $storageConnectionString
+            $script:storageContext = New-AzureStorageContext -ConnectionString $script:storageConnectionString
 
-            $tableTineTaskStatusRef = Get-AzureStorageTable -Context $storageContext -Name 'tineTaskStatusRef' -ErrorAction SilentlyContinue
+            $script:tableTineTaskStatusRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTaskStatusRef' -ErrorAction SilentlyContinue
 
-            if ( $tableTineTaskStatusRef -eq $null ) {
+            if ( $script:tableTineTaskStatusRef -eq $null ) {
                 # log
-                $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_status_ref table does not exist, please rerun with -create'
-                $htmlLog = $htmlLog + $taskLine + '<br>'
-                if ($doEcho) { Write-Host ( $taskLine ) }
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_status_ref table does not exist, please rerun with -create'
+                $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+                if ($doEcho) { Write-Host ( $script:taskLine ) }
                 $doDevelopment = $false; $doTest = $false
             } else {
                 # insert row
@@ -405,219 +446,252 @@ try {
                         -ArgumentList $tineTaskStatusRefPartitionKey, $tineTaskStatusRefRowKey
 
                 $tineTaskStatusRef.Properties.Add( 'tine_task_status_rcd', [System.String]$tineTaskStatusRcd)
+                $tineTaskStatusRef.Properties.Add( 'tine_task_status_ref_partition_key', [System.String]$tineTaskStatusRefPartitionKey)
+                $tineTaskStatusRef.Properties.Add( 'tine_task_status_ref_row_key', [System.String]$tineTaskStatusRefRowKey)
                 $tineTaskStatusRef.Properties.Add( 'tine_task_status_name', [System.String]$tineTaskStatusName)
                 $tineTaskStatusRef.Properties.Add( 'user_id', [System.Guid]$userId)
                 $tineTaskStatusRef.Properties.Add( 'date_time', [System.DateTime]$dateTime)
-                $tineTaskStatusRef.Properties.Add( 'tine_task_status_ref_partition_key', [System.String]$tineTaskStatusRefPartitionKey)
-                $tineTaskStatusRef.Properties.Add( 'tine_task_status_ref_row_key', [System.String]$tineTaskStatusRefRowKey)
 
-                $tableTineTaskStatusRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Insert($tineTaskStatusRef)) | Out-Null
+                $script:tableTineTaskStatusRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Insert($tineTaskStatusRef)) | Out-Null
             }
         }
         # log
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $taskName
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $script:taskName
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) }
     }
 } catch [Exception] {
     if ($rethrow) {
-        Write-Host ($taskName + ' ' + 'Exception; ' + $_.Exception.Message)
-        try { Set-Location $startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $taskName)
+        Write-Host ($script:taskName + ' ' + 'Exception; ' + $_.Exception.Message)
+        try { Set-Location $script:startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $script:taskName)
     } else {
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) -ForegroundColor Red }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $script:taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Red }
     }
 } finally {
-    if ($tineTaskStatusRef) { try { Remove-Variable -Name tineTaskStatusRef } catch {}}
-    if ($tableTineTaskStatusRef) { try { Remove-Variable -Name tableTineTaskStatusRef } catch {}}
-    if ($storageContext) { try { Remove-Variable -Name storageContext } catch {}}
+    if ($tineTaskStatusRef) { try { Remove-Variable -Scope:Script -Name tineTaskStatusRef } catch {}}
+    if ($script:tableTineTaskStatusRef) { try { Remove-Variable -Scope:Script -Name tableTineTaskStatusRef } catch {}}
+    if ($script:storageContext) { try { Remove-Variable -Scope:Script -Name storageContext } catch {}}
 }
 #endregion
 ##################################################################################################################
-$taskName = 'fetch from tine_task_status_ref'
+$script:taskName = 'fetch from tine_task_status_ref'
 #region
 ##################################################################################################################
 try {
     if ($fetch) {
         # log
-        $answer = 'yes'
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $taskName
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doStep) { $answer = Read-Host -Prompt ( $taskLine ) }
-        elseif ($doEcho) { Write-Host ( $taskLine ) }
+        $script:answer = 'yes'
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $script:taskName
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doStep) { $script:answer = Read-Host -Prompt ( $script:taskLine ) }
+        elseif ($doEcho) { Write-Host ( $script:taskLine ) }
 
-        if ($answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
+        if ($script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
             # connect and validate table
-            $storageContext = New-AzureStorageContext -ConnectionString $storageConnectionString
+            $script:storageContext = New-AzureStorageContext -ConnectionString $script:storageConnectionString
 
             if ( !$whatIf ) {
-                $tableTineTaskStatusRef = Get-AzureStorageTable -Context $storageContext -Name 'tineTaskStatusRef' -ErrorAction SilentlyContinue
+                $script:tableTineTaskStatusRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTaskStatusRef' -ErrorAction SilentlyContinue
             }
 
-            if ( $tableTineTaskStatusRef -eq $null -and !$whatIf ) {
+            if ( $script:tableTineTaskStatusRef -eq $null -and !$whatIf ) {
                 # log
-                $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_status_ref table does not exist, please rerun with -create'
-                $htmlLog = $htmlLog + $taskLine + '<br>'
-                if ($doEcho) { Write-Host ( $taskLine ) }
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_status_ref table does not exist, please rerun with -create'
+                $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+                if ($doEcho) { Write-Host ( $script:taskLine ) }
                 $doDevelopment = $false; $doTest = $false
             } else {
-                $query = New-Object Microsoft.WindowsAzure.Storage.Table.TableQuery
-                $list = New-Object System.Collections.Generic.List[string]
+                $script:query = New-Object Microsoft.WindowsAzure.Storage.Table.TableQuery
+                $script:list = New-Object System.Collections.Generic.List[string]
 
-                $list.Add( 'tine_task_status_rcd' )
-                $list.Add( 'tine_task_status_name' )
-                $list.Add( 'user_id' )
-                $list.Add( 'date_time' )
-                $list.Add( 'tine_task_status_ref_partition_key' )
-                $list.Add( 'tine_task_status_ref_row_key' )
+                $script:list.Add( 'tine_task_status_rcd' )
+                $script:list.Add( 'tine_task_status_ref_partition_key' )
+                $script:list.Add( 'tine_task_status_ref_row_key' )
+                $script:list.Add( 'tine_task_status_name' )
+                $script:list.Add( 'user_id' )
+                $script:list.Add( 'date_time' )
 
                 # filter tineTaskStatusRcd ( primary key )
-                if ($tineTaskStatusRcd -ne  [TineTaskStatusRefData]::new().tineTaskStatusRcd) {
-                    if ($query.FilterString -ne $null) { $query.FilterString += ' and ' }
-                    $query.FilterString += 'tine_task_status_rcd eq '''+ $tineTaskStatusRcd + ''''
+                if ($PSBoundParameters.ContainsKey('tineTaskStatusRcd')) {
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                    $script:query.FilterString += 'tine_task_status_rcd eq '''+ $tineTaskStatusRcd + ''''
                 }
 
-                $query.SelectColumns = $list
-                $query.TakeCount = $takeCount
+                # filter tineTaskStatusRcd ( string column )
+                if ($PSBoundParameters.ContainsKey('tineTaskStatusRcd')) {
+                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                    $script:query.FilterString += 'tine_task_status_rcd eq '''+ $tineTaskStatusRcd + ''''
+                }
+
+                # filter tineTaskStatusRefPartitionKey ( string column )
+                if ($PSBoundParameters.ContainsKey('tineTaskStatusRefPartitionKey')) {
+                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                    $script:query.FilterString += 'tine_task_status_ref_partition_key eq '''+ $tineTaskStatusRefPartitionKey + ''''
+                }
+
+                # filter tineTaskStatusRefRowKey ( string column )
+                if ($PSBoundParameters.ContainsKey('tineTaskStatusRefRowKey')) {
+                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                    $script:query.FilterString += 'tine_task_status_ref_row_key eq '''+ $tineTaskStatusRefRowKey + ''''
+                }
+
+                # filter tineTaskStatusName ( string column )
+                if ($PSBoundParameters.ContainsKey('tineTaskStatusName')) {
+                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                    $script:query.FilterString += 'tine_task_status_name eq '''+ $tineTaskStatusName + ''''
+                }
+
+                $script:query.SelectColumns = $script:list
+                $script:query.TakeCount = $takeCount
 
                 # execute select
                 if (!$whatIf) {
-                    $tineTaskStatusRef = $tableTineTaskStatusRef.CloudTable.ExecuteQuery($query)
+                    $tineTaskStatusRef = $script:tableTineTaskStatusRef.CloudTable.ExecuteQuery($script:query)
                 }
 
-                if ($tineTaskStatusRefData) { try { Remove-Variable -Name tineTaskStatusRefData } catch {}}
+                # log count
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'Query Results' + ';' + ' ' + '[' + ($tineTaskStatusRef | Measure-Object).Count + ']'
+                $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+                if ($doEcho) { Write-Host ( $script:taskLine ) }
 
-                if (($tineTaskStatusRef | Measure-Object).Count -gt 0) {
-                    $tineTaskStatusRefData = [TineTaskStatusRefData]::new()
+                # transfer values from query to internal objects
+                if ($script:tineTaskStatusRefData) { try { Remove-Variable -Scope:Script -Name tineTaskStatusRefData } catch {}}
+                if ($script:tineTaskStatusRefDataList) { try { Remove-Variable -Scope:Script -Name tineTaskStatusRefDataList } catch {}}
 
-                    $tineTaskStatusRefData.tineTaskStatusRcd = $tineTaskStatusRef[0].Properties['tine_task_status_rcd'].StringValue
-                    $tineTaskStatusRefData.tineTaskStatusName = $tineTaskStatusRef[0].Properties['tine_task_status_name'].StringValue
-                    $tineTaskStatusRefData.userId = $tineTaskStatusRef[0].Properties['user_id'].GuidValue
-                    $tineTaskStatusRefData.dateTime = $tineTaskStatusRef[0].Properties['date_time'].DateTime
-                    $tineTaskStatusRefData.tineTaskStatusRefPartitionKey = $env:ComputerName
-                    $tineTaskStatusRefData.tineTaskStatusRefRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')
+                $script:tineTaskStatusRefDataList = @()
 
-                    # to json
-                    if ($returnJson) {
-                        if ($outputJson) { try { Remove-Variable -Name outputJson } catch {}}
+                if (-not [string]::IsNullOrEmpty($tineTaskStatusRef)) {
+                    foreach ($entity in $tineTaskStatusRef) {
+                        $script:tineTaskStatusRefData = [TineTaskStatusRefData]::new()
+                        $script:tineTaskStatusRefData.tineTaskStatusRefPartitionKey = $env:ComputerName
+                        $script:tineTaskStatusRefData.tineTaskStatusRefRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')
 
-                        $outputJson = ConvertTo-Json -InputObject $tineTaskStatusRefData
+                        $entity.Properties.Keys | 
+                            ForEach-Object {
+                                switch ($_) {
+                                    'tine_task_status_rcd' { $script:tineTaskStatusRefData.tineTaskStatusRcd = $entity.Properties[$_].PropertyAsObject }
+                                    'tine_task_status_name' { $script:tineTaskStatusRefData.tineTaskStatusName = $entity.Properties[$_].PropertyAsObject }
+                                    'user_id' { $script:tineTaskStatusRefData.userId = $entity.Properties[$_].PropertyAsObject }
+                                    'date_time' { $script:tineTaskStatusRefData.dateTime = $entity.Properties[$_].PropertyAsObject }
+                                }
+                            }
+                        $script:tineTaskStatusRefDataList += $script:tineTaskStatusRefData
                     }
-
                 }
 
                 # check if any column parameter is chosen
                 [boolean] $includeAll = $true
                 foreach ($parameter in $PSBoundParameters.Keys) {
                     $includeAll -= ($parameter -eq 'tineTaskStatusRcd')
+                    $includeAll -= ($parameter -eq 'tineTaskStatusRefPartitionKey')
+                    $includeAll -= ($parameter -eq 'tineTaskStatusRefRowKey')
                     $includeAll -= ($parameter -eq 'tineTaskStatusName')
                     $includeAll -= ($parameter -eq 'userId')
                     $includeAll -= ($parameter -eq 'dateTime')
-                    $includeAll -= ($parameter -eq 'tineTaskStatusRefPartitionKey')
-                    $includeAll -= ($parameter -eq 'tineTaskStatusRefRowKey')
                 }
 
                 # property echo
                 if ( $includeAll -or $PSBoundParameters.ContainsKey('tineTaskStatusRcd') ) {
-                    $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tineTaskStatusRcd' + '; [' + $tineTaskStatusRefData.tineTaskStatusRcd + ']'
-                    $htmlLog = $htmlLog + $taskLine + '<br>'
-                    if ($doEcho) { Write-Host ( $taskLine ) }
-                }
-
-                if ( $includeAll -or $PSBoundParameters.ContainsKey('tineTaskStatusName') ) {
-                    $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tineTaskStatusName' + '; [' + $tineTaskStatusRefData.tineTaskStatusName + ']'
-                    $htmlLog = $htmlLog + $taskLine + '<br>'
-                    if ($doEcho) { Write-Host ( $taskLine ) }
-                }
-
-                if ( $includeAll -or $PSBoundParameters.ContainsKey('userId') ) {
-                    $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'userId' + '; [' + $tineTaskStatusRefData.userId + ']'
-                    $htmlLog = $htmlLog + $taskLine + '<br>'
-                    if ($doEcho) { Write-Host ( $taskLine ) }
-                }
-
-                if ( $includeAll -or $PSBoundParameters.ContainsKey('dateTime') ) {
-                    $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'dateTime' + '; [' + $tineTaskStatusRefData.dateTime + ']'
-                    $htmlLog = $htmlLog + $taskLine + '<br>'
-                    if ($doEcho) { Write-Host ( $taskLine ) }
+                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tineTaskStatusRcd' + '; [' + $tineTaskStatusRefData.tineTaskStatusRcd + ']'
+                    $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+                    if ($doEcho) { Write-Host ( $script:taskLine ) }
                 }
 
                 if ( $includeAll -or $PSBoundParameters.ContainsKey('tineTaskStatusRefPartitionKey') ) {
-                    $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tineTaskStatusRefPartitionKey' + '; [' + $tineTaskStatusRefData.tineTaskStatusRefPartitionKey + ']'
-                    $htmlLog = $htmlLog + $taskLine + '<br>'
-                    if ($doEcho) { Write-Host ( $taskLine ) }
+                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tineTaskStatusRefPartitionKey' + '; [' + $tineTaskStatusRefData.tineTaskStatusRefPartitionKey + ']'
+                    $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+                    if ($doEcho) { Write-Host ( $script:taskLine ) }
                 }
 
                 if ( $includeAll -or $PSBoundParameters.ContainsKey('tineTaskStatusRefRowKey') ) {
-                    $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tineTaskStatusRefRowKey' + '; [' + $tineTaskStatusRefData.tineTaskStatusRefRowKey + ']'
-                    $htmlLog = $htmlLog + $taskLine + '<br>'
-                    if ($doEcho) { Write-Host ( $taskLine ) }
+                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tineTaskStatusRefRowKey' + '; [' + $tineTaskStatusRefData.tineTaskStatusRefRowKey + ']'
+                    $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+                    if ($doEcho) { Write-Host ( $script:taskLine ) }
+                }
+
+                if ( $includeAll -or $PSBoundParameters.ContainsKey('tineTaskStatusName') ) {
+                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tineTaskStatusName' + '; [' + $tineTaskStatusRefData.tineTaskStatusName + ']'
+                    $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+                    if ($doEcho) { Write-Host ( $script:taskLine ) }
+                }
+
+                if ( $includeAll -or $PSBoundParameters.ContainsKey('userId') ) {
+                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'userId' + '; [' + $tineTaskStatusRefData.userId + ']'
+                    $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+                    if ($doEcho) { Write-Host ( $script:taskLine ) }
+                }
+
+                if ( $includeAll -or $PSBoundParameters.ContainsKey('dateTime') ) {
+                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'dateTime' + '; [' + $tineTaskStatusRefData.dateTime + ']'
+                    $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+                    if ($doEcho) { Write-Host ( $script:taskLine ) }
                 }
             }
         }
         # log
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $taskName
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $script:taskName
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) }
     }
 } catch [Exception] {
     if ($rethrow) {
-        Write-Host ($taskName + ' ' + 'Exception; ' + $_.Exception.Message)
-        try { Set-Location $startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $taskName)
+        Write-Host ($script:taskName + ' ' + 'Exception; ' + $_.Exception.Message)
+        try { Set-Location $script:startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $script:taskName)
     } else {
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) -ForegroundColor Red }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $script:taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Red }
     }
 } finally {
-    if ($output) { try { Remove-Variable -Name output } catch {}}
-    if ($list) { try { Remove-Variable -Name list } catch {}}
-    if ($query) { try { Remove-Variable -Name query } catch {}}
-    if ($tineTaskStatusRef) { try { Remove-Variable -Name tineTaskStatusRef } catch {}}
-    if ($tableTineTaskStatusRef) { try { Remove-Variable -Name tableTineTaskStatusRef } catch {}}
-    if ($storageContext) { try { Remove-Variable -Name storageContext } catch {}}
+    if ($script:output) { try { Remove-Variable -Scope:Script -Name output } catch {}}
+    if ($script:list) { try { Remove-Variable -Scope:Script -Name list } catch {}}
+    if ($script:query) { try { Remove-Variable -Scope:Script -Name query } catch {}}
+    if ($tineTaskStatusRef) { try { Remove-Variable -Scope:Script -Name tineTaskStatusRef } catch {}}
+    if ($script:tableTineTaskStatusRef) { try { Remove-Variable -Scope:Script -Name tableTineTaskStatusRef } catch {}}
+    if ($script:storageContext) { try { Remove-Variable -Scope:Script -Name storageContext } catch {}}
 }
 #endregion
 ##################################################################################################################
-$taskName = 'update tine_task_status_ref'
+$script:taskName = 'update tine_task_status_ref'
 #region
 ##################################################################################################################
 try {
     if ($updateByPrimaryKey) {
         # log
-        $answer = 'yes'
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $taskName
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doStep) { $answer = Read-Host -Prompt ( $taskLine ) }
-        elseif ($doEcho) { Write-Host ( $taskLine ) }
+        $script:answer = 'yes'
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $script:taskName
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doStep) { $script:answer = Read-Host -Prompt ( $script:taskLine ) }
+        elseif ($doEcho) { Write-Host ( $script:taskLine ) }
 
-        if ($answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
+        if ($script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
             # connect and validate table
-            $storageContext = New-AzureStorageContext -ConnectionString $storageConnectionString
+            $script:storageContext = New-AzureStorageContext -ConnectionString $script:storageConnectionString
 
             if ( !$whatIf ) {
-                $tableTineTaskStatusRef = Get-AzureStorageTable -Context $storageContext -Name 'tineTaskStatusRef' -ErrorAction SilentlyContinue
+                $script:tableTineTaskStatusRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTaskStatusRef' -ErrorAction SilentlyContinue
             }
 
-            if ( $tableTineTaskStatusRef -eq $null -and !$whatIf ) {
+            if ( $script:tableTineTaskStatusRef -eq $null -and !$whatIf ) {
                 # log
-                $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_status_ref table does not exist, please rerun with -create'
-                $htmlLog = $htmlLog + $taskLine + '<br>'
-                if ($doEcho) { Write-Host ( $taskLine ) }
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_status_ref table does not exist, please rerun with -create'
+                $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+                if ($doEcho) { Write-Host ( $script:taskLine ) }
                 $doDevelopment = $false; $doTest = $false
             } else {
-                $query = New-Object Microsoft.WindowsAzure.Storage.Table.TableQuery
-                $list = New-Object System.Collections.Generic.List[string]
+                $script:query = New-Object Microsoft.WindowsAzure.Storage.Table.TableQuery
+                $script:list = New-Object System.Collections.Generic.List[string]
 
 
-                $query.FilterString = 'tine_task_status_rcd eq '''+ $tineTaskStatusRcd + ''''
-                $query.SelectColumns = $list
-                $query.TakeCount = $takeCount
+                $script:query.FilterString = 'tine_task_status_rcd eq '''+ $tineTaskStatusRcd + ''''
+                $script:query.SelectColumns = $script:list
+                $script:query.TakeCount = $takeCount
 
                 # execute select
                 if (!$whatIf) {
-                    $tineTaskStatusRefForUpdate = $tableTineTaskStatusRef.CloudTable.ExecuteQuery($query)
+                    $tineTaskStatusRefForUpdate = $script:tableTineTaskStatusRef.CloudTable.ExecuteQuery($script:query)
                 }
 
                 foreach ( $item in $tineTaskStatusRefForUpdate ) {
@@ -630,95 +704,119 @@ try {
 
                     $tineTaskStatusRef.ETag = '*'
                     if ($PSBoundParameters.ContainsKey('tineTaskStatusRcd')) { $tineTaskStatusRef.Properties.Add( 'tine_task_status_rcd', [System.String]$tineTaskStatusRcd) }
+                    if ($PSBoundParameters.ContainsKey('tineTaskStatusRefPartitionKey')) { $tineTaskStatusRef.Properties.Add( 'tine_task_status_ref_partition_key', [System.String]$tineTaskStatusRefPartitionKey) }
+                    if ($PSBoundParameters.ContainsKey('tineTaskStatusRefRowKey')) { $tineTaskStatusRef.Properties.Add( 'tine_task_status_ref_row_key', [System.String]$tineTaskStatusRefRowKey) }
                     if ($PSBoundParameters.ContainsKey('tineTaskStatusName')) { $tineTaskStatusRef.Properties.Add( 'tine_task_status_name', [System.String]$tineTaskStatusName) }
                     if ($PSBoundParameters.ContainsKey('userId')) { $tineTaskStatusRef.Properties.Add( 'user_id', [System.Guid]$userId) }
                     if ($PSBoundParameters.ContainsKey('dateTime')) { $tineTaskStatusRef.Properties.Add( 'date_time', [System.DateTime]$dateTime) }
-                    if ($PSBoundParameters.ContainsKey('tineTaskStatusRefPartitionKey')) { $tineTaskStatusRef.Properties.Add( 'tine_task_status_ref_partition_key', [System.String]$tineTaskStatusRefPartitionKey) }
-                    if ($PSBoundParameters.ContainsKey('tineTaskStatusRefRowKey')) { $tineTaskStatusRef.Properties.Add( 'tine_task_status_ref_row_key', [System.String]$tineTaskStatusRefRowKey) }
 
-                    $tableTineTaskStatusRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Merge($tineTaskStatusRef)) | Out-Null
+                    $script:tableTineTaskStatusRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Merge($tineTaskStatusRef)) | Out-Null
                 }
 
                 # log
-                $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'updated' + ':' + ' ' + $query.FilterString
-                $htmlLog = $htmlLog + $taskLine + '<br>'
-                if ($doEcho) { Write-Host ( $taskLine ) }
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'updated' + ':' + ' ' + $script:query.FilterString
+                $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+                if ($doEcho) { Write-Host ( $script:taskLine ) }
             }
         }
         # log
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $taskName
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $script:taskName
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) }
     }
 } catch [Exception] {
     if ($rethrow) {
-        Write-Host ($taskName + ' ' + 'Exception; ' + $_.Exception.Message)
-        try { Set-Location $startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $taskName)
+        Write-Host ($script:taskName + ' ' + 'Exception; ' + $_.Exception.Message)
+        try { Set-Location $script:startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $script:taskName)
     } else {
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) -ForegroundColor Red }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $script:taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Red }
     }
 } finally {
-    if ($tineTaskStatusRefForUpdate) { try { Remove-Variable -Name tineTaskStatusRefForUpdate } catch {}}
-    if ($tableTineTaskStatusRef) { try { Remove-Variable -Name tableTineTaskStatusRef } catch {}}
-    if ($partitionKeyLocal) { try { Remove-Variable -Name partitionKeyLocal } catch {}}
-    if ($rowKeyLocal) { try { Remove-Variable -Name rowKeyLocal } catch {}}
-    if ($tineTaskStatusRef) { try { Remove-Variable -Name tineTaskStatusRef } catch {}}
-    if ($list) { try { Remove-Variable -Name list } catch {}}
-    if ($query) { try { Remove-Variable -Name query } catch {}}
+    if ($tineTaskStatusRefForUpdate) { try { Remove-Variable -Scope:Script -Name tineTaskStatusRefForUpdate } catch {}}
+    if ($script:tableTineTaskStatusRef) { try { Remove-Variable -Scope:Script -Name tableTineTaskStatusRef } catch {}}
+    if ($partitionKeyLocal) { try { Remove-Variable -Scope:Script -Name partitionKeyLocal } catch {}}
+    if ($rowKeyLocal) { try { Remove-Variable -Scope:Script -Name rowKeyLocal } catch {}}
+    if ($tineTaskStatusRef) { try { Remove-Variable -Scope:Script -Name tineTaskStatusRef } catch {}}
+    if ($script:list) { try { Remove-Variable -Scope:Script -Name list } catch {}}
+    if ($script:query) { try { Remove-Variable -Scope:Script -Name query } catch {}}
 }
 #endregion
 ##################################################################################################################
-$taskName = 'update tine_task_status_ref by foreign keys'
+$script:taskName = 'update tine_task_status_ref by foreign keys'
 #region
 ##################################################################################################################
 try {
     if ($updateByForeignKeys) {
         # log
-        $answer = 'yes'
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $taskName
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doStep) { $answer = Read-Host -Prompt ( $taskLine ) }
-        elseif ($doEcho) { Write-Host ( $taskLine ) }
+        $script:answer = 'yes'
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $script:taskName
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doStep) { $script:answer = Read-Host -Prompt ( $script:taskLine ) }
+        elseif ($doEcho) { Write-Host ( $script:taskLine ) }
 
-        if ($answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
+        if ($script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
             # connect and validate table
-            $storageContext = New-AzureStorageContext -ConnectionString $storageConnectionString
+            $script:storageContext = New-AzureStorageContext -ConnectionString $script:storageConnectionString
 
             if ( !$whatIf ) {
-                $tableTineTaskStatusRef = Get-AzureStorageTable -Context $storageContext -Name 'tineTaskStatusRef' -ErrorAction SilentlyContinue
+                $script:tableTineTaskStatusRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTaskStatusRef' -ErrorAction SilentlyContinue
             }
 
-            if ( $tableTineTaskStatusRef -eq $null -and !$whatIf ) {
+            if ( $script:tableTineTaskStatusRef -eq $null -and !$whatIf ) {
                 # log
-                $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_status_ref table does not exist, please rerun with -create'
-                $htmlLog = $htmlLog + $taskLine + '<br>'
-                if ($doEcho) { Write-Host ( $taskLine ) }
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_status_ref table does not exist, please rerun with -create'
+                $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+                if ($doEcho) { Write-Host ( $script:taskLine ) }
                 $doDevelopment = $false; $doTest = $false
             } else {
-                $query = New-Object Microsoft.WindowsAzure.Storage.Table.TableQuery
-                $list = New-Object System.Collections.Generic.List[string]
+                $script:query = New-Object Microsoft.WindowsAzure.Storage.Table.TableQuery
+                $script:list = New-Object System.Collections.Generic.List[string]
 
-                $list.Add( 'tine_task_status_rcd' )
-                $list.Add( 'tine_task_status_name' )
-                $list.Add( 'user_id' )
-                $list.Add( 'date_time' )
-                $list.Add( 'tine_task_status_ref_partition_key' )
-                $list.Add( 'tine_task_status_ref_row_key' )
+                $script:list.Add( 'tine_task_status_rcd' )
+                $script:list.Add( 'tine_task_status_ref_partition_key' )
+                $script:list.Add( 'tine_task_status_ref_row_key' )
+                $script:list.Add( 'tine_task_status_name' )
+                $script:list.Add( 'user_id' )
+                $script:list.Add( 'date_time' )
 
                 # filter tineTaskStatusRcd ( primary key )
-                if ($tineTaskStatusRcd -ne  [TineTaskStatusRefData]::new().tineTaskStatusRcd) {
-                    if ($query.FilterString -ne $null) { $query.FilterString += ' and ' }
-                    $query.FilterString += 'tine_task_status_rcd eq '''+ $tineTaskStatusRcd + ''''
+                if ($PSBoundParameters.ContainsKey('tineTaskStatusRcd')) {
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                    $script:query.FilterString += 'tine_task_status_rcd eq '''+ $tineTaskStatusRcd + ''''
                 }
 
-                $query.SelectColumns = $list
-                $query.TakeCount = $takeCount
+                # filter tineTaskStatusRcd ( string column )
+                if ($PSBoundParameters.ContainsKey('tineTaskStatusRcd')) {
+                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                    $script:query.FilterString += 'tine_task_status_rcd eq '''+ $tineTaskStatusRcd + ''''
+                }
+
+                # filter tineTaskStatusRefPartitionKey ( string column )
+                if ($PSBoundParameters.ContainsKey('tineTaskStatusRefPartitionKey')) {
+                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                    $script:query.FilterString += 'tine_task_status_ref_partition_key eq '''+ $tineTaskStatusRefPartitionKey + ''''
+                }
+
+                # filter tineTaskStatusRefRowKey ( string column )
+                if ($PSBoundParameters.ContainsKey('tineTaskStatusRefRowKey')) {
+                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                    $script:query.FilterString += 'tine_task_status_ref_row_key eq '''+ $tineTaskStatusRefRowKey + ''''
+                }
+
+                # filter tineTaskStatusName ( string column )
+                if ($PSBoundParameters.ContainsKey('tineTaskStatusName')) {
+                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                    $script:query.FilterString += 'tine_task_status_name eq '''+ $tineTaskStatusName + ''''
+                }
+
+                $script:query.SelectColumns = $script:list
+                $script:query.TakeCount = $takeCount
 
                 # execute select
                 if (!$whatIf) {
-                    $tineTaskStatusRefForUpdate = $tableTineTaskStatusRef.CloudTable.ExecuteQuery($query)
+                    $tineTaskStatusRefForUpdate = $script:tableTineTaskStatusRef.CloudTable.ExecuteQuery($script:query)
                 }
 
                 foreach ( $item in $tineTaskStatusRefForUpdate ) {
@@ -731,164 +829,188 @@ try {
 
                     $tineTaskStatusRef.ETag = '*'
                     if ($PSBoundParameters.ContainsKey('tineTaskStatusRcd')) { $tineTaskStatusRef.Properties.Add( 'tine_task_status_rcd', [System.String]$tineTaskStatusRcd) }
+                    if ($PSBoundParameters.ContainsKey('tineTaskStatusRefPartitionKey')) { $tineTaskStatusRef.Properties.Add( 'tine_task_status_ref_partition_key', [System.String]$tineTaskStatusRefPartitionKey) }
+                    if ($PSBoundParameters.ContainsKey('tineTaskStatusRefRowKey')) { $tineTaskStatusRef.Properties.Add( 'tine_task_status_ref_row_key', [System.String]$tineTaskStatusRefRowKey) }
                     if ($PSBoundParameters.ContainsKey('tineTaskStatusName')) { $tineTaskStatusRef.Properties.Add( 'tine_task_status_name', [System.String]$tineTaskStatusName) }
                     if ($PSBoundParameters.ContainsKey('userId')) { $tineTaskStatusRef.Properties.Add( 'user_id', [System.Guid]$userId) }
                     if ($PSBoundParameters.ContainsKey('dateTime')) { $tineTaskStatusRef.Properties.Add( 'date_time', [System.DateTime]$dateTime) }
-                    if ($PSBoundParameters.ContainsKey('tineTaskStatusRefPartitionKey')) { $tineTaskStatusRef.Properties.Add( 'tine_task_status_ref_partition_key', [System.String]$tineTaskStatusRefPartitionKey) }
-                    if ($PSBoundParameters.ContainsKey('tineTaskStatusRefRowKey')) { $tineTaskStatusRef.Properties.Add( 'tine_task_status_ref_row_key', [System.String]$tineTaskStatusRefRowKey) }
 
-                    $tableTineTaskStatusRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Merge($tineTaskStatusRef)) | Out-Null
+                    $script:tableTineTaskStatusRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Merge($tineTaskStatusRef)) | Out-Null
                 }
 
                 # log
-                $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'updated' + ':' + ' ' + $query.FilterString
-                $htmlLog = $htmlLog + $taskLine + '<br>'
-                if ($doEcho) { Write-Host ( $taskLine ) }
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'updated' + ':' + ' ' + $script:query.FilterString
+                $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+                if ($doEcho) { Write-Host ( $script:taskLine ) }
             }
         }
         # log
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $taskName
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $script:taskName
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) }
     }
 } catch [Exception] {
     if ($rethrow) {
-        Write-Host ($taskName + ' ' + 'Exception; ' + $_.Exception.Message)
-        try { Set-Location $startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $taskName)
+        Write-Host ($script:taskName + ' ' + 'Exception; ' + $_.Exception.Message)
+        try { Set-Location $script:startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $script:taskName)
     } else {
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) -ForegroundColor Red }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $script:taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Red }
     }
 } finally {
-    if ($tineTaskStatusRefForUpdate) { try { Remove-Variable -Name tineTaskStatusRefForUpdate } catch {}}
-    if ($tableTineTaskStatusRef) { try { Remove-Variable -Name tableTineTaskStatusRef } catch {}}
-    if ($partitionKeyLocal) { try { Remove-Variable -Name partitionKeyLocal } catch {}}
-    if ($rowKeyLocal) { try { Remove-Variable -Name rowKeyLocal } catch {}}
-    if ($tineTaskStatusRef) { try { Remove-Variable -Name tineTaskStatusRef } catch {}}
-    if ($list) { try { Remove-Variable -Name list } catch {}}
-    if ($query) { try { Remove-Variable -Name query } catch {}}
+    if ($tineTaskStatusRefForUpdate) { try { Remove-Variable -Scope:Script -Name tineTaskStatusRefForUpdate } catch {}}
+    if ($script:tableTineTaskStatusRef) { try { Remove-Variable -Scope:Script -Name tableTineTaskStatusRef } catch {}}
+    if ($partitionKeyLocal) { try { Remove-Variable -Scope:Script -Name partitionKeyLocal } catch {}}
+    if ($rowKeyLocal) { try { Remove-Variable -Scope:Script -Name rowKeyLocal } catch {}}
+    if ($tineTaskStatusRef) { try { Remove-Variable -Scope:Script -Name tineTaskStatusRef } catch {}}
+    if ($script:list) { try { Remove-Variable -Scope:Script -Name list } catch {}}
+    if ($script:query) { try { Remove-Variable -Scope:Script -Name query } catch {}}
 }
 #endregion
 ##################################################################################################################
-$taskName = 'delete from tine_task_status_ref'
+$script:taskName = 'delete from tine_task_status_ref'
 #region
 ##################################################################################################################
 try {
     if ($delete) {
         # log
-        $answer = 'yes'
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $taskName
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doStep) { $answer = Read-Host -Prompt ( $taskLine ) }
-        elseif ($doEcho) { Write-Host ( $taskLine ) }
+        $script:answer = 'yes'
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $script:taskName
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doStep) { $script:answer = Read-Host -Prompt ( $script:taskLine ) }
+        elseif ($doEcho) { Write-Host ( $script:taskLine ) }
 
-        if ($answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
+        if ($script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
             # connect and validate table
-            $storageContext = New-AzureStorageContext -ConnectionString $storageConnectionString
+            $script:storageContext = New-AzureStorageContext -ConnectionString $script:storageConnectionString
 
-            $tableTineTaskStatusRef = Get-AzureStorageTable -Context $storageContext -Name 'tineTaskStatusRef' -ErrorAction SilentlyContinue
+            $script:tableTineTaskStatusRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTaskStatusRef' -ErrorAction SilentlyContinue
 
-            if ( $tableTineTaskStatusRef -eq $null ) {
+            if ( $script:tableTineTaskStatusRef -eq $null ) {
                 # log
-                $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_status_ref table does not exist, please rerun with -create'
-                $htmlLog = $htmlLog + $taskLine + '<br>'
-                if ($doEcho) { Write-Host ( $taskLine ) }
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_status_ref table does not exist, please rerun with -create'
+                $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+                if ($doEcho) { Write-Host ( $script:taskLine ) }
                 $doDevelopment = $false; $doTest = $false
             } else {
                 # select all rows
-                $query = New-Object Microsoft.WindowsAzure.Storage.Table.TableQuery
-                $list = New-Object System.Collections.Generic.List[string]
+                $script:query = New-Object Microsoft.WindowsAzure.Storage.Table.TableQuery
+                $script:list = New-Object System.Collections.Generic.List[string]
 
-                $list.Add( 'tine_task_status_rcd' )
+                $script:list.Add( 'tine_task_status_rcd' )
 
-                $query.FilterString = 'tine_task_status_rcd eq '''+ $tineTaskStatusRcd + ''''
-                $query.SelectColumns = $list
-                $query.TakeCount = $takeCount
+                $script:query.FilterString = 'tine_task_status_rcd eq '''+ $tineTaskStatusRcd + ''''
+                $script:query.SelectColumns = $script:list
+                $script:query.TakeCount = $takeCount
 
                 # execute select
                 if (!$whatIf) {
-                    $tineTaskStatusRefForDelete = $tableTineTaskStatusRef.CloudTable.ExecuteQuery($query)
+                    $tineTaskStatusRefForDelete = $script:tableTineTaskStatusRef.CloudTable.ExecuteQuery($script:query)
                 }
 
                 # delete selected rows
                 foreach ( $tineTaskStatusRefItem in $tineTaskStatusRefForDelete ) {
-                    $tableTineTaskStatusRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Delete($tineTaskStatusRefItem)) | Out-Null
+                    $script:tableTineTaskStatusRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Delete($tineTaskStatusRefItem)) | Out-Null
                 }
             }
         }
         # log
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $taskName
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $script:taskName
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) }
     }
 } catch [Exception] {
     if ($rethrow) {
-        Write-Host ($taskName + ' ' + 'Exception; ' + $_.Exception.Message)
-        try { Set-Location $startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $taskName)
+        Write-Host ($script:taskName + ' ' + 'Exception; ' + $_.Exception.Message)
+        try { Set-Location $script:startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $script:taskName)
     } else {
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) -ForegroundColor Red }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $script:taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Red }
     }
 } finally {
-    if ($list) { try { Remove-Variable -Name list } catch {}}
-    if ($query) { try { Remove-Variable -Name query } catch {}}
-    if ($tineTaskStatusRefForDelete) { try { Remove-Variable -Name tineTaskStatusRefForDelete } catch {}}
-    if ($tineTaskStatusRefItem) { try { Remove-Variable -Name tineTaskStatusRefItem } catch {}}
-    if ($tableTineTaskStatusRef) { try { Remove-Variable -Name tableTineTaskStatusRef } catch {}}
+    if ($script:list) { try { Remove-Variable -Scope:Script -Name list } catch {}}
+    if ($script:query) { try { Remove-Variable -Scope:Script -Name query } catch {}}
+    if ($tineTaskStatusRefForDelete) { try { Remove-Variable -Scope:Script -Name tineTaskStatusRefForDelete } catch {}}
+    if ($tineTaskStatusRefItem) { try { Remove-Variable -Scope:Script -Name tineTaskStatusRefItem } catch {}}
+    if ($script:tableTineTaskStatusRef) { try { Remove-Variable -Scope:Script -Name tableTineTaskStatusRef } catch {}}
 }
 #endregion
 ##################################################################################################################
-$taskName = 'fetch value from tine_task_status_ref'
+$script:taskName = 'fetch value from tine_task_status_ref'
 #region
 ##################################################################################################################
 try {
     if ($fetchValue -ne '') {
         # log
-        $answer = 'yes'
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $taskName
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doStep) { $answer = Read-Host -Prompt ( $taskLine ) }
-        elseif ($doEcho) { Write-Host ( $taskLine ) }
+        $script:answer = 'yes'
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $script:taskName
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doStep) { $script:answer = Read-Host -Prompt ( $script:taskLine ) }
+        elseif ($doEcho) { Write-Host ( $script:taskLine ) }
 
-        if ($answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
+        if ($script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
             # connect and validate table
-            $storageContext = New-AzureStorageContext -ConnectionString $storageConnectionString
+            $script:storageContext = New-AzureStorageContext -ConnectionString $script:storageConnectionString
 
             if ( !$whatIf ) {
-                $tableTineTaskStatusRef = Get-AzureStorageTable -Context $storageContext -Name 'tineTaskStatusRef' -ErrorAction SilentlyContinue
+                $script:tableTineTaskStatusRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTaskStatusRef' -ErrorAction SilentlyContinue
             }
 
-            if ( $tableTineTaskStatusRef -eq $null -and !$whatIf ) {
+            if ( $script:tableTineTaskStatusRef -eq $null -and !$whatIf ) {
                 # log
-                $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_status_ref table does not exist, please rerun with -create'
-                $htmlLog = $htmlLog + $taskLine + '<br>'
-                if ($doEcho) { Write-Host ( $taskLine ) }
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_status_ref table does not exist, please rerun with -create'
+                $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+                if ($doEcho) { Write-Host ( $script:taskLine ) }
                 $doDevelopment = $false; $doTest = $false
             } else {
-                $query = New-Object Microsoft.WindowsAzure.Storage.Table.TableQuery
-                $list = New-Object System.Collections.Generic.List[string]
+                $script:query = New-Object Microsoft.WindowsAzure.Storage.Table.TableQuery
+                $script:list = New-Object System.Collections.Generic.List[string]
 
-                $list.Add( $fetchValue )
+                $script:list.Add( $fetchValue )
 
                 # filter tineTaskStatusRcd ( primary key )
-                if ($tineTaskStatusRcd -ne  [TineTaskStatusRefData]::new().tineTaskStatusRcd) {
-                    if ($query.FilterString -ne $null) { $query.FilterString += ' and ' }
-                    $query.FilterString += 'tine_task_status_rcd eq '''+ $tineTaskStatusRcd + ''''
+                if ($PSBoundParameters.ContainsKey('tineTaskStatusRcd')) {
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                    $script:query.FilterString += 'tine_task_status_rcd eq '''+ $tineTaskStatusRcd + ''''
+                }
+
+                # filter tineTaskStatusRcd ( string column )
+                if ($PSBoundParameters.ContainsKey('tineTaskStatusRcd')) {
+                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                    $script:query.FilterString += 'tine_task_status_rcd eq '''+ $tineTaskStatusRcd + ''''
+                }
+
+                # filter tineTaskStatusRefPartitionKey ( string column )
+                if ($PSBoundParameters.ContainsKey('tineTaskStatusRefPartitionKey')) {
+                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                    $script:query.FilterString += 'tine_task_status_ref_partition_key eq '''+ $tineTaskStatusRefPartitionKey + ''''
+                }
+
+                # filter tineTaskStatusRefRowKey ( string column )
+                if ($PSBoundParameters.ContainsKey('tineTaskStatusRefRowKey')) {
+                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                    $script:query.FilterString += 'tine_task_status_ref_row_key eq '''+ $tineTaskStatusRefRowKey + ''''
+                }
+
+                # filter tineTaskStatusName ( string column )
+                if ($PSBoundParameters.ContainsKey('tineTaskStatusName')) {
+                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                    $script:query.FilterString += 'tine_task_status_name eq '''+ $tineTaskStatusName + ''''
                 }
 
                 # log
-                $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + $query.FilterString
-                $htmlLog = $htmlLog + $taskLine + '<br>'
-                if ($doEcho) { Write-Host ( $taskLine ) }
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + $script:query.FilterString
+                $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+                if ($doEcho) { Write-Host ( $script:taskLine ) }
 
-                $query.SelectColumns = $list
-                $query.TakeCount = $takeCount
+                $script:query.SelectColumns = $script:list
+                $script:query.TakeCount = $takeCount
 
                 # execute select
                 if (!$whatIf) {
-                    $tineTaskStatusRef = $tableTineTaskStatusRef.CloudTable.ExecuteQuery($query)
+                    $tineTaskStatusRef = $script:tableTineTaskStatusRef.CloudTable.ExecuteQuery($script:query)
                 }
 
                 # get value
@@ -897,327 +1019,327 @@ try {
                     $outValue = $tineTaskStatusRef[0].Properties[$fetchValue].PropertyAsObject
 
                     # log
-                    $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + $fetchValue + '=' + '[' + $outValue + ']'
-                    $htmlLog = $htmlLog + $taskLine + '<br>'
-                    if ($doEcho) { Write-Host ( $taskLine ) }
+                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + $fetchValue + '=' + '[' + $outValue + ']'
+                    $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+                    if ($doEcho) { Write-Host ( $script:taskLine ) }
                 }
             }
         }
         # log
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $taskName
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $script:taskName
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) }
     }
 } catch [Exception] {
     if ($rethrow) {
-        Write-Host ($taskName + ' ' + 'Exception; ' + $_.Exception.Message)
-        try { Set-Location $startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $taskName)
+        Write-Host ($script:taskName + ' ' + 'Exception; ' + $_.Exception.Message)
+        try { Set-Location $script:startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $script:taskName)
     } else {
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) -ForegroundColor Red }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $script:taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Red }
     }
 } finally {
-    if ($list) { try { Remove-Variable -Name list } catch {}}
-    if ($query) { try { Remove-Variable -Name query } catch {}}
-    if ($tineTaskStatusRef) { try { Remove-Variable -Name tineTaskStatusRef } catch {}}
-    if ($tableTineTaskStatusRef) { try { Remove-Variable -Name tableTineTaskStatusRef } catch {}}
+    if ($script:list) { try { Remove-Variable -Scope:Script -Name list } catch {}}
+    if ($script:query) { try { Remove-Variable -Scope:Script -Name query } catch {}}
+    if ($tineTaskStatusRef) { try { Remove-Variable -Scope:Script -Name tineTaskStatusRef } catch {}}
+    if ($script:tableTineTaskStatusRef) { try { Remove-Variable -Scope:Script -Name tableTineTaskStatusRef } catch {}}
 }
 #endregion
 ##################################################################################################################
-$taskName = 'delete all from tine_task_status_ref'
+$script:taskName = 'delete all from tine_task_status_ref'
 #region
 ##################################################################################################################
 try {
     if ($deleteAll) {
         # log
-        $answer = 'yes'
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $taskName
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doStep) { $answer = Read-Host -Prompt ( $taskLine ) }
-        elseif ($doEcho) { Write-Host ( $taskLine ) }
+        $script:answer = 'yes'
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $script:taskName
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doStep) { $script:answer = Read-Host -Prompt ( $script:taskLine ) }
+        elseif ($doEcho) { Write-Host ( $script:taskLine ) }
 
-        if ($answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
+        if ($script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
             # connect and validate table
-            $storageContext = New-AzureStorageContext -ConnectionString $storageConnectionString
+            $script:storageContext = New-AzureStorageContext -ConnectionString $script:storageConnectionString
 
-            $tableTineTaskStatusRef = Get-AzureStorageTable -Context $storageContext -Name 'tineTaskStatusRef' -ErrorAction SilentlyContinue
+            $script:tableTineTaskStatusRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTaskStatusRef' -ErrorAction SilentlyContinue
 
-            if ( $tableTineTaskStatusRef -eq $null ) {
+            if ( $script:tableTineTaskStatusRef -eq $null ) {
                 # log
-                $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_status_ref table does not exist, please rerun with -create'
-                $htmlLog = $htmlLog + $taskLine + '<br>'
-                if ($doEcho) { Write-Host ( $taskLine ) }
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_status_ref table does not exist, please rerun with -create'
+                $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+                if ($doEcho) { Write-Host ( $script:taskLine ) }
                 $doDevelopment = $false; $doTest = $false
             } else {
                 # select all rows
-                $query = New-Object Microsoft.WindowsAzure.Storage.Table.TableQuery
-                $list = New-Object System.Collections.Generic.List[string]
+                $script:query = New-Object Microsoft.WindowsAzure.Storage.Table.TableQuery
+                $script:list = New-Object System.Collections.Generic.List[string]
 
-                $list.Add( 'tine_task_status_rcd' )
+                $script:list.Add( 'tine_task_status_rcd' )
 
-                $query.SelectColumns = $list
-                $query.TakeCount = $takeCount
+                $script:query.SelectColumns = $script:list
+                $script:query.TakeCount = $takeCount
 
                 # execute select
                 if (!$whatIf) {
-                    $tineTaskStatusRefForDelete = $tableTineTaskStatusRef.CloudTable.ExecuteQuery($query)
+                    $tineTaskStatusRefForDelete = $script:tableTineTaskStatusRef.CloudTable.ExecuteQuery($script:query)
                 }
 
                 # delete selected rows
                 foreach ( $tineTaskStatusRefItem in $tineTaskStatusRefForDelete ) {
-                    $tableTineTaskStatusRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Delete($tineTaskStatusRefItem)) | Out-Null
+                    $script:tableTineTaskStatusRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Delete($tineTaskStatusRefItem)) | Out-Null
                 }
             }
         }
         # log
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $taskName
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $script:taskName
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) }
     }
 } catch [Exception] {
     if ($rethrow) {
-        Write-Host ($taskName + ' ' + 'Exception; ' + $_.Exception.Message)
-        try { Set-Location $startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $taskName)
+        Write-Host ($script:taskName + ' ' + 'Exception; ' + $_.Exception.Message)
+        try { Set-Location $script:startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $script:taskName)
     } else {
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) -ForegroundColor Red }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $script:taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Red }
     }
 } finally {
-    if ($list) { try { Remove-Variable -Name list } catch {}}
-    if ($query) { try { Remove-Variable -Name query } catch {}}
-    if ($tineTaskStatusRefForDelete) { try { Remove-Variable -Name tineTaskStatusRefForDelete } catch {}}
-    if ($tineTaskStatusRefItem) { try { Remove-Variable -Name tineTaskStatusRefItem } catch {}}
-    if ($tableTineTaskStatusRef) { try { Remove-Variable -Name tableTineTaskStatusRef } catch {}}
+    if ($script:list) { try { Remove-Variable -Scope:Script -Name list } catch {}}
+    if ($script:query) { try { Remove-Variable -Scope:Script -Name query } catch {}}
+    if ($tineTaskStatusRefForDelete) { try { Remove-Variable -Scope:Script -Name tineTaskStatusRefForDelete } catch {}}
+    if ($tineTaskStatusRefItem) { try { Remove-Variable -Scope:Script -Name tineTaskStatusRefItem } catch {}}
+    if ($script:tableTineTaskStatusRef) { try { Remove-Variable -Scope:Script -Name tableTineTaskStatusRef } catch {}}
 }
 #endregion
 ##################################################################################################################
-$taskName = 'show tine_task_status_ref'
+$script:taskName = 'show tine_task_status_ref'
 #region
 ##################################################################################################################
 try {
     if ($show) {
         # log
-        $answer = 'yes'
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $taskName
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doStep) { $answer = Read-Host -Prompt ( $taskLine ) }
-        elseif ($doEcho) { Write-Host ( $taskLine ) }
+        $script:answer = 'yes'
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $script:taskName
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doStep) { $script:answer = Read-Host -Prompt ( $script:taskLine ) }
+        elseif ($doEcho) { Write-Host ( $script:taskLine ) }
 
-        if ($answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
+        if ($script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
             # connect and validate table
-            $storageContext = New-AzureStorageContext -ConnectionString $storageConnectionString
+            $script:storageContext = New-AzureStorageContext -ConnectionString $script:storageConnectionString
 
-            $tableTineTaskStatusRef = Get-AzureStorageTable -Context $storageContext -Name 'tineTaskStatusRef' -ErrorAction SilentlyContinue
+            $script:tableTineTaskStatusRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTaskStatusRef' -ErrorAction SilentlyContinue
 
-            if ( $tableTineTaskStatusRef -eq $null ) {
+            if ( $script:tableTineTaskStatusRef -eq $null ) {
                 # log
-                $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_status_ref table does not exist, please rerun with -create'
-                $htmlLog = $htmlLog + $taskLine + '<br>'
-                if ($doEcho) { Write-Host ( $taskLine ) }
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_status_ref table does not exist, please rerun with -create'
+                $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+                if ($doEcho) { Write-Host ( $script:taskLine ) }
                 $doDevelopment = $false; $doTest = $false
             } else {
                 # select all rows
-                $query = New-Object Microsoft.WindowsAzure.Storage.Table.TableQuery
-                $list = New-Object System.Collections.Generic.List[string]
+                $script:query = New-Object Microsoft.WindowsAzure.Storage.Table.TableQuery
+                $script:list = New-Object System.Collections.Generic.List[string]
 
-                $list.Add( 'tine_task_status_rcd' )
-                $list.Add( 'tine_task_status_name' )
-                $list.Add( 'user_id' )
-                $list.Add( 'date_time' )
-                $list.Add( 'tine_task_status_ref_partition_key' )
-                $list.Add( 'tine_task_status_ref_row_key' )
+                $script:list.Add( 'tine_task_status_rcd' )
+                $script:list.Add( 'tine_task_status_ref_partition_key' )
+                $script:list.Add( 'tine_task_status_ref_row_key' )
+                $script:list.Add( 'tine_task_status_name' )
+                $script:list.Add( 'user_id' )
+                $script:list.Add( 'date_time' )
 
-                $query.SelectColumns = $list
-                $query.TakeCount = $takeCount
+                $script:query.SelectColumns = $script:list
+                $script:query.TakeCount = $takeCount
 
                 # execute select
                 if (!$whatIf) {
-                    $tineTaskStatusRef = $tableTineTaskStatusRef.CloudTable.ExecuteQuery($query)
+                    $tineTaskStatusRef = $script:tableTineTaskStatusRef.CloudTable.ExecuteQuery($script:query)
                 }
 
                 # echo
-                [string] $output = ''
-                $output = $tineTaskStatusRef `
+                [string] $script:output = ''
+                $script:output = $tineTaskStatusRef `
                     | Format-Table PartitionKey, RowKey, `
                     @{ Label = 'Tine Task Status'; Expression={$_.Properties['tine_task_status_rcd'].StringValue} },`
+                    @{ Label = 'Tine Task Status Ref Partition Key'; Expression={$_.Properties['tine_task_status_ref_partition_key'].StringValue} },`
+                    @{ Label = 'Tine Task Status Ref Row Key'; Expression={$_.Properties['tine_task_status_ref_row_key'].StringValue} },`
                     @{ Label = 'Tine Task Status Name'; Expression={$_.Properties['tine_task_status_name'].StringValue} },`
                     @{ Label = 'User Id'; Expression={$_.Properties['user_id'].GuidValue} },`
-                    @{ Label = 'Date Time'; Expression={$_.Properties['date_time'].StringValue} },`
-                    @{ Label = 'Tine Task Status Ref Partition Key'; Expression={$_.Properties['tine_task_status_ref_partition_key'].StringValue} },`
-                    @{ Label = 'Tine Task Status Ref Row Key'; Expression={$_.Properties['tine_task_status_ref_row_key'].StringValue} } `
+                    @{ Label = 'Date Time'; Expression={$_.Properties['date_time'].StringValue} } `
                     -AutoSize `
                     | Out-String;
 
                 # log
-                if ($output -ne '') {
-                    $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + $output
+                if ($script:output -ne '') {
+                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + $script:output
                 } else {
-                    $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'no result for ' + 'tine_task_status_ref' #+ ': ' + $query.FilterString
+                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'no result for ' + 'tine_task_status_ref' #+ ': ' + $script:query.FilterString
                 }
-                $htmlLog = $htmlLog + $taskLine + '<br>'
-                if ($doEcho) { Write-Host ( $taskLine ) }
+                $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+                if ($doEcho) { Write-Host ( $script:taskLine ) }
             }
         }
         # log
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $taskName
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $script:taskName
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) }
     }
 } catch [Exception] {
     if ($rethrow) {
-        Write-Host ($taskName + ' ' + 'Exception; ' + $_.Exception.Message)
-        try { Set-Location $startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $taskName)
+        Write-Host ($script:taskName + ' ' + 'Exception; ' + $_.Exception.Message)
+        try { Set-Location $script:startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $script:taskName)
     } else {
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) -ForegroundColor Red }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $script:taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Red }
     }
 } finally {
-    if ($output) { try { Remove-Variable -Name output } catch {}}
-    if ($list) { try { Remove-Variable -Name list } catch {}}
-    if ($query) { try { Remove-Variable -Name query } catch {}}
-    if ($tineTaskStatusRef) { try { Remove-Variable -Name tineTaskStatusRef } catch {}}
-    if ($tableTineTaskStatusRef) { try { Remove-Variable -Name tableTineTaskStatusRef } catch {}}
-    if ($storageContext) { try { Remove-Variable -Name storageContext } catch {}}
+    if ($script:output) { try { Remove-Variable -Scope:Script -Name output } catch {}}
+    if ($script:list) { try { Remove-Variable -Scope:Script -Name list } catch {}}
+    if ($script:query) { try { Remove-Variable -Scope:Script -Name query } catch {}}
+    if ($tineTaskStatusRef) { try { Remove-Variable -Scope:Script -Name tineTaskStatusRef } catch {}}
+    if ($script:tableTineTaskStatusRef) { try { Remove-Variable -Scope:Script -Name tableTineTaskStatusRef } catch {}}
+    if ($script:storageContext) { try { Remove-Variable -Scope:Script -Name storageContext } catch {}}
 }
 #endregion
 ##################################################################################################################
-$taskName = 'drop tine_task_status_ref'
+$script:taskName = 'drop tine_task_status_ref'
 #region
 ##################################################################################################################
 try {
     if ($drop) {
         # log
-        $answer = 'yes'
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $taskName
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doStep) { $answer = Read-Host -Prompt ( $taskLine ) }
-        elseif ($doEcho) { Write-Host ( $taskLine ) }
+        $script:answer = 'yes'
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $script:taskName
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doStep) { $script:answer = Read-Host -Prompt ( $script:taskLine ) }
+        elseif ($doEcho) { Write-Host ( $script:taskLine ) }
 
-        if ($answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
-            $storageContext = New-AzureStorageContext -ConnectionString $storageConnectionString
+        if ($script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
+            $script:storageContext = New-AzureStorageContext -ConnectionString $script:storageConnectionString
 
-            $tableTineTaskStatusRef = Get-AzureStorageTable -Context $storageContext -Name 'tineTaskStatusRef' -ErrorAction SilentlyContinue
+            $script:tableTineTaskStatusRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTaskStatusRef' -ErrorAction SilentlyContinue
 
-            if ( $tableTineTaskStatusRef -eq $null ) {
+            if ( $script:tableTineTaskStatusRef -eq $null ) {
                 # log
-                $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_status_ref table does not exist, please rerun with -create'
-                $htmlLog = $htmlLog + $taskLine + '<br>'
-                if ($doEcho) { Write-Host ( $taskLine ) }
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_status_ref table does not exist, please rerun with -create'
+                $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+                if ($doEcho) { Write-Host ( $script:taskLine ) }
                 $doDevelopment = $false; $doTest = $false
             } else {
-                Remove-AzureStorageTable -Context $storageContext -Name 'tineTaskStatusRef' -Force
+                Remove-AzureStorageTable -Context $script:storageContext -Name 'tineTaskStatusRef' -Force
             }
         }
         # log
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $taskName
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $script:taskName
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) }
     }
 } catch [Exception] {
     if ($rethrow) {
-        Write-Host ($taskName + ' ' + 'Exception; ' + $_.Exception.Message)
-        try { Set-Location $startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $taskName)
+        Write-Host ($script:taskName + ' ' + 'Exception; ' + $_.Exception.Message)
+        try { Set-Location $script:startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $script:taskName)
     } else {
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) -ForegroundColor Red }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $script:taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Red }
     }
 } finally {
-    if ($tableTineTaskStatusRef) { try { Remove-Variable -Name tableTineTaskStatusRef } catch {}}
-    if ($storageContext) { try { Remove-Variable -Name storageContext } catch {}}
+    if ($script:tableTineTaskStatusRef) { try { Remove-Variable -Scope:Script -Name tableTineTaskStatusRef } catch {}}
+    if ($script:storageContext) { try { Remove-Variable -Scope:Script -Name storageContext } catch {}}
 }
 #endregion
 ##################################################################################################################
-$taskName = 'mail status'
+$script:taskName = 'mail status'
 #region
 ##################################################################################################################
 try {
-    $answer = 'yes'
+    $script:answer = 'yes'
 
     # log
-    $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $taskName
-    $htmlLog = $htmlLog + $taskLine + '<br>'
-    if ($doStep) { $answer = Read-Host -Prompt ( $taskLine ) }
-    elseif ($doEcho) { Write-Host ( $taskLine ) }
+    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $script:taskName
+    $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+    if ($doStep) { $script:answer = Read-Host -Prompt ( $script:taskLine ) }
+    elseif ($doEcho) { Write-Host ( $script:taskLine ) }
 
-    if ($sendMail -and $answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x -or $mailAnyway)) {
-        $SMTPClient = New-Object System.Net.Mail.SmtpClient
-        $SMTPClient.Port = 25 # 587
-        $SMTPClient.Host = 'smtp.live.com'
-        $SMTPClient.EnableSsl = $true
-        $SMTPClient.Timeout = 10000;
-        $SMTPClient.DeliveryMethod = ([System.Net.Mail.SmtpDeliveryMethod]::Network)
-        $SMTPClient.UseDefaultCredentials = $false
+    if ($sendMail -and $script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x -or $script:mailAnyway)) {
+        $script:SMTPClient = New-Object System.Net.Mail.SmtpClient
+        $script:SMTPClient.Port = 25 # 587
+        $script:SMTPClient.Host = 'smtp.live.com'
+        $script:SMTPClient.EnableSsl = $true
+        $script:SMTPClient.Timeout = 10000;
+        $script:SMTPClient.DeliveryMethod = ([System.Net.Mail.SmtpDeliveryMethod]::Network)
+        $script:SMTPClient.UseDefaultCredentials = $false
 
-        $SMTPClient.Credentials = New-Object System.Net.NetworkCredential( `
+        $script:SMTPClient.Credentials = New-Object System.Net.NetworkCredential( `
             'xxx' , `
             'xxx' `
             );
 
-        $emailMessage = New-Object System.Net.Mail.MailMessage
-        $emailMessage.From = 'xxx'
-        $emailMessage.To.Add('xxx')
-        $emailMessage.Subject = ($env:ComputerName + ' : ' + $MyInvocation.MyCommand.Name)
-        $emailMessage.Body = $htmlLog
-        $emailMessage.IsBodyHtml = $true
-        $emailMessage.BodyEncoding = ([System.Text.UTF8Encoding]::UTF8)
-        $emailMessage.DeliveryNotificationOptions = ([System.Net.Mail.DeliveryNotificationOptions]::OnFailure)
+        $script:emailMessage = New-Object System.Net.Mail.MailMessage
+        $script:emailMessage.From = 'xxx'
+        $script:emailMessage.To.Add('xxx')
+        $script:emailMessage.Subject = ($env:ComputerName + ' : ' + $MyInvocation.MyCommand.Name)
+        $script:emailMessage.Body = $script:htmlLog
+        $script:emailMessage.IsBodyHtml = $true
+        $script:emailMessage.BodyEncoding = ([System.Text.UTF8Encoding]::UTF8)
+        $script:emailMessage.DeliveryNotificationOptions = ([System.Net.Mail.DeliveryNotificationOptions]::OnFailure)
 
-        $SMTPClient.Send( $emailMessage )
-        $SMTPClient.Dispose()
+        $script:SMTPClient.Send( $script:emailMessage )
+        $script:SMTPClient.Dispose()
     }
 
     # log
-    $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $taskName
-    $htmlLog = $htmlLog + $taskLine + '<br>'
-    if ($doEcho) { Write-Host ( $taskLine ) }
+    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'end:' + ' ' + $script:taskName
+    $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+    if ($doEcho) { Write-Host ( $script:taskLine ) }
 } catch [Exception] {
     if ($rethrow) {
-        Write-Host ($taskName + ' ' + 'Exception; ' + $_.Exception.Message)
-        try { Set-Location $startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $taskName)
+        Write-Host ($script:taskName + ' ' + 'Exception; ' + $_.Exception.Message)
+        try { Set-Location $script:startupDirectory } catch { }; throw [Exception] ('Failed to; ' + $script:taskName)
     } else {
-        $taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
-        $htmlLog = $htmlLog + $taskLine + '<br>'
-        if ($doEcho) { Write-Host ( $taskLine ) -ForegroundColor Red }
+        $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + ('Exception:' + ' ' + $script:taskName + ' ' + '[' +  $_.Exception.Message + ']' + ' ' + 'Line:[' + $_.InvocationInfo.ScriptLineNumber + ']')
+        $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+        if ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Red }
     }
 } finally {
-    if ($SMTPClient) { try { Remove-Variable -Name SMTPClient } catch {} }
-    if ($emailMessage) { try { Remove-Variable -Name emailMessage } catch {} }
+    if ($script:SMTPClient) { try { Remove-Variable -Scope:Script -Name SMTPClient } catch {} }
+    if ($script:emailMessage) { try { Remove-Variable -Scope:Script -Name emailMessage } catch {} }
 }
 #endregion
 ##################################################################################################################
-$taskName = 'end script:'
+$script:taskName = 'end script:'
 #region
 ##################################################################################################################
 $dateTimeStop = [System.DateTime]::UtcNow
-$taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + $taskName `
+$script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + $script:taskName `
     + ' ' + '[' + $MyInvocation.MyCommand.Name `
     + ' ' + $MyInvocation.MyCommand.Arguments + ']' `
     + ' ' + 'from' + ' ' + '[' + $dateTimeStart + ']' `
     + ' ' + 'to' + ' ' + '[' + $dateTimeStop  + ']'
-$htmlLog = $htmlLog + $taskLine + '<br>'
-if ($doEcho) { Write-Host ( $taskLine ) }
+$script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
+if ($doEcho) { Write-Host ( $script:taskLine ) }
 #endregion
 ##################################################################################################################
-$taskName = 'cleanup'
+$script:taskName = 'cleanup'
 #region
 ##################################################################################################################
-if ($storageConnectionString) { try { Remove-Variable -Name storageConnectionString } catch {}}
+if ($script:storageConnectionString) { try { Remove-Variable -Scope:Script -Name storageConnectionString } catch {}}
+if ($script:startupDirectory) { try { Remove-Variable -Scope:Script -Name startupDirectory } catch {} }
+if ($script:tineTaskStatusRefData) { try { Remove-Variable -Scope:Script -Name tineTaskStatusRefData } catch {} }
 
-if ($startupDirectory) { try { Remove-Variable -Name startupDirectory } catch {} }
+if ($script:mailAnyway) { try { Remove-Variable -Scope:Script -Name mailAnyway } catch {} }
+if ($script:answer) { try { Remove-Variable -Scope:Script -Name answer } catch {} }
+if ($script:taskLine) { try { Remove-Variable -Scope:Script -Name taskLine } catch {} }
+if ($script:taskName) { try { Remove-Variable -Scope:Script -Name taskName } catch {} }
 
-if ($mailAnyway) { try { Remove-Variable -Name mailAnyway } catch {} }
-if ($answer) { try { Remove-Variable -Name answer } catch {} }
-if ($taskLine) { try { Remove-Variable -Name taskLine } catch {} }
-if ($taskName) { try { Remove-Variable -Name taskName } catch {} }
-
-if ($returnHtml -and $htmlLog) {
-    try { $htmlLog; Remove-Variable -Name htmlLog; return } catch {} }
-elseif ($htmlLog) {
-    try { Remove-Variable -Name htmlLog } catch {} }
+if ($returnHtml -and $script:htmlLog) {
+    try { $script:htmlLog; Remove-Variable -Scope:Script -Name htmlLog; return } catch {} }
+elseif ($script:htmlLog) {
+    try { Remove-Variable -Scope:Script -Name htmlLog } catch {} }
 #endregion
 
 if ($returnValue) {
@@ -1225,13 +1347,13 @@ if ($returnValue) {
 }
 
 if ($returnJson) {
-    $outputJson
+    ConvertTo-Json -InputObject $script:tineTaskStatusRefDataList
 }
 
 if ($returnObject) {
-    $tineTaskStatusRefData
+    $script:tineTaskStatusRefDataList
 }
 
 if ($returnGridView) {
-    $tineTaskStatusRefData | Out-GridView
+    $script:tineTaskStatusRefDataList | Out-GridView
 }
