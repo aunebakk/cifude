@@ -1,7 +1,7 @@
 # SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 9/30/2018 3:03:38 PM
+# Generated Date: 10/2/2018 3:34:49 AM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 <#
 .\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -create
@@ -27,7 +27,7 @@ param(
 
     [DateTime]$dateTimeStart = [System.DateTime]::UtcNow,
     [DateTime]$dateTimeStop = [System.DateTime]::UtcNow,
-    [DateTime]$createdDateTime = '2018.09.30',
+    [DateTime]$createdDateTime = '2018.10.02',
     [DateTime]$updateDateTime = '0001.01.01',
 
     [switch]$doDevelopment = $false,
@@ -85,10 +85,13 @@ $script:taskName = 'locals'
 $script:taskName = 'injection'
 #region
 ##################################################################################################################
-# [switch]$doSql2x = $true
-# [switch]$doEcho = $true
-# 
-# [string]$comment = 'dev'
+if (!$PSBoundParameters.ContainsKey('doDevelopment') -and !$PSBoundParameters.ContainsKey('doTest') -and !$PSBoundParameters.ContainsKey('doSql2x'))  {
+    [switch]$doSql2x = $true
+    [switch]$doEcho = $true
+
+    [string]$comment = 'dev'
+    'neither -doDevelopment or -doTest, assuming doSql2x and doEcho'
+}
 #endregion
 ##################################################################################################################
 $script:taskName = 'set startup location'
@@ -160,7 +163,9 @@ if (-not ([System.Management.Automation.PSTypeName]'TineCacheRef').Type) {
    Add-Type -TypeDefinition @"
    public enum TineCacheRef
    {
-    None
+    HitThreshold,
+    None,
+    TineHalt
    }
 "@
 }
@@ -250,7 +255,7 @@ try {
         $script:taskLine = "# SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 9/30/2018 3:03:38 PM
+# Generated Date: 10/2/2018 3:34:49 AM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 <#
 .\tine_task_status_ref.ps1 -doEcho       -doSql2x -comment test -create
