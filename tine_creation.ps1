@@ -1,7 +1,7 @@
 # SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 10/2/2018 3:34:46 AM
+# Generated Date: 10/10/2018 2:46:40 AM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 <#
 .\tine_creation.ps1 -doEcho       -doSql2x -comment test -create
@@ -27,7 +27,7 @@ param(
 
     [DateTime]$dateTimeStart = [System.DateTime]::UtcNow,
     [DateTime]$dateTimeStop = [System.DateTime]::UtcNow,
-    [DateTime]$createdDateTime = '2018.10.02',
+    [DateTime]$createdDateTime = '2018.10.10',
     [DateTime]$updateDateTime = '0001.01.01',
 
     [switch]$doDevelopment = $false,
@@ -256,7 +256,7 @@ try {
         $script:taskLine = "# SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 10/2/2018 3:34:46 AM
+# Generated Date: 10/10/2018 2:46:40 AM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 <#
 .\tine_creation.ps1 -doEcho       -doSql2x -comment test -create
@@ -535,26 +535,26 @@ try {
 
                 # filter tineCreationPartitionKeyFixed ( string column )
                 if ($PSBoundParameters.ContainsKey('tineCreationPartitionKeyFixed')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_creation_partition_key_fixed eq '''+ $tineCreationPartitionKeyFixed + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_creation_partition_key_fixed eq '''+ $tineCreationPartitionKeyFixed + ''''
                 }
 
                 # filter tineCreationRowKey ( string column )
                 if ($PSBoundParameters.ContainsKey('tineCreationRowKey')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_creation_row_key eq '''+ $tineCreationRowKey + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_creation_row_key eq '''+ $tineCreationRowKey + ''''
                 }
 
                 # filter tineCreationDisplayName ( string column )
                 if ($PSBoundParameters.ContainsKey('tineCreationDisplayName')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_creation_display_name eq '''+ $tineCreationDisplayName + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_creation_display_name eq '''+ $tineCreationDisplayName + ''''
                 }
 
                 # filter tineCreationBuilderName ( string column )
                 if ($PSBoundParameters.ContainsKey('tineCreationBuilderName')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_creation_builder_name eq '''+ $tineCreationBuilderName + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_creation_builder_name eq '''+ $tineCreationBuilderName + ''''
                 }
 
                 $script:query.SelectColumns = $script:list
@@ -813,26 +813,26 @@ try {
 
                 # filter tineCreationPartitionKeyFixed ( string column )
                 if ($PSBoundParameters.ContainsKey('tineCreationPartitionKeyFixed')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_creation_partition_key_fixed eq '''+ $tineCreationPartitionKeyFixed + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_creation_partition_key_fixed eq '''+ $tineCreationPartitionKeyFixed + ''''
                 }
 
                 # filter tineCreationRowKey ( string column )
                 if ($PSBoundParameters.ContainsKey('tineCreationRowKey')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_creation_row_key eq '''+ $tineCreationRowKey + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_creation_row_key eq '''+ $tineCreationRowKey + ''''
                 }
 
                 # filter tineCreationDisplayName ( string column )
                 if ($PSBoundParameters.ContainsKey('tineCreationDisplayName')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_creation_display_name eq '''+ $tineCreationDisplayName + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_creation_display_name eq '''+ $tineCreationDisplayName + ''''
                 }
 
                 # filter tineCreationBuilderName ( string column )
                 if ($PSBoundParameters.ContainsKey('tineCreationBuilderName')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_creation_builder_name eq '''+ $tineCreationBuilderName + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_creation_builder_name eq '''+ $tineCreationBuilderName + ''''
                 }
 
                 $script:query.SelectColumns = $script:list
@@ -1003,26 +1003,26 @@ try {
 
                 # filter tineCreationPartitionKeyFixed ( string column )
                 if ($PSBoundParameters.ContainsKey('tineCreationPartitionKeyFixed')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_creation_partition_key_fixed eq '''+ $tineCreationPartitionKeyFixed + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_creation_partition_key_fixed eq '''+ $tineCreationPartitionKeyFixed + ''''
                 }
 
                 # filter tineCreationRowKey ( string column )
                 if ($PSBoundParameters.ContainsKey('tineCreationRowKey')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_creation_row_key eq '''+ $tineCreationRowKey + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_creation_row_key eq '''+ $tineCreationRowKey + ''''
                 }
 
                 # filter tineCreationDisplayName ( string column )
                 if ($PSBoundParameters.ContainsKey('tineCreationDisplayName')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_creation_display_name eq '''+ $tineCreationDisplayName + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_creation_display_name eq '''+ $tineCreationDisplayName + ''''
                 }
 
                 # filter tineCreationBuilderName ( string column )
                 if ($PSBoundParameters.ContainsKey('tineCreationBuilderName')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_creation_builder_name eq '''+ $tineCreationBuilderName + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_creation_builder_name eq '''+ $tineCreationBuilderName + ''''
                 }
 
                 # log

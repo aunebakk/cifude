@@ -1,7 +1,7 @@
 # SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 10/2/2018 3:34:47 AM
+# Generated Date: 10/10/2018 2:46:41 AM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 <#
 .\tine_script_run_intelligence.ps1 -doEcho       -doSql2x -comment test -create
@@ -27,7 +27,7 @@ param(
 
     [DateTime]$dateTimeStart = [System.DateTime]::UtcNow,
     [DateTime]$dateTimeStop = [System.DateTime]::UtcNow,
-    [DateTime]$createdDateTime = '2018.10.02',
+    [DateTime]$createdDateTime = '2018.10.10',
     [DateTime]$updateDateTime = '0001.01.01',
 
     [switch]$doDevelopment = $false,
@@ -260,7 +260,7 @@ try {
         $script:taskLine = "# SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 10/2/2018 3:34:47 AM
+# Generated Date: 10/10/2018 2:46:41 AM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 <#
 .\tine_script_run_intelligence.ps1 -doEcho       -doSql2x -comment test -create
@@ -571,44 +571,38 @@ try {
 
                 # filter tineMachineId ( foreign key )
                 if ($PSBoundParameters.ContainsKey('tineMachineId')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_machine_id eq guid'''+ $tineMachineId + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_machine_id eq guid'''+ $tineMachineId + ''''
                 }
 
                 # filter tineCreationId ( foreign key )
                 if ($PSBoundParameters.ContainsKey('tineCreationId')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_creation_id eq guid'''+ $tineCreationId + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_creation_id eq guid'''+ $tineCreationId + ''''
                 }
 
                 # filter tineTaskScriptMachineOutcomeRcd ( foreign key )
                 if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeRcd')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_machine_outcome_rcd eq '''+ $tineTaskScriptMachineOutcomeRcd + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_task_script_machine_outcome_rcd eq '''+ $tineTaskScriptMachineOutcomeRcd + ''''
                 }
 
                 # filter tineScriptRunIntelligencePartitionKey ( string column )
                 if ($PSBoundParameters.ContainsKey('tineScriptRunIntelligencePartitionKey')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_script_run_intelligence_partition_key eq '''+ $tineScriptRunIntelligencePartitionKey + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_script_run_intelligence_partition_key eq '''+ $tineScriptRunIntelligencePartitionKey + ''''
                 }
 
                 # filter tineScriptRunIntelligenceRowKey ( string column )
                 if ($PSBoundParameters.ContainsKey('tineScriptRunIntelligenceRowKey')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_script_run_intelligence_row_key eq '''+ $tineScriptRunIntelligenceRowKey + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_script_run_intelligence_row_key eq '''+ $tineScriptRunIntelligenceRowKey + ''''
                 }
 
                 # filter tineTaskScriptName ( string column )
                 if ($PSBoundParameters.ContainsKey('tineTaskScriptName')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_name eq '''+ $tineTaskScriptName + ''''
-                }
-
-                # filter tineTaskScriptMachineOutcomeRcd ( string column )
-                if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeRcd')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_machine_outcome_rcd eq '''+ $tineTaskScriptMachineOutcomeRcd + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_task_script_name eq '''+ $tineTaskScriptName + ''''
                 }
 
                 $script:query.SelectColumns = $script:list
@@ -907,44 +901,38 @@ try {
 
                 # filter tineMachineId ( foreign key )
                 if ($PSBoundParameters.ContainsKey('tineMachineId')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_machine_id eq guid'''+ $tineMachineId + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_machine_id eq guid'''+ $tineMachineId + ''''
                 }
 
                 # filter tineCreationId ( foreign key )
                 if ($PSBoundParameters.ContainsKey('tineCreationId')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_creation_id eq guid'''+ $tineCreationId + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_creation_id eq guid'''+ $tineCreationId + ''''
                 }
 
                 # filter tineTaskScriptMachineOutcomeRcd ( foreign key )
                 if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeRcd')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_machine_outcome_rcd eq '''+ $tineTaskScriptMachineOutcomeRcd + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_task_script_machine_outcome_rcd eq '''+ $tineTaskScriptMachineOutcomeRcd + ''''
                 }
 
                 # filter tineScriptRunIntelligencePartitionKey ( string column )
                 if ($PSBoundParameters.ContainsKey('tineScriptRunIntelligencePartitionKey')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_script_run_intelligence_partition_key eq '''+ $tineScriptRunIntelligencePartitionKey + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_script_run_intelligence_partition_key eq '''+ $tineScriptRunIntelligencePartitionKey + ''''
                 }
 
                 # filter tineScriptRunIntelligenceRowKey ( string column )
                 if ($PSBoundParameters.ContainsKey('tineScriptRunIntelligenceRowKey')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_script_run_intelligence_row_key eq '''+ $tineScriptRunIntelligenceRowKey + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_script_run_intelligence_row_key eq '''+ $tineScriptRunIntelligenceRowKey + ''''
                 }
 
                 # filter tineTaskScriptName ( string column )
                 if ($PSBoundParameters.ContainsKey('tineTaskScriptName')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_name eq '''+ $tineTaskScriptName + ''''
-                }
-
-                # filter tineTaskScriptMachineOutcomeRcd ( string column )
-                if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeRcd')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_machine_outcome_rcd eq '''+ $tineTaskScriptMachineOutcomeRcd + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_task_script_name eq '''+ $tineTaskScriptName + ''''
                 }
 
                 $script:query.SelectColumns = $script:list
@@ -1119,44 +1107,38 @@ try {
 
                 # filter tineMachineId ( foreign key )
                 if ($PSBoundParameters.ContainsKey('tineMachineId')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_machine_id eq guid'''+ $tineMachineId + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_machine_id eq guid'''+ $tineMachineId + ''''
                 }
 
                 # filter tineCreationId ( foreign key )
                 if ($PSBoundParameters.ContainsKey('tineCreationId')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_creation_id eq guid'''+ $tineCreationId + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_creation_id eq guid'''+ $tineCreationId + ''''
                 }
 
                 # filter tineTaskScriptMachineOutcomeRcd ( foreign key )
                 if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeRcd')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_machine_outcome_rcd eq '''+ $tineTaskScriptMachineOutcomeRcd + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_task_script_machine_outcome_rcd eq '''+ $tineTaskScriptMachineOutcomeRcd + ''''
                 }
 
                 # filter tineScriptRunIntelligencePartitionKey ( string column )
                 if ($PSBoundParameters.ContainsKey('tineScriptRunIntelligencePartitionKey')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_script_run_intelligence_partition_key eq '''+ $tineScriptRunIntelligencePartitionKey + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_script_run_intelligence_partition_key eq '''+ $tineScriptRunIntelligencePartitionKey + ''''
                 }
 
                 # filter tineScriptRunIntelligenceRowKey ( string column )
                 if ($PSBoundParameters.ContainsKey('tineScriptRunIntelligenceRowKey')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_script_run_intelligence_row_key eq '''+ $tineScriptRunIntelligenceRowKey + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_script_run_intelligence_row_key eq '''+ $tineScriptRunIntelligenceRowKey + ''''
                 }
 
                 # filter tineTaskScriptName ( string column )
                 if ($PSBoundParameters.ContainsKey('tineTaskScriptName')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_name eq '''+ $tineTaskScriptName + ''''
-                }
-
-                # filter tineTaskScriptMachineOutcomeRcd ( string column )
-                if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeRcd')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_machine_outcome_rcd eq '''+ $tineTaskScriptMachineOutcomeRcd + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_task_script_name eq '''+ $tineTaskScriptName + ''''
                 }
 
                 # log

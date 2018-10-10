@@ -1,7 +1,7 @@
 # SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 10/2/2018 3:34:46 AM
+# Generated Date: 10/10/2018 2:46:40 AM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 <#
 .\tine_script_library.ps1 -doEcho       -doSql2x -comment test -create
@@ -27,7 +27,7 @@ param(
 
     [DateTime]$dateTimeStart = [System.DateTime]::UtcNow,
     [DateTime]$dateTimeStop = [System.DateTime]::UtcNow,
-    [DateTime]$createdDateTime = '2018.10.02',
+    [DateTime]$createdDateTime = '2018.10.10',
     [DateTime]$updateDateTime = '0001.01.01',
 
     [switch]$doDevelopment = $false,
@@ -257,7 +257,7 @@ try {
         $script:taskLine = "# SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 10/2/2018 3:34:46 AM
+# Generated Date: 10/10/2018 2:46:40 AM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 <#
 .\tine_script_library.ps1 -doEcho       -doSql2x -comment test -create
@@ -571,38 +571,32 @@ try {
 
                 # filter tineScriptReadinessStateRcd ( foreign key )
                 if ($PSBoundParameters.ContainsKey('tineScriptReadinessStateRcd')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_script_readiness_state_rcd eq '''+ $tineScriptReadinessStateRcd + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_script_readiness_state_rcd eq '''+ $tineScriptReadinessStateRcd + ''''
                 }
 
                 # filter tineLibraryPartitionKey ( string column )
                 if ($PSBoundParameters.ContainsKey('tineLibraryPartitionKey')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_library_partition_key eq '''+ $tineLibraryPartitionKey + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_library_partition_key eq '''+ $tineLibraryPartitionKey + ''''
                 }
 
                 # filter tineLibraryRowKey ( string column )
                 if ($PSBoundParameters.ContainsKey('tineLibraryRowKey')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_library_row_key eq '''+ $tineLibraryRowKey + ''''
-                }
-
-                # filter tineScriptReadinessStateRcd ( string column )
-                if ($PSBoundParameters.ContainsKey('tineScriptReadinessStateRcd')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_script_readiness_state_rcd eq '''+ $tineScriptReadinessStateRcd + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_library_row_key eq '''+ $tineLibraryRowKey + ''''
                 }
 
                 # filter tineLibraryScriptName ( string column )
                 if ($PSBoundParameters.ContainsKey('tineLibraryScriptName')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_library_script_name eq '''+ $tineLibraryScriptName + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_library_script_name eq '''+ $tineLibraryScriptName + ''''
                 }
 
                 # filter tineLibraryScriptFileName ( string column )
                 if ($PSBoundParameters.ContainsKey('tineLibraryScriptFileName')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_library_script_file_name eq '''+ $tineLibraryScriptFileName + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_library_script_file_name eq '''+ $tineLibraryScriptFileName + ''''
                 }
 
                 $script:query.SelectColumns = $script:list
@@ -871,38 +865,32 @@ try {
 
                 # filter tineScriptReadinessStateRcd ( foreign key )
                 if ($PSBoundParameters.ContainsKey('tineScriptReadinessStateRcd')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_script_readiness_state_rcd eq '''+ $tineScriptReadinessStateRcd + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_script_readiness_state_rcd eq '''+ $tineScriptReadinessStateRcd + ''''
                 }
 
                 # filter tineLibraryPartitionKey ( string column )
                 if ($PSBoundParameters.ContainsKey('tineLibraryPartitionKey')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_library_partition_key eq '''+ $tineLibraryPartitionKey + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_library_partition_key eq '''+ $tineLibraryPartitionKey + ''''
                 }
 
                 # filter tineLibraryRowKey ( string column )
                 if ($PSBoundParameters.ContainsKey('tineLibraryRowKey')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_library_row_key eq '''+ $tineLibraryRowKey + ''''
-                }
-
-                # filter tineScriptReadinessStateRcd ( string column )
-                if ($PSBoundParameters.ContainsKey('tineScriptReadinessStateRcd')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_script_readiness_state_rcd eq '''+ $tineScriptReadinessStateRcd + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_library_row_key eq '''+ $tineLibraryRowKey + ''''
                 }
 
                 # filter tineLibraryScriptName ( string column )
                 if ($PSBoundParameters.ContainsKey('tineLibraryScriptName')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_library_script_name eq '''+ $tineLibraryScriptName + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_library_script_name eq '''+ $tineLibraryScriptName + ''''
                 }
 
                 # filter tineLibraryScriptFileName ( string column )
                 if ($PSBoundParameters.ContainsKey('tineLibraryScriptFileName')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_library_script_file_name eq '''+ $tineLibraryScriptFileName + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_library_script_file_name eq '''+ $tineLibraryScriptFileName + ''''
                 }
 
                 $script:query.SelectColumns = $script:list
@@ -1074,38 +1062,32 @@ try {
 
                 # filter tineScriptReadinessStateRcd ( foreign key )
                 if ($PSBoundParameters.ContainsKey('tineScriptReadinessStateRcd')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_script_readiness_state_rcd eq '''+ $tineScriptReadinessStateRcd + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_script_readiness_state_rcd eq '''+ $tineScriptReadinessStateRcd + ''''
                 }
 
                 # filter tineLibraryPartitionKey ( string column )
                 if ($PSBoundParameters.ContainsKey('tineLibraryPartitionKey')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_library_partition_key eq '''+ $tineLibraryPartitionKey + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_library_partition_key eq '''+ $tineLibraryPartitionKey + ''''
                 }
 
                 # filter tineLibraryRowKey ( string column )
                 if ($PSBoundParameters.ContainsKey('tineLibraryRowKey')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_library_row_key eq '''+ $tineLibraryRowKey + ''''
-                }
-
-                # filter tineScriptReadinessStateRcd ( string column )
-                if ($PSBoundParameters.ContainsKey('tineScriptReadinessStateRcd')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_script_readiness_state_rcd eq '''+ $tineScriptReadinessStateRcd + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_library_row_key eq '''+ $tineLibraryRowKey + ''''
                 }
 
                 # filter tineLibraryScriptName ( string column )
                 if ($PSBoundParameters.ContainsKey('tineLibraryScriptName')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_library_script_name eq '''+ $tineLibraryScriptName + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_library_script_name eq '''+ $tineLibraryScriptName + ''''
                 }
 
                 # filter tineLibraryScriptFileName ( string column )
                 if ($PSBoundParameters.ContainsKey('tineLibraryScriptFileName')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_library_script_file_name eq '''+ $tineLibraryScriptFileName + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_library_script_file_name eq '''+ $tineLibraryScriptFileName + ''''
                 }
 
                 # log

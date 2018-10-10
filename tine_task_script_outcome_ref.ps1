@@ -1,7 +1,7 @@
 # SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 10/2/2018 3:34:48 AM
+# Generated Date: 10/10/2018 2:46:42 AM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 <#
 .\tine_task_script_outcome_ref.ps1 -doEcho       -doSql2x -comment test -create
@@ -27,7 +27,7 @@ param(
 
     [DateTime]$dateTimeStart = [System.DateTime]::UtcNow,
     [DateTime]$dateTimeStop = [System.DateTime]::UtcNow,
-    [DateTime]$createdDateTime = '2018.10.02',
+    [DateTime]$createdDateTime = '2018.10.10',
     [DateTime]$updateDateTime = '0001.01.01',
 
     [switch]$doDevelopment = $false,
@@ -255,7 +255,7 @@ try {
         $script:taskLine = "# SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 10/2/2018 3:34:48 AM
+# Generated Date: 10/10/2018 2:46:42 AM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 <#
 .\tine_task_script_outcome_ref.ps1 -doEcho       -doSql2x -comment test -create
@@ -524,28 +524,22 @@ try {
                     $script:query.FilterString += 'tine_task_script_outcome_rcd eq '''+ $tineTaskScriptOutcomeRcd + ''''
                 }
 
-                # filter tineTaskScriptOutcomeRcd ( string column )
-                if ($PSBoundParameters.ContainsKey('tineTaskScriptOutcomeRcd')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_outcome_rcd eq '''+ $tineTaskScriptOutcomeRcd + ''''
-                }
-
                 # filter tineTaskScriptOutcomeRefPartitionKey ( string column )
                 if ($PSBoundParameters.ContainsKey('tineTaskScriptOutcomeRefPartitionKey')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_outcome_ref_partition_key eq '''+ $tineTaskScriptOutcomeRefPartitionKey + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_task_script_outcome_ref_partition_key eq '''+ $tineTaskScriptOutcomeRefPartitionKey + ''''
                 }
 
                 # filter tineTaskScriptOutcomeRefRowKey ( string column )
                 if ($PSBoundParameters.ContainsKey('tineTaskScriptOutcomeRefRowKey')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_outcome_ref_row_key eq '''+ $tineTaskScriptOutcomeRefRowKey + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_task_script_outcome_ref_row_key eq '''+ $tineTaskScriptOutcomeRefRowKey + ''''
                 }
 
                 # filter tineTaskScriptOutcomeName ( string column )
                 if ($PSBoundParameters.ContainsKey('tineTaskScriptOutcomeName')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_outcome_name eq '''+ $tineTaskScriptOutcomeName + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_task_script_outcome_name eq '''+ $tineTaskScriptOutcomeName + ''''
                 }
 
                 $script:query.SelectColumns = $script:list
@@ -792,28 +786,22 @@ try {
                     $script:query.FilterString += 'tine_task_script_outcome_rcd eq '''+ $tineTaskScriptOutcomeRcd + ''''
                 }
 
-                # filter tineTaskScriptOutcomeRcd ( string column )
-                if ($PSBoundParameters.ContainsKey('tineTaskScriptOutcomeRcd')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_outcome_rcd eq '''+ $tineTaskScriptOutcomeRcd + ''''
-                }
-
                 # filter tineTaskScriptOutcomeRefPartitionKey ( string column )
                 if ($PSBoundParameters.ContainsKey('tineTaskScriptOutcomeRefPartitionKey')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_outcome_ref_partition_key eq '''+ $tineTaskScriptOutcomeRefPartitionKey + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_task_script_outcome_ref_partition_key eq '''+ $tineTaskScriptOutcomeRefPartitionKey + ''''
                 }
 
                 # filter tineTaskScriptOutcomeRefRowKey ( string column )
                 if ($PSBoundParameters.ContainsKey('tineTaskScriptOutcomeRefRowKey')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_outcome_ref_row_key eq '''+ $tineTaskScriptOutcomeRefRowKey + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_task_script_outcome_ref_row_key eq '''+ $tineTaskScriptOutcomeRefRowKey + ''''
                 }
 
                 # filter tineTaskScriptOutcomeName ( string column )
                 if ($PSBoundParameters.ContainsKey('tineTaskScriptOutcomeName')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_outcome_name eq '''+ $tineTaskScriptOutcomeName + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_task_script_outcome_name eq '''+ $tineTaskScriptOutcomeName + ''''
                 }
 
                 $script:query.SelectColumns = $script:list
@@ -981,28 +969,22 @@ try {
                     $script:query.FilterString += 'tine_task_script_outcome_rcd eq '''+ $tineTaskScriptOutcomeRcd + ''''
                 }
 
-                # filter tineTaskScriptOutcomeRcd ( string column )
-                if ($PSBoundParameters.ContainsKey('tineTaskScriptOutcomeRcd')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_outcome_rcd eq '''+ $tineTaskScriptOutcomeRcd + ''''
-                }
-
                 # filter tineTaskScriptOutcomeRefPartitionKey ( string column )
                 if ($PSBoundParameters.ContainsKey('tineTaskScriptOutcomeRefPartitionKey')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_outcome_ref_partition_key eq '''+ $tineTaskScriptOutcomeRefPartitionKey + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_task_script_outcome_ref_partition_key eq '''+ $tineTaskScriptOutcomeRefPartitionKey + ''''
                 }
 
                 # filter tineTaskScriptOutcomeRefRowKey ( string column )
                 if ($PSBoundParameters.ContainsKey('tineTaskScriptOutcomeRefRowKey')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_outcome_ref_row_key eq '''+ $tineTaskScriptOutcomeRefRowKey + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_task_script_outcome_ref_row_key eq '''+ $tineTaskScriptOutcomeRefRowKey + ''''
                 }
 
                 # filter tineTaskScriptOutcomeName ( string column )
                 if ($PSBoundParameters.ContainsKey('tineTaskScriptOutcomeName')) {
-                  if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_outcome_name eq '''+ $tineTaskScriptOutcomeName + ''''
+                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
+                        $script:query.FilterString += 'tine_task_script_outcome_name eq '''+ $tineTaskScriptOutcomeName + ''''
                 }
 
                 # log
