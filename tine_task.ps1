@@ -1,7 +1,7 @@
 # SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 10/10/2018 2:46:41 AM
+# Generated Date: 10/18/2018 5:34:03 AM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 <#
 .\tine_task.ps1 -doEcho       -doSql2x -comment test -create
@@ -27,7 +27,7 @@ param(
 
     [DateTime]$dateTimeStart = [System.DateTime]::UtcNow,
     [DateTime]$dateTimeStop = [System.DateTime]::UtcNow,
-    [DateTime]$createdDateTime = '2018.10.10',
+    [DateTime]$createdDateTime = '2018.10.18',
     [DateTime]$updateDateTime = '0001.01.01',
 
     [switch]$doDevelopment = $false,
@@ -244,6 +244,7 @@ if (-not ([System.Management.Automation.PSTypeName]'TineTaskStatusRef').Type) {
     Executed,
     None,
     Planned,
+    ReTasked,
     Searched
    }
 "@
@@ -263,7 +264,7 @@ try {
         $script:taskLine = "# SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 10/10/2018 2:46:41 AM
+# Generated Date: 10/18/2018 5:34:03 AM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 <#
 .\tine_task.ps1 -doEcho       -doSql2x -comment test -create
@@ -386,7 +387,7 @@ try {
         $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $script:taskName
         $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
         if ($doStep) { $script:answer = Read-Host -Prompt ( $script:taskLine ) }
-        elseif ($doEcho) { Write-Host ( $script:taskLine ) }
+        elseif ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Gray }
 
         if ($script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
             $script:storageContext = New-AzureStorageContext -ConnectionString $script:storageConnectionString
@@ -473,7 +474,7 @@ try {
         $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $script:taskName
         $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
         if ($doStep) { $script:answer = Read-Host -Prompt ( $script:taskLine ) }
-        elseif ($doEcho) { Write-Host ( $script:taskLine ) }
+        elseif ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Gray }
 
         # validate tineTaskId ( primary key )
         if ($tineTaskId -eq '00000000-0000-0000-0000-000000000000') {
@@ -573,7 +574,7 @@ try {
         $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $script:taskName
         $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
         if ($doStep) { $script:answer = Read-Host -Prompt ( $script:taskLine ) }
-        elseif ($doEcho) { Write-Host ( $script:taskLine ) }
+        elseif ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Gray }
 
         if ($script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
             # connect and validate table
@@ -853,7 +854,7 @@ try {
         $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $script:taskName
         $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
         if ($doStep) { $script:answer = Read-Host -Prompt ( $script:taskLine ) }
-        elseif ($doEcho) { Write-Host ( $script:taskLine ) }
+        elseif ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Gray }
 
         if ($script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
             # connect and validate table
@@ -951,7 +952,7 @@ try {
         $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $script:taskName
         $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
         if ($doStep) { $script:answer = Read-Host -Prompt ( $script:taskLine ) }
-        elseif ($doEcho) { Write-Host ( $script:taskLine ) }
+        elseif ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Gray }
 
         if ($script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
             # connect and validate table
@@ -1026,24 +1027,6 @@ try {
                 if ($PSBoundParameters.ContainsKey('tineTaskScriptOutcomeRcd')) {
                     if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
                         $script:query.FilterString += 'tine_task_script_outcome_rcd eq '''+ $tineTaskScriptOutcomeRcd + ''''
-                }
-
-                # filter tineTaskPartitionKeyComputerName ( string column )
-                if ($PSBoundParameters.ContainsKey('tineTaskPartitionKeyComputerName')) {
-                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                        $script:query.FilterString += 'tine_task_partition_key_computer_name eq '''+ $tineTaskPartitionKeyComputerName + ''''
-                }
-
-                # filter tineTaskRowKeyUtcDateTime ( string column )
-                if ($PSBoundParameters.ContainsKey('tineTaskRowKeyUtcDateTime')) {
-                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                        $script:query.FilterString += 'tine_task_row_key_utc_date_time eq '''+ $tineTaskRowKeyUtcDateTime + ''''
-                }
-
-                # filter tineTaskScriptName ( string column )
-                if ($PSBoundParameters.ContainsKey('tineTaskScriptName')) {
-                    if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                        $script:query.FilterString += 'tine_task_script_name eq '''+ $tineTaskScriptName + ''''
                 }
 
                 $script:query.SelectColumns = $script:list
@@ -1122,7 +1105,7 @@ try {
         $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $script:taskName
         $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
         if ($doStep) { $script:answer = Read-Host -Prompt ( $script:taskLine ) }
-        elseif ($doEcho) { Write-Host ( $script:taskLine ) }
+        elseif ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Gray }
 
         if ($script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
             # connect and validate table
@@ -1191,7 +1174,7 @@ try {
         $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $script:taskName
         $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
         if ($doStep) { $script:answer = Read-Host -Prompt ( $script:taskLine ) }
-        elseif ($doEcho) { Write-Host ( $script:taskLine ) }
+        elseif ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Gray }
 
         if ($script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
             # connect and validate table
@@ -1330,7 +1313,7 @@ try {
         $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $script:taskName
         $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
         if ($doStep) { $script:answer = Read-Host -Prompt ( $script:taskLine ) }
-        elseif ($doEcho) { Write-Host ( $script:taskLine ) }
+        elseif ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Gray }
 
         if ($script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
             # connect and validate table
@@ -1398,7 +1381,7 @@ try {
         $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $script:taskName
         $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
         if ($doStep) { $script:answer = Read-Host -Prompt ( $script:taskLine ) }
-        elseif ($doEcho) { Write-Host ( $script:taskLine ) }
+        elseif ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Gray }
 
         if ($script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
             # connect and validate table
@@ -1505,7 +1488,7 @@ try {
         $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'start:' + ' ' + $script:taskName
         $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
         if ($doStep) { $script:answer = Read-Host -Prompt ( $script:taskLine ) }
-        elseif ($doEcho) { Write-Host ( $script:taskLine ) }
+        elseif ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Gray }
 
         if ($script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
             $script:storageContext = New-AzureStorageContext -ConnectionString $script:storageConnectionString
