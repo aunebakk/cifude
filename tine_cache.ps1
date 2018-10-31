@@ -3,6 +3,7 @@
 # http://sql2x.azurewebsites.net/
 # Generated Date: 10/18/2018 5:33:55 AM
 # Template: sql2x.PowerShellGenerator.CifudeScript
+# Tiney here 
 <#
 .\tine_cache.ps1 -doEcho       -doSql2x -comment test -create
 .\tine_cache.ps1 -doEcho       -doSql2x -comment test -insert
