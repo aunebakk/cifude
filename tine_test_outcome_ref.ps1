@@ -1,27 +1,27 @@
 # SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 11/4/2018 6:35:47 AM
+# Generated Date: 11/4/2018 6:35:54 AM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 <#
-.\tine_task_script_machine_outcome_ref.ps1 -doEcho       -doSql2x -comment test -create
-.\tine_task_script_machine_outcome_ref.ps1 -doEcho       -doSql2x -comment test -insert
-.\tine_task_script_machine_outcome_ref.ps1 -doEcho       -doSql2x -comment test -fetch                -tineTaskScriptMachineOutcomeRcd:([string]'')
-.\tine_task_script_machine_outcome_ref.ps1 -returnValue  -doSql2x -comment test -fetchValue:column    -tineTaskScriptMachineOutcomeRcd:([string]'')
-.\tine_task_script_machine_outcome_ref.ps1 -doEcho       -doSql2x -comment test -updateByPrimaryKey   -show -tineTaskScriptMachineOutcomeRcd:([string]'')
-.\tine_task_script_machine_outcome_ref.ps1 -doEcho       -doSql2x -comment test -updateByForeignKeys  -show
-.\tine_task_script_machine_outcome_ref.ps1 -doEcho       -doSql2x -comment test -deleteAll
-.\tine_task_script_machine_outcome_ref.ps1 -doEcho       -doSql2x -comment test -delete               -tineTaskScriptMachineOutcomeRcd:([string]'')
-.\tine_task_script_machine_outcome_ref.ps1 -doEcho       -doSql2x -comment test -drop
-.\tine_task_script_machine_outcome_ref.ps1 -doEcho       -doSql2x -comment test -show
-.\tine_task_script_machine_outcome_ref.ps1 -doEcho       -doSql2x -comment test -help
-.\tine_task_script_machine_outcome_ref.ps1 -doEcho       -doSql2x -comment test -create -insert -fetch -fetchValue:column -updateByPrimaryKey -delete -drop -show -help -tineTaskScriptMachineOutcomeRcd:([string]'')
+.\tine_test_outcome_ref.ps1 -doEcho       -doSql2x -comment test -create
+.\tine_test_outcome_ref.ps1 -doEcho       -doSql2x -comment test -insert
+.\tine_test_outcome_ref.ps1 -doEcho       -doSql2x -comment test -fetch                -tineTestOutcomeRcd:([string]'')
+.\tine_test_outcome_ref.ps1 -returnValue  -doSql2x -comment test -fetchValue:column    -tineTestOutcomeRcd:([string]'')
+.\tine_test_outcome_ref.ps1 -doEcho       -doSql2x -comment test -updateByPrimaryKey   -show -tineTestOutcomeRcd:([string]'')
+.\tine_test_outcome_ref.ps1 -doEcho       -doSql2x -comment test -updateByForeignKeys  -show
+.\tine_test_outcome_ref.ps1 -doEcho       -doSql2x -comment test -deleteAll
+.\tine_test_outcome_ref.ps1 -doEcho       -doSql2x -comment test -delete               -tineTestOutcomeRcd:([string]'')
+.\tine_test_outcome_ref.ps1 -doEcho       -doSql2x -comment test -drop
+.\tine_test_outcome_ref.ps1 -doEcho       -doSql2x -comment test -show
+.\tine_test_outcome_ref.ps1 -doEcho       -doSql2x -comment test -help
+.\tine_test_outcome_ref.ps1 -doEcho       -doSql2x -comment test -create -insert -fetch -fetchValue:column -updateByPrimaryKey -delete -drop -show -help -tineTestOutcomeRcd:([string]'')
 #>
-using module '."tine_task_script_machine_outcome_ref.psm1'
+using module '."tine_test_outcome_ref.psm1'
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute `
     ('PSPossibleIncorrectComparisonWithNull','')]
 param(
-    [string]$scriptName = 'CIFUDE ( Create Insert Fetch Update Delete Extras ) for tine_task_script_machine_outcome_ref',
+    [string]$scriptName = 'CIFUDE ( Create Insert Fetch Update Delete Extras ) for tine_test_outcome_ref',
     [string]$scriptStyle = 'original', # original / task
     [string]$scriptStatus = 'status ( todos, learn, learned )',
     [string]$scriptDocumentation = 'links urls, books, people, inspiration',
@@ -63,10 +63,10 @@ param(
     [switch]$sendMail = $false,
 
     # schema with foreign keys and default values
-    [System.String]$tineTaskScriptMachineOutcomeRcd = '',
-    [System.String]$tineTaskScriptMachineOutcomeRefPartitionKey = $env:ComputerName,
-    [System.String]$tineTaskScriptMachineOutcomeRefRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ'),
-    [System.String]$tineTaskScriptMachineOutcomeName = '',
+    [System.String]$tineTestOutcomeRcd = '',
+    [System.String]$tineTestOutcomePartitionKey = $env:ComputerName,
+    [System.String]$tineTestOutcomeRefRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ'),
+    [System.String]$tineTestOutcomeName = '',
     [System.Guid]$userId = '00000000-0000-0000-0000-000000000000',
     [System.DateTime]$dateTime = '1601.01.01T00:00:00Z'
 
@@ -169,21 +169,21 @@ try {
         $script:taskLine = "# SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 11/4/2018 6:35:47 AM
+# Generated Date: 11/4/2018 6:35:54 AM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 <#
-.\tine_task_script_machine_outcome_ref.ps1 -doEcho       -doSql2x -comment test -create
-.\tine_task_script_machine_outcome_ref.ps1 -doEcho       -doSql2x -comment test -insert
-.\tine_task_script_machine_outcome_ref.ps1 -doEcho       -doSql2x -comment test -fetch                -tineTaskScriptMachineOutcomeRcd:([string]'')
-.\tine_task_script_machine_outcome_ref.ps1 -returnValue  -doSql2x -comment test -fetchValue:column    -tineTaskScriptMachineOutcomeRcd:([string]'')
-.\tine_task_script_machine_outcome_ref.ps1 -doEcho       -doSql2x -comment test -updateByPrimaryKey   -show -tineTaskScriptMachineOutcomeRcd:([string]'')
-.\tine_task_script_machine_outcome_ref.ps1 -doEcho       -doSql2x -comment test -updateByForeignKeys  -show
-.\tine_task_script_machine_outcome_ref.ps1 -doEcho       -doSql2x -comment test -deleteAll
-.\tine_task_script_machine_outcome_ref.ps1 -doEcho       -doSql2x -comment test -delete               -tineTaskScriptMachineOutcomeRcd:([string]'')
-.\tine_task_script_machine_outcome_ref.ps1 -doEcho       -doSql2x -comment test -drop
-.\tine_task_script_machine_outcome_ref.ps1 -doEcho       -doSql2x -comment test -show
-.\tine_task_script_machine_outcome_ref.ps1 -doEcho       -doSql2x -comment test -help
-.\tine_task_script_machine_outcome_ref.ps1 -doEcho       -doSql2x -comment test -create -insert -fetch -fetchValue:column -updateByPrimaryKey -delete -drop -show -help -tineTaskScriptMachineOutcomeRcd:([string]'')
+.\tine_test_outcome_ref.ps1 -doEcho       -doSql2x -comment test -create
+.\tine_test_outcome_ref.ps1 -doEcho       -doSql2x -comment test -insert
+.\tine_test_outcome_ref.ps1 -doEcho       -doSql2x -comment test -fetch                -tineTestOutcomeRcd:([string]'')
+.\tine_test_outcome_ref.ps1 -returnValue  -doSql2x -comment test -fetchValue:column    -tineTestOutcomeRcd:([string]'')
+.\tine_test_outcome_ref.ps1 -doEcho       -doSql2x -comment test -updateByPrimaryKey   -show -tineTestOutcomeRcd:([string]'')
+.\tine_test_outcome_ref.ps1 -doEcho       -doSql2x -comment test -updateByForeignKeys  -show
+.\tine_test_outcome_ref.ps1 -doEcho       -doSql2x -comment test -deleteAll
+.\tine_test_outcome_ref.ps1 -doEcho       -doSql2x -comment test -delete               -tineTestOutcomeRcd:([string]'')
+.\tine_test_outcome_ref.ps1 -doEcho       -doSql2x -comment test -drop
+.\tine_test_outcome_ref.ps1 -doEcho       -doSql2x -comment test -show
+.\tine_test_outcome_ref.ps1 -doEcho       -doSql2x -comment test -help
+.\tine_test_outcome_ref.ps1 -doEcho       -doSql2x -comment test -create -insert -fetch -fetchValue:column -updateByPrimaryKey -delete -drop -show -help -tineTestOutcomeRcd:([string]'')
 #>"
         $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
         if (!$returnHtml) { Write-Host $script:taskLine }
@@ -192,19 +192,19 @@ try {
         $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
         if (!$returnHtml) { Write-Host $script:taskLine }
 
-        $script:taskLine = ("[System.String] tineTaskScriptMachineOutcomeRcd = ''")
+        $script:taskLine = ("[System.String] tineTestOutcomeRcd = ''")
         $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
         if (!$returnHtml) { Write-Host $script:taskLine }
 
-        $script:taskLine = ("[System.String] tineTaskScriptMachineOutcomeRefPartitionKey = $env:ComputerName")
+        $script:taskLine = ("[System.String] tineTestOutcomePartitionKey = $env:ComputerName")
         $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
         if (!$returnHtml) { Write-Host $script:taskLine }
 
-        $script:taskLine = ("[System.String] tineTaskScriptMachineOutcomeRefRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')")
+        $script:taskLine = ("[System.String] tineTestOutcomeRefRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')")
         $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
         if (!$returnHtml) { Write-Host $script:taskLine }
 
-        $script:taskLine = ("[System.String] tineTaskScriptMachineOutcomeName = ''")
+        $script:taskLine = ("[System.String] tineTestOutcomeName = ''")
         $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
         if (!$returnHtml) { Write-Host $script:taskLine }
 
@@ -229,7 +229,7 @@ try {
 }
 #endregion
 ##################################################################################################################
-$script:taskName = 'create tine_task_script_machine_outcome_ref'
+$script:taskName = 'create tine_test_outcome_ref'
 #region
 ##################################################################################################################
 try {
@@ -244,17 +244,17 @@ try {
         if ($script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
             $script:storageContext = New-AzureStorageContext -ConnectionString $script:storageConnectionString
 
-            $script:tableTineTaskScriptMachineOutcomeRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTaskScriptMachineOutcomeRef' -ErrorAction SilentlyContinue
+            $script:tableTineTestOutcomeRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTestOutcomeRef' -ErrorAction SilentlyContinue
 
-            if ( $script:tableTineTaskScriptMachineOutcomeRef -ne $null ) {
-                Remove-AzureStorageTable -Context $script:storageContext -Name 'tineTaskScriptMachineOutcomeRef' -Force
+            if ( $script:tableTineTestOutcomeRef -ne $null ) {
+                Remove-AzureStorageTable -Context $script:storageContext -Name 'tineTestOutcomeRef' -Force
             }
 
             [int] $script:trials = 0
 
             # create new table
-            $script:tableTineTaskScriptMachineOutcomeRef = $null
-            while ($script:tableTineTaskScriptMachineOutcomeRef -eq $null) {
+            $script:tableTineTestOutcomeRef = $null
+            while ($script:tableTineTestOutcomeRef -eq $null) {
                 # wait for an escalating number of seconds 
                 $script:trials++
                 if ($script:trials -gt 10) {
@@ -264,26 +264,26 @@ try {
                 Start-Sleep $script:trials
 
                 # create new table
-                $script:tableTineTaskScriptMachineOutcomeRef = `
+                $script:tableTineTestOutcomeRef = `
                     New-AzureStorageTable `
                         -Context $script:storageContext `
-                        -Name 'tineTaskScriptMachineOutcomeRef'
+                        -Name 'tineTestOutcomeRef'
 
-                if ( $script:tableTineTaskScriptMachineOutcomeRef -ne $null ) {
+                if ( $script:tableTineTestOutcomeRef -ne $null ) {
                     # insert row
-                    $tineTaskScriptMachineOutcomeRef = 
+                    $tineTestOutcomeRef = 
                         New-Object `
                             -TypeName Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity `
-                            -ArgumentList $tineTaskScriptMachineOutcomeRefPartitionKey, $tineTaskScriptMachineOutcomeRefRowKey
+                            -ArgumentList $tineTestOutcomePartitionKey, $tineTestOutcomeRefRowKey
 
-                    $tineTaskScriptMachineOutcomeRef.Properties.Add( 'tine_task_script_machine_outcome_rcd', [System.String]$tineTaskScriptMachineOutcomeRcd)
-                    $tineTaskScriptMachineOutcomeRef.Properties.Add( 'tine_task_script_machine_outcome_ref_partition_key', [System.String]$tineTaskScriptMachineOutcomeRefPartitionKey)
-                    $tineTaskScriptMachineOutcomeRef.Properties.Add( 'tine_task_script_machine_outcome_ref_row_key', [System.String]$tineTaskScriptMachineOutcomeRefRowKey)
-                    $tineTaskScriptMachineOutcomeRef.Properties.Add( 'tine_task_script_machine_outcome_name', [System.String]$tineTaskScriptMachineOutcomeName)
-                    $tineTaskScriptMachineOutcomeRef.Properties.Add( 'user_id', [System.Guid]$userId)
-                    $tineTaskScriptMachineOutcomeRef.Properties.Add( 'date_time', [System.DateTime]$dateTime)
+                    $tineTestOutcomeRef.Properties.Add( 'tine_test_outcome_rcd', [System.String]$tineTestOutcomeRcd)
+                    $tineTestOutcomeRef.Properties.Add( 'tine_test_outcome_partition_key', [System.String]$tineTestOutcomePartitionKey)
+                    $tineTestOutcomeRef.Properties.Add( 'tine_test_outcome_ref_row_key', [System.String]$tineTestOutcomeRefRowKey)
+                    $tineTestOutcomeRef.Properties.Add( 'tine_test_outcome_name', [System.String]$tineTestOutcomeName)
+                    $tineTestOutcomeRef.Properties.Add( 'user_id', [System.Guid]$userId)
+                    $tineTestOutcomeRef.Properties.Add( 'date_time', [System.DateTime]$dateTime)
 
-                    $script:tableTineTaskScriptMachineOutcomeRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Insert($tineTaskScriptMachineOutcomeRef)) | Out-Null
+                    $script:tableTineTestOutcomeRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Insert($tineTestOutcomeRef)) | Out-Null
                 }
             }
         }
@@ -303,12 +303,12 @@ try {
     }
 } finally {
     if ($script:trials) { try { Remove-Variable -Scope:Script -Name trials } catch {}}
-    if ($script:tableTineTaskScriptMachineOutcomeRef) { try { Remove-Variable -Scope:Script -Name tableTineTaskScriptMachineOutcomeRef } catch {}}
+    if ($script:tableTineTestOutcomeRef) { try { Remove-Variable -Scope:Script -Name tableTineTestOutcomeRef } catch {}}
     if ($script:storageContext) { try { Remove-Variable -Scope:Script -Name storageContext } catch {}}
 }
 #endregion
 ##################################################################################################################
-$script:taskName = 'insert to tine_task_script_machine_outcome_ref'
+$script:taskName = 'insert to tine_test_outcome_ref'
 #region
 ##################################################################################################################
 try {
@@ -320,15 +320,15 @@ try {
         if ($doStep) { $script:answer = Read-Host -Prompt ( $script:taskLine ) }
         elseif ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Gray }
 
-        # validate tineTaskScriptMachineOutcomeRcd ( primary key )
-        if ($tineTaskScriptMachineOutcomeRcd -eq '') {
+        # validate tineTestOutcomeRcd ( primary key )
+        if ($tineTestOutcomeRcd -eq '') {
             # get a decent primary key, todo; check datatype
-            [System.Guid] $tineTaskScriptMachineOutcomeRcd = [System.Guid]::NewGuid()
+            [System.Guid] $tineTestOutcomeRcd = [System.Guid]::NewGuid()
 
             # return primary key to caller
-            $script:tineTaskScriptMachineOutcomeRefData = [TineTaskScriptMachineOutcomeRefData]::new()
-            $script:tineTaskScriptMachineOutcomeRefData.tineTaskScriptMachineOutcomeRcd = $tineTaskScriptMachineOutcomeRcd
-            $script:tineTaskScriptMachineOutcomeRefDataList += $script:tineTaskScriptMachineOutcomeRefData
+            $script:tineTestOutcomeRefData = [TineTestOutcomeRefData]::new()
+            $script:tineTestOutcomeRefData.tineTestOutcomeRcd = $tineTestOutcomeRcd
+            $script:tineTestOutcomeRefDataList += $script:tineTestOutcomeRefData
         }
 
         if ($script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
@@ -336,29 +336,29 @@ try {
             # connect and validate table
             $script:storageContext = New-AzureStorageContext -ConnectionString $script:storageConnectionString
 
-            $script:tableTineTaskScriptMachineOutcomeRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTaskScriptMachineOutcomeRef' -ErrorAction SilentlyContinue
+            $script:tableTineTestOutcomeRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTestOutcomeRef' -ErrorAction SilentlyContinue
 
-            if ( $script:tableTineTaskScriptMachineOutcomeRef -eq $null ) {
+            if ( $script:tableTineTestOutcomeRef -eq $null ) {
                 # log
-                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_script_machine_outcome_ref table does not exist, please rerun with -create'
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_test_outcome_ref table does not exist, please rerun with -create'
                 $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
                 if ($doEcho) { Write-Host ( $script:taskLine ) }
                 $doDevelopment = $false; $doTest = $false
             } else {
                 # insert row
-                $tineTaskScriptMachineOutcomeRef =
+                $tineTestOutcomeRef =
                     New-Object `
                         -TypeName Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity `
-                        -ArgumentList $tineTaskScriptMachineOutcomeRefPartitionKey, $tineTaskScriptMachineOutcomeRefRowKey
+                        -ArgumentList $tineTestOutcomePartitionKey, $tineTestOutcomeRefRowKey
 
-                $tineTaskScriptMachineOutcomeRef.Properties.Add( 'tine_task_script_machine_outcome_rcd', [System.String]$tineTaskScriptMachineOutcomeRcd)
-                $tineTaskScriptMachineOutcomeRef.Properties.Add( 'tine_task_script_machine_outcome_ref_partition_key', [System.String]$tineTaskScriptMachineOutcomeRefPartitionKey)
-                $tineTaskScriptMachineOutcomeRef.Properties.Add( 'tine_task_script_machine_outcome_ref_row_key', [System.String]$tineTaskScriptMachineOutcomeRefRowKey)
-                $tineTaskScriptMachineOutcomeRef.Properties.Add( 'tine_task_script_machine_outcome_name', [System.String]$tineTaskScriptMachineOutcomeName)
-                $tineTaskScriptMachineOutcomeRef.Properties.Add( 'user_id', [System.Guid]$userId)
-                $tineTaskScriptMachineOutcomeRef.Properties.Add( 'date_time', [System.DateTime]$dateTime)
+                $tineTestOutcomeRef.Properties.Add( 'tine_test_outcome_rcd', [System.String]$tineTestOutcomeRcd)
+                $tineTestOutcomeRef.Properties.Add( 'tine_test_outcome_partition_key', [System.String]$tineTestOutcomePartitionKey)
+                $tineTestOutcomeRef.Properties.Add( 'tine_test_outcome_ref_row_key', [System.String]$tineTestOutcomeRefRowKey)
+                $tineTestOutcomeRef.Properties.Add( 'tine_test_outcome_name', [System.String]$tineTestOutcomeName)
+                $tineTestOutcomeRef.Properties.Add( 'user_id', [System.Guid]$userId)
+                $tineTestOutcomeRef.Properties.Add( 'date_time', [System.DateTime]$dateTime)
 
-                $script:tableTineTaskScriptMachineOutcomeRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Insert($tineTaskScriptMachineOutcomeRef)) | Out-Null
+                $script:tableTineTestOutcomeRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Insert($tineTestOutcomeRef)) | Out-Null
             }
         }
         # log
@@ -376,13 +376,13 @@ try {
         if ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Red }
     }
 } finally {
-    if ($tineTaskScriptMachineOutcomeRef) { try { Remove-Variable -Scope:Script -Name tineTaskScriptMachineOutcomeRef } catch {}}
-    if ($script:tableTineTaskScriptMachineOutcomeRef) { try { Remove-Variable -Scope:Script -Name tableTineTaskScriptMachineOutcomeRef } catch {}}
+    if ($tineTestOutcomeRef) { try { Remove-Variable -Scope:Script -Name tineTestOutcomeRef } catch {}}
+    if ($script:tableTineTestOutcomeRef) { try { Remove-Variable -Scope:Script -Name tableTineTestOutcomeRef } catch {}}
     if ($script:storageContext) { try { Remove-Variable -Scope:Script -Name storageContext } catch {}}
 }
 #endregion
 ##################################################################################################################
-$script:taskName = 'fetch from tine_task_script_machine_outcome_ref'
+$script:taskName = 'fetch from tine_test_outcome_ref'
 #region
 ##################################################################################################################
 try {
@@ -399,12 +399,12 @@ try {
             $script:storageContext = New-AzureStorageContext -ConnectionString $script:storageConnectionString
 
             if ( !$whatIf ) {
-                $script:tableTineTaskScriptMachineOutcomeRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTaskScriptMachineOutcomeRef' -ErrorAction SilentlyContinue
+                $script:tableTineTestOutcomeRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTestOutcomeRef' -ErrorAction SilentlyContinue
             }
 
-            if ( $script:tableTineTaskScriptMachineOutcomeRef -eq $null -and !$whatIf ) {
+            if ( $script:tableTineTestOutcomeRef -eq $null -and !$whatIf ) {
                 # log
-                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_script_machine_outcome_ref table does not exist, please rerun with -create'
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_test_outcome_ref table does not exist, please rerun with -create'
                 $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
                 if ($doEcho) { Write-Host ( $script:taskLine ) }
                 $doDevelopment = $false; $doTest = $false
@@ -412,35 +412,35 @@ try {
                 $script:query = New-Object Microsoft.WindowsAzure.Storage.Table.TableQuery
                 $script:list = New-Object System.Collections.Generic.List[string]
 
-                $script:list.Add( 'tine_task_script_machine_outcome_rcd' )
-                $script:list.Add( 'tine_task_script_machine_outcome_ref_partition_key' )
-                $script:list.Add( 'tine_task_script_machine_outcome_ref_row_key' )
-                $script:list.Add( 'tine_task_script_machine_outcome_name' )
+                $script:list.Add( 'tine_test_outcome_rcd' )
+                $script:list.Add( 'tine_test_outcome_partition_key' )
+                $script:list.Add( 'tine_test_outcome_ref_row_key' )
+                $script:list.Add( 'tine_test_outcome_name' )
                 $script:list.Add( 'user_id' )
                 $script:list.Add( 'date_time' )
 
-                # filter tineTaskScriptMachineOutcomeRcd ( primary key )
-                if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeRcd')) {
+                # filter tineTestOutcomeRcd ( primary key )
+                if ($PSBoundParameters.ContainsKey('tineTestOutcomeRcd')) {
                     if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_machine_outcome_rcd eq '''+ $tineTaskScriptMachineOutcomeRcd + ''''
+                    $script:query.FilterString += 'tine_test_outcome_rcd eq '''+ $tineTestOutcomeRcd + ''''
                 }
 
-                # filter tineTaskScriptMachineOutcomeRefPartitionKey ( string column )
-                if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeRefPartitionKey')) {
+                # filter tineTestOutcomePartitionKey ( string column )
+                if ($PSBoundParameters.ContainsKey('tineTestOutcomePartitionKey')) {
                     if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                        $script:query.FilterString += 'tine_task_script_machine_outcome_ref_partition_key eq '''+ $tineTaskScriptMachineOutcomeRefPartitionKey + ''''
+                        $script:query.FilterString += 'tine_test_outcome_partition_key eq '''+ $tineTestOutcomePartitionKey + ''''
                 }
 
-                # filter tineTaskScriptMachineOutcomeRefRowKey ( string column )
-                if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeRefRowKey')) {
+                # filter tineTestOutcomeRefRowKey ( string column )
+                if ($PSBoundParameters.ContainsKey('tineTestOutcomeRefRowKey')) {
                     if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                        $script:query.FilterString += 'tine_task_script_machine_outcome_ref_row_key eq '''+ $tineTaskScriptMachineOutcomeRefRowKey + ''''
+                        $script:query.FilterString += 'tine_test_outcome_ref_row_key eq '''+ $tineTestOutcomeRefRowKey + ''''
                 }
 
-                # filter tineTaskScriptMachineOutcomeName ( string column )
-                if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeName')) {
+                # filter tineTestOutcomeName ( string column )
+                if ($PSBoundParameters.ContainsKey('tineTestOutcomeName')) {
                     if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                        $script:query.FilterString += 'tine_task_script_machine_outcome_name eq '''+ $tineTaskScriptMachineOutcomeName + ''''
+                        $script:query.FilterString += 'tine_test_outcome_name eq '''+ $tineTestOutcomeName + ''''
                 }
 
                 $script:query.SelectColumns = $script:list
@@ -448,83 +448,83 @@ try {
 
                 # execute select
                 if (!$whatIf) {
-                    $tineTaskScriptMachineOutcomeRef = $script:tableTineTaskScriptMachineOutcomeRef.CloudTable.ExecuteQuery($script:query)
+                    $tineTestOutcomeRef = $script:tableTineTestOutcomeRef.CloudTable.ExecuteQuery($script:query)
                 }
 
                 # log count
-                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'Query Results' + ';' + ' ' + '[' + ($tineTaskScriptMachineOutcomeRef | Measure-Object).Count + ']'
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'Query Results' + ';' + ' ' + '[' + ($tineTestOutcomeRef | Measure-Object).Count + ']'
                 $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
                 if ($doEcho) { Write-Host ( $script:taskLine ) }
 
                 # transfer values from query to internal objects
-                if ($script:tineTaskScriptMachineOutcomeRefData) { try { Remove-Variable -Scope:Script -Name tineTaskScriptMachineOutcomeRefData } catch {}}
-                if ($script:tineTaskScriptMachineOutcomeRefDataList) { try { Remove-Variable -Scope:Script -Name tineTaskScriptMachineOutcomeRefDataList } catch {}}
+                if ($script:tineTestOutcomeRefData) { try { Remove-Variable -Scope:Script -Name tineTestOutcomeRefData } catch {}}
+                if ($script:tineTestOutcomeRefDataList) { try { Remove-Variable -Scope:Script -Name tineTestOutcomeRefDataList } catch {}}
 
-                $script:tineTaskScriptMachineOutcomeRefDataList = @()
+                $script:tineTestOutcomeRefDataList = @()
 
-                if (-not [string]::IsNullOrEmpty($tineTaskScriptMachineOutcomeRef)) {
-                    foreach ($entity in $tineTaskScriptMachineOutcomeRef) {
-                        $script:tineTaskScriptMachineOutcomeRefData = [TineTaskScriptMachineOutcomeRefData]::new()
-                        $script:tineTaskScriptMachineOutcomeRefData.tineTaskScriptMachineOutcomeRefPartitionKey = $env:ComputerName
-                        $script:tineTaskScriptMachineOutcomeRefData.tineTaskScriptMachineOutcomeRefRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')
+                if (-not [string]::IsNullOrEmpty($tineTestOutcomeRef)) {
+                    foreach ($entity in $tineTestOutcomeRef) {
+                        $script:tineTestOutcomeRefData = [TineTestOutcomeRefData]::new()
+                        $script:tineTestOutcomeRefData.tineTestOutcomePartitionKey = $env:ComputerName
+                        $script:tineTestOutcomeRefData.tineTestOutcomeRefRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')
 
                         $entity.Properties.Keys | 
                             ForEach-Object {
                                 switch ($_) {
-                                    'tine_task_script_machine_outcome_rcd' { $script:tineTaskScriptMachineOutcomeRefData.tineTaskScriptMachineOutcomeRcd = $entity.Properties[$_].PropertyAsObject }
-                                    'tine_task_script_machine_outcome_name' { $script:tineTaskScriptMachineOutcomeRefData.tineTaskScriptMachineOutcomeName = $entity.Properties[$_].PropertyAsObject }
-                                    'user_id' { $script:tineTaskScriptMachineOutcomeRefData.userId = $entity.Properties[$_].PropertyAsObject }
-                                    'date_time' { $script:tineTaskScriptMachineOutcomeRefData.dateTime = $entity.Properties[$_].PropertyAsObject }
+                                    'tine_test_outcome_rcd' { $script:tineTestOutcomeRefData.tineTestOutcomeRcd = $entity.Properties[$_].PropertyAsObject }
+                                    'tine_test_outcome_name' { $script:tineTestOutcomeRefData.tineTestOutcomeName = $entity.Properties[$_].PropertyAsObject }
+                                    'user_id' { $script:tineTestOutcomeRefData.userId = $entity.Properties[$_].PropertyAsObject }
+                                    'date_time' { $script:tineTestOutcomeRefData.dateTime = $entity.Properties[$_].PropertyAsObject }
                                 }
                             }
-                        $script:tineTaskScriptMachineOutcomeRefDataList += $script:tineTaskScriptMachineOutcomeRefData
+                        $script:tineTestOutcomeRefDataList += $script:tineTestOutcomeRefData
                     }
                 }
 
                 # check if any column parameter is chosen
                 [boolean] $includeAll = $true
                 foreach ($parameter in $PSBoundParameters.Keys) {
-                    $includeAll -= ($parameter -eq 'tineTaskScriptMachineOutcomeRcd')
-                    $includeAll -= ($parameter -eq 'tineTaskScriptMachineOutcomeRefPartitionKey')
-                    $includeAll -= ($parameter -eq 'tineTaskScriptMachineOutcomeRefRowKey')
-                    $includeAll -= ($parameter -eq 'tineTaskScriptMachineOutcomeName')
+                    $includeAll -= ($parameter -eq 'tineTestOutcomeRcd')
+                    $includeAll -= ($parameter -eq 'tineTestOutcomePartitionKey')
+                    $includeAll -= ($parameter -eq 'tineTestOutcomeRefRowKey')
+                    $includeAll -= ($parameter -eq 'tineTestOutcomeName')
                     $includeAll -= ($parameter -eq 'userId')
                     $includeAll -= ($parameter -eq 'dateTime')
                 }
 
                 # property echo
-                if ( $includeAll -or $PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeRcd') ) {
-                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tineTaskScriptMachineOutcomeRcd' + '; [' + $tineTaskScriptMachineOutcomeRefData.tineTaskScriptMachineOutcomeRcd + ']'
+                if ( $includeAll -or $PSBoundParameters.ContainsKey('tineTestOutcomeRcd') ) {
+                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tineTestOutcomeRcd' + '; [' + $tineTestOutcomeRefData.tineTestOutcomeRcd + ']'
                     $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
                     if ($doEcho) { Write-Host ( $script:taskLine ) }
                 }
 
-                if ( $includeAll -or $PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeRefPartitionKey') ) {
-                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tineTaskScriptMachineOutcomeRefPartitionKey' + '; [' + $tineTaskScriptMachineOutcomeRefData.tineTaskScriptMachineOutcomeRefPartitionKey + ']'
+                if ( $includeAll -or $PSBoundParameters.ContainsKey('tineTestOutcomePartitionKey') ) {
+                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tineTestOutcomePartitionKey' + '; [' + $tineTestOutcomeRefData.tineTestOutcomePartitionKey + ']'
                     $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
                     if ($doEcho) { Write-Host ( $script:taskLine ) }
                 }
 
-                if ( $includeAll -or $PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeRefRowKey') ) {
-                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tineTaskScriptMachineOutcomeRefRowKey' + '; [' + $tineTaskScriptMachineOutcomeRefData.tineTaskScriptMachineOutcomeRefRowKey + ']'
+                if ( $includeAll -or $PSBoundParameters.ContainsKey('tineTestOutcomeRefRowKey') ) {
+                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tineTestOutcomeRefRowKey' + '; [' + $tineTestOutcomeRefData.tineTestOutcomeRefRowKey + ']'
                     $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
                     if ($doEcho) { Write-Host ( $script:taskLine ) }
                 }
 
-                if ( $includeAll -or $PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeName') ) {
-                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tineTaskScriptMachineOutcomeName' + '; [' + $tineTaskScriptMachineOutcomeRefData.tineTaskScriptMachineOutcomeName + ']'
+                if ( $includeAll -or $PSBoundParameters.ContainsKey('tineTestOutcomeName') ) {
+                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tineTestOutcomeName' + '; [' + $tineTestOutcomeRefData.tineTestOutcomeName + ']'
                     $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
                     if ($doEcho) { Write-Host ( $script:taskLine ) }
                 }
 
                 if ( $includeAll -or $PSBoundParameters.ContainsKey('userId') ) {
-                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'userId' + '; [' + $tineTaskScriptMachineOutcomeRefData.userId + ']'
+                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'userId' + '; [' + $tineTestOutcomeRefData.userId + ']'
                     $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
                     if ($doEcho) { Write-Host ( $script:taskLine ) }
                 }
 
                 if ( $includeAll -or $PSBoundParameters.ContainsKey('dateTime') ) {
-                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'dateTime' + '; [' + $tineTaskScriptMachineOutcomeRefData.dateTime + ']'
+                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'dateTime' + '; [' + $tineTestOutcomeRefData.dateTime + ']'
                     $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
                     if ($doEcho) { Write-Host ( $script:taskLine ) }
                 }
@@ -548,13 +548,13 @@ try {
     if ($script:output) { try { Remove-Variable -Scope:Script -Name output } catch {}}
     if ($script:list) { try { Remove-Variable -Scope:Script -Name list } catch {}}
     if ($script:query) { try { Remove-Variable -Scope:Script -Name query } catch {}}
-    if ($tineTaskScriptMachineOutcomeRef) { try { Remove-Variable -Scope:Script -Name tineTaskScriptMachineOutcomeRef } catch {}}
-    if ($script:tableTineTaskScriptMachineOutcomeRef) { try { Remove-Variable -Scope:Script -Name tableTineTaskScriptMachineOutcomeRef } catch {}}
+    if ($tineTestOutcomeRef) { try { Remove-Variable -Scope:Script -Name tineTestOutcomeRef } catch {}}
+    if ($script:tableTineTestOutcomeRef) { try { Remove-Variable -Scope:Script -Name tableTineTestOutcomeRef } catch {}}
     if ($script:storageContext) { try { Remove-Variable -Scope:Script -Name storageContext } catch {}}
 }
 #endregion
 ##################################################################################################################
-$script:taskName = 'update tine_task_script_machine_outcome_ref'
+$script:taskName = 'update tine_test_outcome_ref'
 #region
 ##################################################################################################################
 try {
@@ -571,12 +571,12 @@ try {
             $script:storageContext = New-AzureStorageContext -ConnectionString $script:storageConnectionString
 
             if ( !$whatIf ) {
-                $script:tableTineTaskScriptMachineOutcomeRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTaskScriptMachineOutcomeRef' -ErrorAction SilentlyContinue
+                $script:tableTineTestOutcomeRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTestOutcomeRef' -ErrorAction SilentlyContinue
             }
 
-            if ( $script:tableTineTaskScriptMachineOutcomeRef -eq $null -and !$whatIf ) {
+            if ( $script:tableTineTestOutcomeRef -eq $null -and !$whatIf ) {
                 # log
-                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_script_machine_outcome_ref table does not exist, please rerun with -create'
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_test_outcome_ref table does not exist, please rerun with -create'
                 $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
                 if ($doEcho) { Write-Host ( $script:taskLine ) }
                 $doDevelopment = $false; $doTest = $false
@@ -585,32 +585,32 @@ try {
                 $script:list = New-Object System.Collections.Generic.List[string]
 
 
-                $script:query.FilterString = 'tine_task_script_machine_outcome_rcd eq '''+ $tineTaskScriptMachineOutcomeRcd + ''''
+                $script:query.FilterString = 'tine_test_outcome_rcd eq '''+ $tineTestOutcomeRcd + ''''
                 $script:query.SelectColumns = $script:list
                 $script:query.TakeCount = $takeCount
 
                 # execute select
                 if (!$whatIf) {
-                    $tineTaskScriptMachineOutcomeRefForUpdate = $script:tableTineTaskScriptMachineOutcomeRef.CloudTable.ExecuteQuery($script:query)
+                    $tineTestOutcomeRefForUpdate = $script:tableTineTestOutcomeRef.CloudTable.ExecuteQuery($script:query)
                 }
 
-                foreach ( $item in $tineTaskScriptMachineOutcomeRefForUpdate ) {
+                foreach ( $item in $tineTestOutcomeRefForUpdate ) {
                     [string] $partitionKeyLocal = $item.PartitionKey
                     [string] $rowKeyLocal = $item.RowKey
 
                     # change task value
-                    [Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity] $tineTaskScriptMachineOutcomeRef = `
+                    [Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity] $tineTestOutcomeRef = `
                         New-Object 'Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity' $partitionKeyLocal, $rowKeyLocal
 
-                    $tineTaskScriptMachineOutcomeRef.ETag = '*'
-                    if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeRcd')) { $tineTaskScriptMachineOutcomeRef.Properties.Add( 'tine_task_script_machine_outcome_rcd', [System.String]$tineTaskScriptMachineOutcomeRcd) }
-                    if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeRefPartitionKey')) { $tineTaskScriptMachineOutcomeRef.Properties.Add( 'tine_task_script_machine_outcome_ref_partition_key', [System.String]$tineTaskScriptMachineOutcomeRefPartitionKey) }
-                    if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeRefRowKey')) { $tineTaskScriptMachineOutcomeRef.Properties.Add( 'tine_task_script_machine_outcome_ref_row_key', [System.String]$tineTaskScriptMachineOutcomeRefRowKey) }
-                    if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeName')) { $tineTaskScriptMachineOutcomeRef.Properties.Add( 'tine_task_script_machine_outcome_name', [System.String]$tineTaskScriptMachineOutcomeName) }
-                    if ($PSBoundParameters.ContainsKey('userId')) { $tineTaskScriptMachineOutcomeRef.Properties.Add( 'user_id', [System.Guid]$userId) }
-                    if ($PSBoundParameters.ContainsKey('dateTime')) { $tineTaskScriptMachineOutcomeRef.Properties.Add( 'date_time', [System.DateTime]$dateTime) }
+                    $tineTestOutcomeRef.ETag = '*'
+                    if ($PSBoundParameters.ContainsKey('tineTestOutcomeRcd')) { $tineTestOutcomeRef.Properties.Add( 'tine_test_outcome_rcd', [System.String]$tineTestOutcomeRcd) }
+                    if ($PSBoundParameters.ContainsKey('tineTestOutcomePartitionKey')) { $tineTestOutcomeRef.Properties.Add( 'tine_test_outcome_partition_key', [System.String]$tineTestOutcomePartitionKey) }
+                    if ($PSBoundParameters.ContainsKey('tineTestOutcomeRefRowKey')) { $tineTestOutcomeRef.Properties.Add( 'tine_test_outcome_ref_row_key', [System.String]$tineTestOutcomeRefRowKey) }
+                    if ($PSBoundParameters.ContainsKey('tineTestOutcomeName')) { $tineTestOutcomeRef.Properties.Add( 'tine_test_outcome_name', [System.String]$tineTestOutcomeName) }
+                    if ($PSBoundParameters.ContainsKey('userId')) { $tineTestOutcomeRef.Properties.Add( 'user_id', [System.Guid]$userId) }
+                    if ($PSBoundParameters.ContainsKey('dateTime')) { $tineTestOutcomeRef.Properties.Add( 'date_time', [System.DateTime]$dateTime) }
 
-                    $script:tableTineTaskScriptMachineOutcomeRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Merge($tineTaskScriptMachineOutcomeRef)) | Out-Null
+                    $script:tableTineTestOutcomeRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Merge($tineTestOutcomeRef)) | Out-Null
                 }
 
                 # log
@@ -634,17 +634,17 @@ try {
         if ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Red }
     }
 } finally {
-    if ($tineTaskScriptMachineOutcomeRefForUpdate) { try { Remove-Variable -Scope:Script -Name tineTaskScriptMachineOutcomeRefForUpdate } catch {}}
-    if ($script:tableTineTaskScriptMachineOutcomeRef) { try { Remove-Variable -Scope:Script -Name tableTineTaskScriptMachineOutcomeRef } catch {}}
+    if ($tineTestOutcomeRefForUpdate) { try { Remove-Variable -Scope:Script -Name tineTestOutcomeRefForUpdate } catch {}}
+    if ($script:tableTineTestOutcomeRef) { try { Remove-Variable -Scope:Script -Name tableTineTestOutcomeRef } catch {}}
     if ($partitionKeyLocal) { try { Remove-Variable -Scope:Script -Name partitionKeyLocal } catch {}}
     if ($rowKeyLocal) { try { Remove-Variable -Scope:Script -Name rowKeyLocal } catch {}}
-    if ($tineTaskScriptMachineOutcomeRef) { try { Remove-Variable -Scope:Script -Name tineTaskScriptMachineOutcomeRef } catch {}}
+    if ($tineTestOutcomeRef) { try { Remove-Variable -Scope:Script -Name tineTestOutcomeRef } catch {}}
     if ($script:list) { try { Remove-Variable -Scope:Script -Name list } catch {}}
     if ($script:query) { try { Remove-Variable -Scope:Script -Name query } catch {}}
 }
 #endregion
 ##################################################################################################################
-$script:taskName = 'update tine_task_script_machine_outcome_ref by foreign keys'
+$script:taskName = 'update tine_test_outcome_ref by foreign keys'
 #region
 ##################################################################################################################
 try {
@@ -661,12 +661,12 @@ try {
             $script:storageContext = New-AzureStorageContext -ConnectionString $script:storageConnectionString
 
             if ( !$whatIf ) {
-                $script:tableTineTaskScriptMachineOutcomeRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTaskScriptMachineOutcomeRef' -ErrorAction SilentlyContinue
+                $script:tableTineTestOutcomeRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTestOutcomeRef' -ErrorAction SilentlyContinue
             }
 
-            if ( $script:tableTineTaskScriptMachineOutcomeRef -eq $null -and !$whatIf ) {
+            if ( $script:tableTineTestOutcomeRef -eq $null -and !$whatIf ) {
                 # log
-                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_script_machine_outcome_ref table does not exist, please rerun with -create'
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_test_outcome_ref table does not exist, please rerun with -create'
                 $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
                 if ($doEcho) { Write-Host ( $script:taskLine ) }
                 $doDevelopment = $false; $doTest = $false
@@ -674,17 +674,17 @@ try {
                 $script:query = New-Object Microsoft.WindowsAzure.Storage.Table.TableQuery
                 $script:list = New-Object System.Collections.Generic.List[string]
 
-                $script:list.Add( 'tine_task_script_machine_outcome_rcd' )
-                $script:list.Add( 'tine_task_script_machine_outcome_ref_partition_key' )
-                $script:list.Add( 'tine_task_script_machine_outcome_ref_row_key' )
-                $script:list.Add( 'tine_task_script_machine_outcome_name' )
+                $script:list.Add( 'tine_test_outcome_rcd' )
+                $script:list.Add( 'tine_test_outcome_partition_key' )
+                $script:list.Add( 'tine_test_outcome_ref_row_key' )
+                $script:list.Add( 'tine_test_outcome_name' )
                 $script:list.Add( 'user_id' )
                 $script:list.Add( 'date_time' )
 
-                # filter tineTaskScriptMachineOutcomeRcd ( primary key )
-                if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeRcd')) {
+                # filter tineTestOutcomeRcd ( primary key )
+                if ($PSBoundParameters.ContainsKey('tineTestOutcomeRcd')) {
                     if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_machine_outcome_rcd eq '''+ $tineTaskScriptMachineOutcomeRcd + ''''
+                    $script:query.FilterString += 'tine_test_outcome_rcd eq '''+ $tineTestOutcomeRcd + ''''
                 }
 
                 $script:query.SelectColumns = $script:list
@@ -692,26 +692,26 @@ try {
 
                 # execute select
                 if (!$whatIf) {
-                    $tineTaskScriptMachineOutcomeRefForUpdate = $script:tableTineTaskScriptMachineOutcomeRef.CloudTable.ExecuteQuery($script:query)
+                    $tineTestOutcomeRefForUpdate = $script:tableTineTestOutcomeRef.CloudTable.ExecuteQuery($script:query)
                 }
 
-                foreach ( $item in $tineTaskScriptMachineOutcomeRefForUpdate ) {
+                foreach ( $item in $tineTestOutcomeRefForUpdate ) {
                     [string] $partitionKeyLocal = $item.PartitionKey
                     [string] $rowKeyLocal = $item.RowKey
 
                     # change task value
-                    [Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity] $tineTaskScriptMachineOutcomeRef = `
+                    [Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity] $tineTestOutcomeRef = `
                         New-Object 'Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity' $partitionKeyLocal, $rowKeyLocal
 
-                    $tineTaskScriptMachineOutcomeRef.ETag = '*'
-                    if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeRcd')) { $tineTaskScriptMachineOutcomeRef.Properties.Add( 'tine_task_script_machine_outcome_rcd', [System.String]$tineTaskScriptMachineOutcomeRcd) }
-                    if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeRefPartitionKey')) { $tineTaskScriptMachineOutcomeRef.Properties.Add( 'tine_task_script_machine_outcome_ref_partition_key', [System.String]$tineTaskScriptMachineOutcomeRefPartitionKey) }
-                    if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeRefRowKey')) { $tineTaskScriptMachineOutcomeRef.Properties.Add( 'tine_task_script_machine_outcome_ref_row_key', [System.String]$tineTaskScriptMachineOutcomeRefRowKey) }
-                    if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeName')) { $tineTaskScriptMachineOutcomeRef.Properties.Add( 'tine_task_script_machine_outcome_name', [System.String]$tineTaskScriptMachineOutcomeName) }
-                    if ($PSBoundParameters.ContainsKey('userId')) { $tineTaskScriptMachineOutcomeRef.Properties.Add( 'user_id', [System.Guid]$userId) }
-                    if ($PSBoundParameters.ContainsKey('dateTime')) { $tineTaskScriptMachineOutcomeRef.Properties.Add( 'date_time', [System.DateTime]$dateTime) }
+                    $tineTestOutcomeRef.ETag = '*'
+                    if ($PSBoundParameters.ContainsKey('tineTestOutcomeRcd')) { $tineTestOutcomeRef.Properties.Add( 'tine_test_outcome_rcd', [System.String]$tineTestOutcomeRcd) }
+                    if ($PSBoundParameters.ContainsKey('tineTestOutcomePartitionKey')) { $tineTestOutcomeRef.Properties.Add( 'tine_test_outcome_partition_key', [System.String]$tineTestOutcomePartitionKey) }
+                    if ($PSBoundParameters.ContainsKey('tineTestOutcomeRefRowKey')) { $tineTestOutcomeRef.Properties.Add( 'tine_test_outcome_ref_row_key', [System.String]$tineTestOutcomeRefRowKey) }
+                    if ($PSBoundParameters.ContainsKey('tineTestOutcomeName')) { $tineTestOutcomeRef.Properties.Add( 'tine_test_outcome_name', [System.String]$tineTestOutcomeName) }
+                    if ($PSBoundParameters.ContainsKey('userId')) { $tineTestOutcomeRef.Properties.Add( 'user_id', [System.Guid]$userId) }
+                    if ($PSBoundParameters.ContainsKey('dateTime')) { $tineTestOutcomeRef.Properties.Add( 'date_time', [System.DateTime]$dateTime) }
 
-                    $script:tableTineTaskScriptMachineOutcomeRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Merge($tineTaskScriptMachineOutcomeRef)) | Out-Null
+                    $script:tableTineTestOutcomeRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Merge($tineTestOutcomeRef)) | Out-Null
                 }
 
                 # log
@@ -735,17 +735,17 @@ try {
         if ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Red }
     }
 } finally {
-    if ($tineTaskScriptMachineOutcomeRefForUpdate) { try { Remove-Variable -Scope:Script -Name tineTaskScriptMachineOutcomeRefForUpdate } catch {}}
-    if ($script:tableTineTaskScriptMachineOutcomeRef) { try { Remove-Variable -Scope:Script -Name tableTineTaskScriptMachineOutcomeRef } catch {}}
+    if ($tineTestOutcomeRefForUpdate) { try { Remove-Variable -Scope:Script -Name tineTestOutcomeRefForUpdate } catch {}}
+    if ($script:tableTineTestOutcomeRef) { try { Remove-Variable -Scope:Script -Name tableTineTestOutcomeRef } catch {}}
     if ($partitionKeyLocal) { try { Remove-Variable -Scope:Script -Name partitionKeyLocal } catch {}}
     if ($rowKeyLocal) { try { Remove-Variable -Scope:Script -Name rowKeyLocal } catch {}}
-    if ($tineTaskScriptMachineOutcomeRef) { try { Remove-Variable -Scope:Script -Name tineTaskScriptMachineOutcomeRef } catch {}}
+    if ($tineTestOutcomeRef) { try { Remove-Variable -Scope:Script -Name tineTestOutcomeRef } catch {}}
     if ($script:list) { try { Remove-Variable -Scope:Script -Name list } catch {}}
     if ($script:query) { try { Remove-Variable -Scope:Script -Name query } catch {}}
 }
 #endregion
 ##################################################################################################################
-$script:taskName = 'delete from tine_task_script_machine_outcome_ref'
+$script:taskName = 'delete from tine_test_outcome_ref'
 #region
 ##################################################################################################################
 try {
@@ -761,11 +761,11 @@ try {
             # connect and validate table
             $script:storageContext = New-AzureStorageContext -ConnectionString $script:storageConnectionString
 
-            $script:tableTineTaskScriptMachineOutcomeRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTaskScriptMachineOutcomeRef' -ErrorAction SilentlyContinue
+            $script:tableTineTestOutcomeRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTestOutcomeRef' -ErrorAction SilentlyContinue
 
-            if ( $script:tableTineTaskScriptMachineOutcomeRef -eq $null ) {
+            if ( $script:tableTineTestOutcomeRef -eq $null ) {
                 # log
-                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_script_machine_outcome_ref table does not exist, please rerun with -create'
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_test_outcome_ref table does not exist, please rerun with -create'
                 $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
                 if ($doEcho) { Write-Host ( $script:taskLine ) }
                 $doDevelopment = $false; $doTest = $false
@@ -774,20 +774,20 @@ try {
                 $script:query = New-Object Microsoft.WindowsAzure.Storage.Table.TableQuery
                 $script:list = New-Object System.Collections.Generic.List[string]
 
-                $script:list.Add( 'tine_task_script_machine_outcome_rcd' )
+                $script:list.Add( 'tine_test_outcome_rcd' )
 
-                $script:query.FilterString = 'tine_task_script_machine_outcome_rcd eq '''+ $tineTaskScriptMachineOutcomeRcd + ''''
+                $script:query.FilterString = 'tine_test_outcome_rcd eq '''+ $tineTestOutcomeRcd + ''''
                 $script:query.SelectColumns = $script:list
                 $script:query.TakeCount = $takeCount
 
                 # execute select
                 if (!$whatIf) {
-                    $tineTaskScriptMachineOutcomeRefForDelete = $script:tableTineTaskScriptMachineOutcomeRef.CloudTable.ExecuteQuery($script:query)
+                    $tineTestOutcomeRefForDelete = $script:tableTineTestOutcomeRef.CloudTable.ExecuteQuery($script:query)
                 }
 
                 # delete selected rows
-                foreach ( $tineTaskScriptMachineOutcomeRefItem in $tineTaskScriptMachineOutcomeRefForDelete ) {
-                    $script:tableTineTaskScriptMachineOutcomeRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Delete($tineTaskScriptMachineOutcomeRefItem)) | Out-Null
+                foreach ( $tineTestOutcomeRefItem in $tineTestOutcomeRefForDelete ) {
+                    $script:tableTineTestOutcomeRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Delete($tineTestOutcomeRefItem)) | Out-Null
                 }
             }
         }
@@ -808,13 +808,13 @@ try {
 } finally {
     if ($script:list) { try { Remove-Variable -Scope:Script -Name list } catch {}}
     if ($script:query) { try { Remove-Variable -Scope:Script -Name query } catch {}}
-    if ($tineTaskScriptMachineOutcomeRefForDelete) { try { Remove-Variable -Scope:Script -Name tineTaskScriptMachineOutcomeRefForDelete } catch {}}
-    if ($tineTaskScriptMachineOutcomeRefItem) { try { Remove-Variable -Scope:Script -Name tineTaskScriptMachineOutcomeRefItem } catch {}}
-    if ($script:tableTineTaskScriptMachineOutcomeRef) { try { Remove-Variable -Scope:Script -Name tableTineTaskScriptMachineOutcomeRef } catch {}}
+    if ($tineTestOutcomeRefForDelete) { try { Remove-Variable -Scope:Script -Name tineTestOutcomeRefForDelete } catch {}}
+    if ($tineTestOutcomeRefItem) { try { Remove-Variable -Scope:Script -Name tineTestOutcomeRefItem } catch {}}
+    if ($script:tableTineTestOutcomeRef) { try { Remove-Variable -Scope:Script -Name tableTineTestOutcomeRef } catch {}}
 }
 #endregion
 ##################################################################################################################
-$script:taskName = 'fetch value from tine_task_script_machine_outcome_ref'
+$script:taskName = 'fetch value from tine_test_outcome_ref'
 #region
 ##################################################################################################################
 try {
@@ -831,12 +831,12 @@ try {
             $script:storageContext = New-AzureStorageContext -ConnectionString $script:storageConnectionString
 
             if ( !$whatIf ) {
-                $script:tableTineTaskScriptMachineOutcomeRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTaskScriptMachineOutcomeRef' -ErrorAction SilentlyContinue
+                $script:tableTineTestOutcomeRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTestOutcomeRef' -ErrorAction SilentlyContinue
             }
 
-            if ( $script:tableTineTaskScriptMachineOutcomeRef -eq $null -and !$whatIf ) {
+            if ( $script:tableTineTestOutcomeRef -eq $null -and !$whatIf ) {
                 # log
-                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_script_machine_outcome_ref table does not exist, please rerun with -create'
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_test_outcome_ref table does not exist, please rerun with -create'
                 $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
                 if ($doEcho) { Write-Host ( $script:taskLine ) }
                 $doDevelopment = $false; $doTest = $false
@@ -846,28 +846,28 @@ try {
 
                 $script:list.Add( $fetchValue )
 
-                # filter tineTaskScriptMachineOutcomeRcd ( primary key )
-                if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeRcd')) {
+                # filter tineTestOutcomeRcd ( primary key )
+                if ($PSBoundParameters.ContainsKey('tineTestOutcomeRcd')) {
                     if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                    $script:query.FilterString += 'tine_task_script_machine_outcome_rcd eq '''+ $tineTaskScriptMachineOutcomeRcd + ''''
+                    $script:query.FilterString += 'tine_test_outcome_rcd eq '''+ $tineTestOutcomeRcd + ''''
                 }
 
-                # filter tineTaskScriptMachineOutcomeRefPartitionKey ( string column )
-                if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeRefPartitionKey')) {
+                # filter tineTestOutcomePartitionKey ( string column )
+                if ($PSBoundParameters.ContainsKey('tineTestOutcomePartitionKey')) {
                     if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                        $script:query.FilterString += 'tine_task_script_machine_outcome_ref_partition_key eq '''+ $tineTaskScriptMachineOutcomeRefPartitionKey + ''''
+                        $script:query.FilterString += 'tine_test_outcome_partition_key eq '''+ $tineTestOutcomePartitionKey + ''''
                 }
 
-                # filter tineTaskScriptMachineOutcomeRefRowKey ( string column )
-                if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeRefRowKey')) {
+                # filter tineTestOutcomeRefRowKey ( string column )
+                if ($PSBoundParameters.ContainsKey('tineTestOutcomeRefRowKey')) {
                     if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                        $script:query.FilterString += 'tine_task_script_machine_outcome_ref_row_key eq '''+ $tineTaskScriptMachineOutcomeRefRowKey + ''''
+                        $script:query.FilterString += 'tine_test_outcome_ref_row_key eq '''+ $tineTestOutcomeRefRowKey + ''''
                 }
 
-                # filter tineTaskScriptMachineOutcomeName ( string column )
-                if ($PSBoundParameters.ContainsKey('tineTaskScriptMachineOutcomeName')) {
+                # filter tineTestOutcomeName ( string column )
+                if ($PSBoundParameters.ContainsKey('tineTestOutcomeName')) {
                     if ($script:query.FilterString -ne $null) { $script:query.FilterString += ' and ' }
-                        $script:query.FilterString += 'tine_task_script_machine_outcome_name eq '''+ $tineTaskScriptMachineOutcomeName + ''''
+                        $script:query.FilterString += 'tine_test_outcome_name eq '''+ $tineTestOutcomeName + ''''
                 }
 
                 # log
@@ -880,13 +880,13 @@ try {
 
                 # execute select
                 if (!$whatIf) {
-                    $tineTaskScriptMachineOutcomeRef = $script:tableTineTaskScriptMachineOutcomeRef.CloudTable.ExecuteQuery($script:query)
+                    $tineTestOutcomeRef = $script:tableTineTestOutcomeRef.CloudTable.ExecuteQuery($script:query)
                 }
 
                 # get value
                 [string] $outValue = ''
-                if (($tineTaskScriptMachineOutcomeRef | Measure-Object).Count -gt 0) {
-                    $outValue = $tineTaskScriptMachineOutcomeRef[0].Properties[$fetchValue].PropertyAsObject
+                if (($tineTestOutcomeRef | Measure-Object).Count -gt 0) {
+                    $outValue = $tineTestOutcomeRef[0].Properties[$fetchValue].PropertyAsObject
 
                     # log
                     $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + $fetchValue + '=' + '[' + $outValue + ']'
@@ -912,12 +912,12 @@ try {
 } finally {
     if ($script:list) { try { Remove-Variable -Scope:Script -Name list } catch {}}
     if ($script:query) { try { Remove-Variable -Scope:Script -Name query } catch {}}
-    if ($tineTaskScriptMachineOutcomeRef) { try { Remove-Variable -Scope:Script -Name tineTaskScriptMachineOutcomeRef } catch {}}
-    if ($script:tableTineTaskScriptMachineOutcomeRef) { try { Remove-Variable -Scope:Script -Name tableTineTaskScriptMachineOutcomeRef } catch {}}
+    if ($tineTestOutcomeRef) { try { Remove-Variable -Scope:Script -Name tineTestOutcomeRef } catch {}}
+    if ($script:tableTineTestOutcomeRef) { try { Remove-Variable -Scope:Script -Name tableTineTestOutcomeRef } catch {}}
 }
 #endregion
 ##################################################################################################################
-$script:taskName = 'delete all from tine_task_script_machine_outcome_ref'
+$script:taskName = 'delete all from tine_test_outcome_ref'
 #region
 ##################################################################################################################
 try {
@@ -933,11 +933,11 @@ try {
             # connect and validate table
             $script:storageContext = New-AzureStorageContext -ConnectionString $script:storageConnectionString
 
-            $script:tableTineTaskScriptMachineOutcomeRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTaskScriptMachineOutcomeRef' -ErrorAction SilentlyContinue
+            $script:tableTineTestOutcomeRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTestOutcomeRef' -ErrorAction SilentlyContinue
 
-            if ( $script:tableTineTaskScriptMachineOutcomeRef -eq $null ) {
+            if ( $script:tableTineTestOutcomeRef -eq $null ) {
                 # log
-                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_script_machine_outcome_ref table does not exist, please rerun with -create'
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_test_outcome_ref table does not exist, please rerun with -create'
                 $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
                 if ($doEcho) { Write-Host ( $script:taskLine ) }
                 $doDevelopment = $false; $doTest = $false
@@ -946,19 +946,19 @@ try {
                 $script:query = New-Object Microsoft.WindowsAzure.Storage.Table.TableQuery
                 $script:list = New-Object System.Collections.Generic.List[string]
 
-                $script:list.Add( 'tine_task_script_machine_outcome_rcd' )
+                $script:list.Add( 'tine_test_outcome_rcd' )
 
                 $script:query.SelectColumns = $script:list
                 $script:query.TakeCount = $takeCount
 
                 # execute select
                 if (!$whatIf) {
-                    $tineTaskScriptMachineOutcomeRefForDelete = $script:tableTineTaskScriptMachineOutcomeRef.CloudTable.ExecuteQuery($script:query)
+                    $tineTestOutcomeRefForDelete = $script:tableTineTestOutcomeRef.CloudTable.ExecuteQuery($script:query)
                 }
 
                 # delete selected rows
-                foreach ( $tineTaskScriptMachineOutcomeRefItem in $tineTaskScriptMachineOutcomeRefForDelete ) {
-                    $script:tableTineTaskScriptMachineOutcomeRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Delete($tineTaskScriptMachineOutcomeRefItem)) | Out-Null
+                foreach ( $tineTestOutcomeRefItem in $tineTestOutcomeRefForDelete ) {
+                    $script:tableTineTestOutcomeRef.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Delete($tineTestOutcomeRefItem)) | Out-Null
                 }
             }
         }
@@ -979,13 +979,13 @@ try {
 } finally {
     if ($script:list) { try { Remove-Variable -Scope:Script -Name list } catch {}}
     if ($script:query) { try { Remove-Variable -Scope:Script -Name query } catch {}}
-    if ($tineTaskScriptMachineOutcomeRefForDelete) { try { Remove-Variable -Scope:Script -Name tineTaskScriptMachineOutcomeRefForDelete } catch {}}
-    if ($tineTaskScriptMachineOutcomeRefItem) { try { Remove-Variable -Scope:Script -Name tineTaskScriptMachineOutcomeRefItem } catch {}}
-    if ($script:tableTineTaskScriptMachineOutcomeRef) { try { Remove-Variable -Scope:Script -Name tableTineTaskScriptMachineOutcomeRef } catch {}}
+    if ($tineTestOutcomeRefForDelete) { try { Remove-Variable -Scope:Script -Name tineTestOutcomeRefForDelete } catch {}}
+    if ($tineTestOutcomeRefItem) { try { Remove-Variable -Scope:Script -Name tineTestOutcomeRefItem } catch {}}
+    if ($script:tableTineTestOutcomeRef) { try { Remove-Variable -Scope:Script -Name tableTineTestOutcomeRef } catch {}}
 }
 #endregion
 ##################################################################################################################
-$script:taskName = 'show tine_task_script_machine_outcome_ref'
+$script:taskName = 'show tine_test_outcome_ref'
 #region
 ##################################################################################################################
 try {
@@ -1001,11 +1001,11 @@ try {
             # connect and validate table
             $script:storageContext = New-AzureStorageContext -ConnectionString $script:storageConnectionString
 
-            $script:tableTineTaskScriptMachineOutcomeRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTaskScriptMachineOutcomeRef' -ErrorAction SilentlyContinue
+            $script:tableTineTestOutcomeRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTestOutcomeRef' -ErrorAction SilentlyContinue
 
-            if ( $script:tableTineTaskScriptMachineOutcomeRef -eq $null ) {
+            if ( $script:tableTineTestOutcomeRef -eq $null ) {
                 # log
-                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_script_machine_outcome_ref table does not exist, please rerun with -create'
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_test_outcome_ref table does not exist, please rerun with -create'
                 $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
                 if ($doEcho) { Write-Host ( $script:taskLine ) }
                 $doDevelopment = $false; $doTest = $false
@@ -1014,10 +1014,10 @@ try {
                 $script:query = New-Object Microsoft.WindowsAzure.Storage.Table.TableQuery
                 $script:list = New-Object System.Collections.Generic.List[string]
 
-                $script:list.Add( 'tine_task_script_machine_outcome_rcd' )
-                $script:list.Add( 'tine_task_script_machine_outcome_ref_partition_key' )
-                $script:list.Add( 'tine_task_script_machine_outcome_ref_row_key' )
-                $script:list.Add( 'tine_task_script_machine_outcome_name' )
+                $script:list.Add( 'tine_test_outcome_rcd' )
+                $script:list.Add( 'tine_test_outcome_partition_key' )
+                $script:list.Add( 'tine_test_outcome_ref_row_key' )
+                $script:list.Add( 'tine_test_outcome_name' )
                 $script:list.Add( 'user_id' )
                 $script:list.Add( 'date_time' )
 
@@ -1026,17 +1026,17 @@ try {
 
                 # execute select
                 if (!$whatIf) {
-                    $tineTaskScriptMachineOutcomeRef = $script:tableTineTaskScriptMachineOutcomeRef.CloudTable.ExecuteQuery($script:query)
+                    $tineTestOutcomeRef = $script:tableTineTestOutcomeRef.CloudTable.ExecuteQuery($script:query)
                 }
 
                 # echo
                 [string] $script:output = ''
-                $script:output = $tineTaskScriptMachineOutcomeRef `
+                $script:output = $tineTestOutcomeRef `
                     | Format-Table PartitionKey, RowKey, `
-                    @{ Label = 'Tine Task Script Machine Outcome'; Expression={$_.Properties['tine_task_script_machine_outcome_rcd'].StringValue} },`
-                    @{ Label = 'Tine Task Script Machine Outcome Ref Partition Key'; Expression={$_.Properties['tine_task_script_machine_outcome_ref_partition_key'].StringValue} },`
-                    @{ Label = 'Tine Task Script Machine Outcome Ref Row Key'; Expression={$_.Properties['tine_task_script_machine_outcome_ref_row_key'].StringValue} },`
-                    @{ Label = 'Tine Task Script Machine Outcome Name'; Expression={$_.Properties['tine_task_script_machine_outcome_name'].StringValue} },`
+                    @{ Label = 'Tine Test Outcome'; Expression={$_.Properties['tine_test_outcome_rcd'].StringValue} },`
+                    @{ Label = 'Tine Test Outcome Partition Key'; Expression={$_.Properties['tine_test_outcome_partition_key'].StringValue} },`
+                    @{ Label = 'Tine Test Outcome Ref Row Key'; Expression={$_.Properties['tine_test_outcome_ref_row_key'].StringValue} },`
+                    @{ Label = 'Tine Test Outcome Name'; Expression={$_.Properties['tine_test_outcome_name'].StringValue} },`
                     @{ Label = 'User Id'; Expression={$_.Properties['user_id'].GuidValue} },`
                     @{ Label = 'Date Time'; Expression={$_.Properties['date_time'].StringValue} } `
                     -AutoSize `
@@ -1046,7 +1046,7 @@ try {
                 if ($script:output -ne '') {
                     $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + $script:output
                 } else {
-                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'no result for ' + 'tine_task_script_machine_outcome_ref' #+ ': ' + $script:query.FilterString
+                    $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'no result for ' + 'tine_test_outcome_ref' #+ ': ' + $script:query.FilterString
                 }
                 $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
                 if ($doEcho) { Write-Host ( $script:taskLine ) }
@@ -1070,13 +1070,13 @@ try {
     if ($script:output) { try { Remove-Variable -Scope:Script -Name output } catch {}}
     if ($script:list) { try { Remove-Variable -Scope:Script -Name list } catch {}}
     if ($script:query) { try { Remove-Variable -Scope:Script -Name query } catch {}}
-    if ($tineTaskScriptMachineOutcomeRef) { try { Remove-Variable -Scope:Script -Name tineTaskScriptMachineOutcomeRef } catch {}}
-    if ($script:tableTineTaskScriptMachineOutcomeRef) { try { Remove-Variable -Scope:Script -Name tableTineTaskScriptMachineOutcomeRef } catch {}}
+    if ($tineTestOutcomeRef) { try { Remove-Variable -Scope:Script -Name tineTestOutcomeRef } catch {}}
+    if ($script:tableTineTestOutcomeRef) { try { Remove-Variable -Scope:Script -Name tableTineTestOutcomeRef } catch {}}
     if ($script:storageContext) { try { Remove-Variable -Scope:Script -Name storageContext } catch {}}
 }
 #endregion
 ##################################################################################################################
-$script:taskName = 'drop tine_task_script_machine_outcome_ref'
+$script:taskName = 'drop tine_test_outcome_ref'
 #region
 ##################################################################################################################
 try {
@@ -1091,16 +1091,16 @@ try {
         if ($script:answer -ne 'no' -and ($doDevelopment -or $doTest -or $doSql2x)) {
             $script:storageContext = New-AzureStorageContext -ConnectionString $script:storageConnectionString
 
-            $script:tableTineTaskScriptMachineOutcomeRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTaskScriptMachineOutcomeRef' -ErrorAction SilentlyContinue
+            $script:tableTineTestOutcomeRef = Get-AzureStorageTable -Context $script:storageContext -Name 'tineTestOutcomeRef' -ErrorAction SilentlyContinue
 
-            if ( $script:tableTineTaskScriptMachineOutcomeRef -eq $null ) {
+            if ( $script:tableTineTestOutcomeRef -eq $null ) {
                 # log
-                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_task_script_machine_outcome_ref table does not exist, please rerun with -create'
+                $script:taskLine = [System.DateTime]::UtcNow.ToString() + ' ' + 'tine_test_outcome_ref table does not exist, please rerun with -create'
                 $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
                 if ($doEcho) { Write-Host ( $script:taskLine ) }
                 $doDevelopment = $false; $doTest = $false
             } else {
-                Remove-AzureStorageTable -Context $script:storageContext -Name 'tineTaskScriptMachineOutcomeRef' -Force
+                Remove-AzureStorageTable -Context $script:storageContext -Name 'tineTestOutcomeRef' -Force
             }
         }
         # log
@@ -1118,7 +1118,7 @@ try {
         if ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Red }
     }
 } finally {
-    if ($script:tableTineTaskScriptMachineOutcomeRef) { try { Remove-Variable -Scope:Script -Name tableTineTaskScriptMachineOutcomeRef } catch {}}
+    if ($script:tableTineTestOutcomeRef) { try { Remove-Variable -Scope:Script -Name tableTineTestOutcomeRef } catch {}}
     if ($script:storageContext) { try { Remove-Variable -Scope:Script -Name storageContext } catch {}}
 }
 #endregion
@@ -1199,7 +1199,7 @@ $script:taskName = 'cleanup'
 ##################################################################################################################
 if ($script:storageConnectionString) { try { Remove-Variable -Scope:Script -Name storageConnectionString } catch {}}
 if ($script:startupDirectory) { try { Remove-Variable -Scope:Script -Name startupDirectory } catch {} }
-if ($script:tineTaskScriptMachineOutcomeRefData) { try { Remove-Variable -Scope:Script -Name tineTaskScriptMachineOutcomeRefData } catch {} }
+if ($script:tineTestOutcomeRefData) { try { Remove-Variable -Scope:Script -Name tineTestOutcomeRefData } catch {} }
 
 if ($script:mailAnyway) { try { Remove-Variable -Scope:Script -Name mailAnyway } catch {} }
 if ($script:answer) { try { Remove-Variable -Scope:Script -Name answer } catch {} }
@@ -1217,13 +1217,13 @@ if ($returnValue) {
 }
 
 if ($returnJson) {
-    ConvertTo-Json -InputObject $script:tineTaskScriptMachineOutcomeRefDataList
+    ConvertTo-Json -InputObject $script:tineTestOutcomeRefDataList
 }
 
 if ($returnObject) {
-    $script:tineTaskScriptMachineOutcomeRefDataList
+    $script:tineTestOutcomeRefDataList
 }
 
 if ($returnGridView) {
-    $script:tineTaskScriptMachineOutcomeRefDataList | Out-GridView
+    $script:tineTestOutcomeRefDataList | Out-GridView
 }

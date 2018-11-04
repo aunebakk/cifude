@@ -1,7 +1,7 @@
 # SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 10/18/2018 5:33:59 AM
+# Generated Date: 11/4/2018 6:35:28 AM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 <#
 .\tine_script_library.ps1 -doEcho       -doSql2x -comment test -create
@@ -17,6 +17,7 @@
 .\tine_script_library.ps1 -doEcho       -doSql2x -comment test -help
 .\tine_script_library.ps1 -doEcho       -doSql2x -comment test -create -insert -fetch -fetchValue:column -updateByPrimaryKey -delete -drop -show -help -tineScriptLibraryId:([guid]'')
 #>
+using module '."tine_script_library.psm1'
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute `
     ('PSPossibleIncorrectComparisonWithNull','')]
 param(
@@ -27,7 +28,7 @@ param(
 
     [DateTime]$dateTimeStart = [System.DateTime]::UtcNow,
     [DateTime]$dateTimeStop = [System.DateTime]::UtcNow,
-    [DateTime]$createdDateTime = '2018.10.18',
+    [DateTime]$createdDateTime = '2018.11.04',
     [DateTime]$updateDateTime = '0001.01.01',
 
     [switch]$doDevelopment = $false,
@@ -158,94 +159,6 @@ $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
 if ($doEcho) { Write-Host $script:taskLine }
 #endregion
 ##################################################################################################################
-$script:taskName = 'refs'
-#region
-##################################################################################################################
-if (-not ([System.Management.Automation.PSTypeName]'TineCacheRef').Type) {
-   Add-Type -TypeDefinition @"
-   public enum TineCacheRef
-   {
-    HitThreshold,
-    None,
-    TineHalt
-   }
-"@
-}
-
-if (-not ([System.Management.Automation.PSTypeName]'TineScriptReadinessStateRef').Type) {
-   Add-Type -TypeDefinition @"
-   public enum TineScriptReadinessStateRef
-   {
-    None,
-    Tiney
-   }
-"@
-}
-
-if (-not ([System.Management.Automation.PSTypeName]'TineScriptRunLogStatusRef').Type) {
-   Add-Type -TypeDefinition @"
-   public enum TineScriptRunLogStatusRef
-   {
-    Cleaned,
-    Executed,
-    None,
-    Planned,
-    Searched
-   }
-"@
-}
-
-if (-not ([System.Management.Automation.PSTypeName]'TineTaskRef').Type) {
-   Add-Type -TypeDefinition @"
-   public enum TineTaskRef
-   {
-    None,
-    Script,
-    Task
-   }
-"@
-}
-
-if (-not ([System.Management.Automation.PSTypeName]'TineTaskScriptMachineOutcomeRef').Type) {
-   Add-Type -TypeDefinition @"
-   public enum TineTaskScriptMachineOutcomeRef
-   {
-    Failure,
-    None,
-    ScriptFileMissing,
-    Success
-   }
-"@
-}
-
-if (-not ([System.Management.Automation.PSTypeName]'TineTaskScriptOutcomeRef').Type) {
-   Add-Type -TypeDefinition @"
-   public enum TineTaskScriptOutcomeRef
-   {
-    Failure,
-    None,
-    ScriptFileMissing,
-    Success
-   }
-"@
-}
-
-if (-not ([System.Management.Automation.PSTypeName]'TineTaskStatusRef').Type) {
-   Add-Type -TypeDefinition @"
-   public enum TineTaskStatusRef
-   {
-    Cleaned,
-    Executed,
-    None,
-    Planned,
-    ReTasked,
-    Searched
-   }
-"@
-}
-
-#endregion
-##################################################################################################################
 $script:taskName = 'help'
 #region
 ##################################################################################################################
@@ -258,7 +171,7 @@ try {
         $script:taskLine = "# SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 10/18/2018 5:33:59 AM
+# Generated Date: 11/4/2018 6:35:28 AM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 <#
 .\tine_script_library.ps1 -doEcho       -doSql2x -comment test -create
@@ -323,21 +236,6 @@ try {
         $script:htmlLog = $script:htmlLog + $script:taskLine + '<br>'
         if ($doEcho) { Write-Host ( $script:taskLine ) -ForegroundColor Red }
     }
-}
-#endregion
-##################################################################################################################
-$script:taskName = 'data class'
-#region
-##################################################################################################################
-class TineScriptLibraryData {
-    [System.Guid]$tineScriptLibraryId = '00000000-0000-0000-0000-000000000000'
-    [System.String]$tineLibraryPartitionKey = $env:ComputerName
-    [System.String]$tineLibraryRowKey = [System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')
-    [System.String]$tineScriptReadinessStateRcd = ''
-    [System.String]$tineLibraryScriptName = ''
-    [System.String]$tineLibraryScriptFileName = ''
-    [System.Guid]$userId = '00000000-0000-0000-0000-000000000000'
-    [System.DateTime]$dateTime = '1601.01.01T00:00:00Z'
 }
 #endregion
 ##################################################################################################################
