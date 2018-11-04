@@ -1,7 +1,7 @@
 # SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 11/4/2018 6:35:52 AM
+# Generated Date: 11/4/2018 7:21:31 AM
 # Template: sql2x.PowerShellGenerator.CifudeScriptModule
 ##################################################################################################################
 $script:taskName = 'data class'

@@ -1,7 +1,7 @@
 # SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 11/4/2018 6:35:52 AM
+# Generated Date: 11/4/2018 7:21:31 AM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 <#
 .\tine_test_log.ps1 -doEcho       -doSql2x -comment test -create
@@ -17,7 +17,7 @@
 .\tine_test_log.ps1 -doEcho       -doSql2x -comment test -help
 .\tine_test_log.ps1 -doEcho       -doSql2x -comment test -create -insert -fetch -fetchValue:column -updateByPrimaryKey -delete -drop -show -help -tineTestLogId:([guid]'')
 #>
-using module '."tine_test_log.psm1'
+using module '.\tine_test_log.psm1'
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute `
     ('PSPossibleIncorrectComparisonWithNull','')]
 param(
@@ -172,7 +172,7 @@ try {
         $script:taskLine = "# SQL2X Generated code based on a SQL Server Schema
 # SQL2X Version: 0.d
 # http://sql2x.azurewebsites.net/
-# Generated Date: 11/4/2018 6:35:52 AM
+# Generated Date: 11/4/2018 7:21:31 AM
 # Template: sql2x.PowerShellGenerator.CifudeScript
 <#
 .\tine_test_log.ps1 -doEcho       -doSql2x -comment test -create
